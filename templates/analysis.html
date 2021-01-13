@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+<div class="ui hidden divider"></div>
+
+
+{% block body %}
+
+<div id="pusher" class="pusher" style="padding-top:50px">
+    <div class="ui celled grid">
+
+        <div class="three wide column">
+            {% include 'filter.html' %}
+        </div>
+
+
+        <div class="thirteen wide column">
+            {% block display %}{% endblock display %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

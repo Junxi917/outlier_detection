@@ -1,0 +1,14 @@
+Metadata-Version: 2.0
+Name: charts
+Version: 0.4.6
+Summary: Use the highcharts js library in Python
+Home-page: https://github.com/arnoutaertgeerts/python-highcharts
+Author: Arnout Aertgeerts
+Author-email: arnoutaertgeerts@gmail.com
+License: MIT
+Keywords: highcharts highstock plotting
+Platform: UNKNOWN
+
+UNKNOWN
+
+

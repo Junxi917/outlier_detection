@@ -1,0 +1,178 @@
+<div class="ui container">
+    <div class="ui form">
+        <form action="" method="post">
+
+            {% csrf_token %}
+            <h3 class="ui header" id="analysis">Algorithm</h3>
+            <div class="field">
+                <div class="fields">
+                    <div class="eight wide field">
+                        <select name="algo_select" id="ALGO_select" class="ui fluid search dropdown">
+                            <option value="Forest" selected>Isolation Forest</option>
+                            <option value="Kmeans">k-Means</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+            <div class="ui buttons">
+                <input class="ui blue button" type='button' id='Load_data' value="Load Data"/>
+            </div>
+            <script type="text/javascript">
+                $("#Load_data").click(function (event) {
+                    event.preventDefault();
+
+                    var form_data = {
+                        "Load_data": 'Load_data',
+                    };
+
+
+                    $.ajax({
+                        url: '{% url 'query' %}',
+
+                        type: 'GET',
+
+                        data: form_data,
+
+                        success: function (ret) {
+
+                            $("#result_table").html(ret['data']);
+                            initTable($("#data"))
+
+                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
+                            chart.showLoading({
+                                text: 'Data Loading'
+                            });
+
+                            chart.clear();
+                            chart.setOption(ret['bar_total_trend']);
+                            chart.hideLoading()
+
+                        },
+                        error: function () {
+                            console.log('fail')
+                        }
+                    });
+                })
+            </script>
+
+            <br><br><br>
+
+
+            <div class="ui buttons">
+
+                <input class="ui blue button" type='button' id='AJAX_get' value="Anomaly Detection"/>
+            </div>
+            <script type="text/javascript">
+                $("#AJAX_get").click(function (event) {
+                    event.preventDefault();
+
+                    var form_data = {
+                        "ALGO_select": $("#ALGO_select").val(),
+                    };
+
+                    $.ajax({
+                        url: '{% url 'query' %}',
+
+                        type: 'GET',
+
+                        data: form_data,
+
+                        success: function (ret) {
+                            $("#label_size_unit").html(form_data['ALGO_select']);
+
+                            $("#result_table").html(ret['data']);
+                            initTable($("#data"))
+
+                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
+                            chart.showLoading({
+                                text: 'Data Loading'
+                            });
+
+                            chart.clear();
+                            chart.setOption(ret['bar_total_trend']);
+                            chart.hideLoading()
+
+                        },
+                        error: function () {
+                            console.log('fail')
+                        }
+                    });
+                })
+            </script>
+
+            <br><br><br>
+
+            <div class="ui buttons">
+                <input class="ui blue button" type='button' id='Gap_filling' value="Gap Filling"/>
+            </div>
+            <script type="text/javascript">
+                $("#Gap_filling").click(function (event) {
+                    event.preventDefault();
+
+                    var form_data = {
+                        "Gap_filling": 'Gap_filling',
+                    };
+
+
+                    $.ajax({
+                        url: '{% url 'query' %}',
+
+                        type: 'GET',
+
+                        data: form_data,
+
+                        success: function (ret) {
+
+                            $("#result_table").html(ret['data']);
+                            initTable($("#data"))
+
+                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
+                            chart.showLoading({
+                                text: 'Data Loading'
+                            });
+
+                            chart.clear();
+                            chart.setOption(ret['bar_total_trend']);
+                            chart.hideLoading()
+
+                        },
+                        error: function () {
+                            console.log('fail')
+                        }
+                    });
+                })
+            </script>
+
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function initTable(table) {
+        table.DataTable(
+            {}
+        );
+    }
+</script>
+
+<script>
+    function getForm(){
+        var form_data = {
+            "Load_data": 'Load_data',
+        };
+
+        return form_data
+    }
+</script>
+
+
+<script>
+    $('.ui.fluid.search.dropdown')
+        .dropdown({fullTextSearch: true});
+</script>
+

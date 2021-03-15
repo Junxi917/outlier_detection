@@ -26,12 +26,13 @@ def forest_detection(df, contamination=0.05):
     model.fit(data)
 
     df['anomaly'] = pd.Series(model.fit_predict(data))
+    df['original'] = df[sensor]
 
     outlier_data = df.loc[df['anomaly'] == -1]
     for index in outlier_data.index.tolist():
         df.loc[index, new_df.columns.values] = np.nan
 
-    df = df[[sensor, 'timestamp']]
+    df = df[[sensor, 'original', 'anomaly', 'timestamp']]
     return df
 
 

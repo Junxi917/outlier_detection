@@ -1,8 +1,23 @@
 <div class="ui container">
     <div class="ui form">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
 
             {% csrf_token %}
+            <h3 class="ui header" id="dimension">Dimension</h3>
+            <div class="field">
+                <div class="fields">
+                    <div class="eight wide field">
+                        <select name="dim_select" id="DIM_select" class="ui fluid search dropdown">
+                            <option value="Unit" selected>Unit Dimension</option>
+                            <option value="Multi">Multi Dimension</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+
+
             <h3 class="ui header" id="analysis">Algorithm</h3>
             <div class="field">
                 <div class="fields">
@@ -18,48 +33,78 @@
 
             <br>
 
-            <div class="ui buttons">
-                <input class="ui blue button" type='button' id='Load_data' value="Load Data"/>
-            </div>
-            <script type="text/javascript">
-                $("#Load_data").click(function (event) {
-                    event.preventDefault();
-
-                    var form_data = {
-                        "Load_data": 'Load_data',
-                    };
 
 
-                    $.ajax({
-                        url: '{% url 'query' %}',
+                <label for="file" class="ui icon button">
+                    <i class="file icon"></i>
+                    Open File</label>
+                <input type="file" id="file" name="myFile" style="display:none">
 
-                        type: 'GET',
+                <button class="ui blue button" type="submit">Submit</button>
 
-                        data: form_data,
 
-                        success: function (ret) {
 
-                            $("#result_table").html(ret['data']);
-                            initTable($("#data"))
 
-                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
-                            chart.showLoading({
-                                text: 'Data Loading'
-                            });
+{##}
+{#            <input type="file" name="myFile"><br>#}
+{#            <input type="submit" name="submit">#}
 
-                            chart.clear();
-                            chart.setOption(ret['bar_total_trend']);
-                            chart.hideLoading()
-
-                        },
-                        error: function () {
-                            console.log('fail')
-                        }
-                    });
-                })
-            </script>
 
             <br><br><br>
+
+{#            <div class="ui buttons">#}
+{#                <input class="ui blue button" type='button' id='Load_data' value="Load Data"/>#}
+{#            </div>#}
+{#            <script type="text/javascript">#}
+{#                $("#Load_data").click(function (event) {#}
+{#                    event.preventDefault();#}
+{##}
+{#                    var form_data = {#}
+{#                        "Load_data": 'Load_data',#}
+{#                    };#}
+{##}
+{##}
+{#                    $.ajax({#}
+{#                        url: '{% url 'query' %}',#}
+{##}
+{#                        type: 'GET',#}
+{##}
+{#                        data: form_data,#}
+{##}
+{#                        success: function (ret) {#}
+{##}
+{#                            $("#result_table").html(ret['data']);#}
+{#                            initTable($("#data"))#}
+{##}
+{#                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});#}
+{#                            chart.showLoading({#}
+{#                                text: 'Data Loading'#}
+{#                            });#}
+{##}
+{#                            chart.clear();#}
+{#                            chart.setOption(ret['bar_total_trend']);#}
+{#                            chart.hideLoading()#}
+{##}
+{#                            var chart1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});#}
+{#                            chart1.showLoading({#}
+{#                                text: 'Data Loading'#}
+{#                            });#}
+{##}
+{#                            chart1.clear();#}
+{#                            chart1.setOption(ret['bar_total_trend1']);#}
+{#                            chart1.hideLoading()#}
+{##}
+{##}
+{##}
+{#                        },#}
+{#                        error: function () {#}
+{#                            console.log('fail')#}
+{#                        }#}
+{#                    });#}
+{#                })#}
+{#            </script>#}
+{##}
+{#            <br><br><br>#}
 
 
             <div class="ui buttons">
@@ -95,6 +140,24 @@
                             chart.clear();
                             chart.setOption(ret['bar_total_trend']);
                             chart.hideLoading()
+
+                            var chart1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});
+                            chart1.showLoading({
+                                text: 'Data Loading'
+                            });
+
+                            chart1.clear();
+                            chart1.setOption(ret['bar_total_trend1']);
+                            chart1.hideLoading()
+
+                            var chart2 = echarts.init(document.getElementById('bar_total_trend2'), 'white', {renderer: 'canvas'});
+                            chart2.showLoading({
+                                text: 'Data Loading'
+                            });
+
+                            chart2.clear();
+                            chart2.setOption(ret['bar_total_trend2']);
+                            chart2.hideLoading()
 
                         },
                         error: function () {
@@ -139,6 +202,24 @@
                             chart.setOption(ret['bar_total_trend']);
                             chart.hideLoading()
 
+                            var chart1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});
+                            chart1.showLoading({
+                                text: 'Data Loading'
+                            });
+
+                            chart1.clear();
+                            chart1.setOption(ret['bar_total_trend1']);
+                            chart1.hideLoading()
+
+                            var chart2 = echarts.init(document.getElementById('bar_total_trend2'), 'white', {renderer: 'canvas'});
+                            chart2.showLoading({
+                                text: 'Data Loading'
+                            });
+
+                            chart2.clear();
+                            chart2.setOption(ret['bar_total_trend2']);
+                            chart2.hideLoading()
+
                         },
                         error: function () {
                             console.log('fail')
@@ -161,7 +242,7 @@
 </script>
 
 <script>
-    function getForm(){
+    function getForm() {
         var form_data = {
             "Load_data": 'Load_data',
         };

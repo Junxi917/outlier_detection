@@ -6,7 +6,6 @@
     <div class="ui pointing secondary menu">
         <a class="active item " data-tab="data">Data</a>
         <a class="item " data-tab="graph">Graph</a>
-        <a class="item" data-tab="export">Export</a>
     </div>
     <div class="ui active tab segment" data-tab="data">
         <h3 class="ui header">
@@ -26,9 +25,9 @@
 
     <div class="ui tab segment" data-tab="graph">
         <h3 class="ui header">
-            <div class="content">
-                Graph
 
+            <div class="ui buttons" style="margin-left:10px;">
+                <input class="ui blue button" type='button' id='export_data' value="Export Data"/>
             </div>
         </h3>
 
@@ -38,20 +37,58 @@
             </div>
         </div>
 
+        <h3 class="ui header">
+            <div class="ui buttons" style="margin-left:10px;">
+                <input class="ui blue button" type='button' id='export_data1' value="Export Data"/>
+            </div>
+        </h3>
 
-    </div>
-
-    <div class="ui tab segment" data-tab="export">
-        <div class="ui buttons">
-            <input class="ui blue button" type='button' id='export_data' value="Export Data"/>
+        <div class="ui divider"></div>
+        <div class="ui container">
+            <div id="bar_total_trend1" style="width:1000px; height:600px;">
+            </div>
         </div>
+
+        <h3 class="ui header">
+            <div class="ui buttons" style="margin-left:10px;">
+                <input class="ui blue button" type='button' id='export_data2' value="Export Data"/>
+            </div>
+        </h3>
+
+        <div class="ui divider"></div>
+        <div class="ui container">
+            <div id="bar_total_trend2" style="width:1000px; height:600px;">
+            </div>
+        </div>
+
+
     </div>
 
     <script>
         $("#export_data").click(function () {
             var form_data = getForm();
 
-            var downloadUrl = '{% url 'export'  %}' ;
+            var downloadUrl = '{% url 'export'  %}';
+            window.location.href = downloadUrl;
+        });
+
+    </script>
+
+    <script>
+        $("#export_data1").click(function () {
+            var form_data = getForm();
+
+            var downloadUrl = '{% url 'export1'  %}';
+            window.location.href = downloadUrl;
+        });
+
+    </script>
+
+    <script>
+        $("#export_data2").click(function () {
+            var form_data = getForm();
+
+            var downloadUrl = '{% url 'export2'  %}';
             window.location.href = downloadUrl;
         });
 

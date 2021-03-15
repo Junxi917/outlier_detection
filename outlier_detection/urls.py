@@ -26,6 +26,8 @@ urlpatterns = [
     path('upload/', v.upload),
     path(r'query', v.query, name='query'),
     path(r'export', v.export, name='export'),
+    path(r'export1', v.export1, name='export1'),
+    path(r'export2', v.export2, name='export2'),
 
 ]
 

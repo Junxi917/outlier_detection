@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
 import pandas as pd
 import json
+from pyecharts.globals import ThemeType
 from pyecharts.charts import Bar, Line, Scatter
 import pyecharts.options as opts
 from .detection import *
@@ -103,9 +104,11 @@ def query(request):
 
     csv['timestamp'] = pd.to_datetime(csv['timestamp'])
 
+    algo=['Forest', 'Hbos', 'Cblof', 'Pca']
+
     if 'ALGO_select' in form_dict:
-        if form_dict['ALGO_select'][0] == 'Forest':
-            pd_data = forest_detection(csv, contamination=0.05)
+        if form_dict['ALGO_select'][0] in algo:
+            pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
             table = pd_data.to_html(
                 classes='ui selectable celled table',
                 table_id='data'
@@ -120,7 +123,15 @@ def query(request):
                 is_connect_nones=False,
             )
                 .set_global_opts(
-
+                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
+                                              feature=opts.ToolBoxFeatureOpts(
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(background_color='#eee'),
+                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                              )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 yaxis_opts=opts.AxisOpts(
                     splitline_opts=opts.SplitLineOpts(is_show=True),
@@ -129,7 +140,7 @@ def query(request):
 
         )
 
-        outlier_data = pd_data.loc[pd_data['anomaly'] == -1]
+        outlier_data = pd_data.loc[pd_data['anomaly'] == 1]
         pd_data['cleananomaly'] = np.nan
         for index in outlier_data.index.tolist():
             pd_data.loc[index, 'cleananomaly'] = pd_data.loc[index, 'original']
@@ -145,7 +156,7 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
                                                   data_view=opts.ToolBoxFeatureDataViewOpts(),
                                                   data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
@@ -238,13 +249,62 @@ def query(request):
         )
         export = pd_data
 
-        pd_data = gap_filling(csv)
+        pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
         table = pd_data.to_html(
             classes='ui selectable celled table',
             table_id='data'
         )
 
         line1 = (
+            Line()
+                .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                .add_yaxis(
+                series_name=sensor,
+                y_axis=pd_data[sensor].tolist(),
+                is_connect_nones=False,
+            )
+                .set_global_opts(
+                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
+                                              feature=opts.ToolBoxFeatureOpts(
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(),
+                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                              )),
+                tooltip_opts=opts.TooltipOpts(is_show=False),
+                datazoom_opts=opts.DataZoomOpts(),
+                yaxis_opts=opts.AxisOpts(
+                    splitline_opts=opts.SplitLineOpts(is_show=True),
+                )
+            )
+
+        )
+
+        scatter = (
+            Line()
+                .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                .add_yaxis(
+                series_name="filling",
+                y_axis=pd_data['filling'].tolist(),
+                # symbol_size=5,
+                is_connect_nones=False,
+
+            )
+                .set_global_opts(
+
+                tooltip_opts=opts.TooltipOpts(is_show=False),
+                yaxis_opts=opts.AxisOpts(
+                    splitline_opts=opts.SplitLineOpts(is_show=True),
+
+                )
+            )
+
+        )
+        line1.overlap(scatter)
+
+        line2 = (
             Line()
                 .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                 .add_yaxis(
@@ -263,7 +323,7 @@ def query(request):
         )
         bar_total_trend = json.loads(line.dump_options())
         bar_total_trend1 = json.loads(line1.dump_options())
-        bar_total_trend2 = json.loads(line1.dump_options())
+        bar_total_trend2 = json.loads(line2.dump_options())
 
         export1 = pd_data
         export2 = pd_data

@@ -18,18 +18,10 @@
 
 
 
-            <h3 class="ui header" id="analysis">Algorithm</h3>
-            <div class="field">
-                <div class="fields">
-                    <div class="eight wide field">
-                        <select name="algo_select" id="ALGO_select" class="ui fluid search dropdown">
-                            <option value="Forest" selected>Isolation Forest</option>
-                            <option value="Kmeans">k-Means</option>
-                        </select>
-                    </div>
 
-                </div>
-            </div>
+
+
+
 
             <br>
 
@@ -106,6 +98,22 @@
 {##}
 {#            <br><br><br>#}
 
+            <h3 class="ui header" id="analysis">Algorithm</h3>
+            <div class="field">
+                <div class="fields">
+                    <div class="eight wide field">
+                        <select name="algo_select" id="ALGO_select" class="ui fluid search dropdown">
+                            <option value="Forest" selected>Isolation Forest</option>
+                            <option value="Default">Default</option>
+                            <option value="Hbos">HBOS</option>
+                            <option value="Cblof">CBLOF</option>
+                            <option value="Pca">PCA</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
 
             <div class="ui buttons">
 
@@ -169,6 +177,22 @@
 
             <br><br><br>
 
+            <h3 class="ui header" id="analysis">Filling Algorithm</h3>
+            <div class="field">
+                <div class="fields">
+                    <div class="eight wide field">
+                        <select name="filling_select" id="Filling_select" class="ui fluid search dropdown">
+                            <option value="Interpolate" selected>Interpolate</option>
+                            <option value="Mean">Mean</option>
+                            <option value="Median">Median</option>
+                            <option value="Pad">Pad</option>
+                            <option value="Bfill">Bfill</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="ui buttons">
                 <input class="ui blue button" type='button' id='Gap_filling' value="Gap Filling"/>
             </div>
@@ -177,7 +201,7 @@
                     event.preventDefault();
 
                     var form_data = {
-                        "Gap_filling": 'Gap_filling',
+                        "Gap_filling": $("#Filling_select").val(),
                     };
 
 

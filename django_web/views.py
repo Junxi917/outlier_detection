@@ -104,15 +104,24 @@ def query(request):
 
     csv['timestamp'] = pd.to_datetime(csv['timestamp'])
 
-    algo=['Forest', 'Hbos', 'Cblof', 'Pca']
+    algo = ['Forest', 'Hbos', 'Cblof', 'Pca']
+
+    default = {"Outside Temperature (°C)": 'Forest',
+               "KLT11_pumpSpeed_p1 (Hz)": 'Hbos',
+               "KLT12_flowRate1 (l/min)": 'Cblof',
+               }
 
     if 'ALGO_select' in form_dict:
+        csv = csv[[sensor, 'timestamp']]
         if form_dict['ALGO_select'][0] in algo:
             pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
-            table = pd_data.to_html(
-                classes='ui selectable celled table',
-                table_id='data'
-            )
+        else:
+            pd_data = forest_detection(csv, default[sensor], contamination=0.05)
+            print(default[sensor])
+        table = pd_data.to_html(
+            classes='ui selectable celled table',
+            table_id='data'
+        )
 
         line = (
             Line()
@@ -125,7 +134,8 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(background_color='#eee'),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
+                                                      background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
                                                   data_view=opts.ToolBoxFeatureDataViewOpts(),
                                                   data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
@@ -133,6 +143,7 @@ def query(request):
                                                   brush=opts.ToolBoxFeatureDataZoomOpts(),
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
+                datazoom_opts=opts.DataZoomOpts(),
                 yaxis_opts=opts.AxisOpts(
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
@@ -150,13 +161,14 @@ def query(request):
                 .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                 .add_yaxis(
                 series_name=sensor,
-                y_axis=pd_data[sensor].tolist(),
+                y_axis=pd_data['original'].tolist(),
                 is_connect_nones=False,
             )
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(background_color='#eee'),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
+                                                      background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
                                                   data_view=opts.ToolBoxFeatureDataViewOpts(),
                                                   data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
@@ -203,8 +215,18 @@ def query(request):
                 is_connect_nones=False,
             )
                 .set_global_opts(
-
+                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
+                                              feature=opts.ToolBoxFeatureOpts(
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
+                                                      background_color='#eee'),
+                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                              )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
+                datazoom_opts=opts.DataZoomOpts(),
                 yaxis_opts=opts.AxisOpts(
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
@@ -239,8 +261,17 @@ def query(request):
                 is_connect_nones=False,
             )
                 .set_global_opts(
-
+                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
+                                              feature=opts.ToolBoxFeatureOpts(
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(background_color='#eee'),
+                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                              )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
+                datazoom_opts=opts.DataZoomOpts(),
                 yaxis_opts=opts.AxisOpts(
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
@@ -266,7 +297,7 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
                                                   data_view=opts.ToolBoxFeatureDataViewOpts(),
                                                   data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
@@ -293,11 +324,19 @@ def query(request):
 
             )
                 .set_global_opts(
-
+                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
+                                              feature=opts.ToolBoxFeatureOpts(
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(background_color='#eee'),
+                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                              )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
+                datazoom_opts=opts.DataZoomOpts(),
                 yaxis_opts=opts.AxisOpts(
                     splitline_opts=opts.SplitLineOpts(is_show=True),
-
                 )
             )
 
@@ -313,8 +352,17 @@ def query(request):
                 is_connect_nones=False,
             )
                 .set_global_opts(
-
+                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
+                                              feature=opts.ToolBoxFeatureOpts(
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(),
+                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                              )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
+                datazoom_opts=opts.DataZoomOpts(),
                 yaxis_opts=opts.AxisOpts(
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )

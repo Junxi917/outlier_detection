@@ -10,3 +10,9 @@ Install locally with `pip`:
 cd outlier_detection
 pip install -r requirements.txt
 ```
+## Usage
+There are three files for testing.(test_pumpSpeed.xlsx, test_Temperature.xlsx and test_flowrate.xlsx)<br>
+* Firstly user upload the data set and then click the button submit. 
+* User can choose anomaly detection or gap filling.
+## Note
+Currently this system can only run unitvariate data, and the function of unitvariate data will be added later.

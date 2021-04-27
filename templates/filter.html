@@ -1,6 +1,6 @@
 <div class="ui container">
     <div class="ui form">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" name="frm" onsubmit="return validateForm()">
 
             {% csrf_token %}
             <h3 class="ui header" id="dimension">Dimension</h3>
@@ -17,86 +17,100 @@
             </div>
 
 
-
-
-
-
-
-
             <br>
 
 
+            <label for="file" class="ui icon button">
+                <i class="file icon"></i>
+                Open File</label>
+            <input type="file" id="file" name="myFile" style="display:none">
 
-                <label for="file" class="ui icon button">
-                    <i class="file icon"></i>
-                    Open File</label>
-                <input type="file" id="file" name="myFile" style="display:none">
+            {#            <button class="ui blue button" type="submit" id="submit" onclick="dis()">Submit</button>#}
+            {#            <input class="ui blue button" type='submit' id='btnSubmit' value="Submit" onclick="return dis();"/>#}
+            {% if enable %}
+                <input type="submit" name="upload" class="ui blue button" value="Submit" disabled/>
 
-                <button class="ui blue button" type="submit">Submit</button>
+            {% else %}
+                <input type="submit" id="upload" class="ui blue button" name="upload" value="Submit"/>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('#upload').bind("click", function () {
+                            var Val = $('#file').val();
+                            if (Val == '') {
+                                alert("empty input file");
+                                return false;
+                            }
+                            return true;
+
+                        });
+                    })
+
+                </script>
+
+            {% endif %}
 
 
 
-
-{##}
-{#            <input type="file" name="myFile"><br>#}
-{#            <input type="submit" name="submit">#}
+            {##}
+            {#            <input type="file" name="myFile"><br>#}
+            {#            <input type="submit" name="submit">#}
 
 
             <br><br><br>
 
-{#            <div class="ui buttons">#}
-{#                <input class="ui blue button" type='button' id='Load_data' value="Load Data"/>#}
-{#            </div>#}
-{#            <script type="text/javascript">#}
-{#                $("#Load_data").click(function (event) {#}
-{#                    event.preventDefault();#}
-{##}
-{#                    var form_data = {#}
-{#                        "Load_data": 'Load_data',#}
-{#                    };#}
-{##}
-{##}
-{#                    $.ajax({#}
-{#                        url: '{% url 'query' %}',#}
-{##}
-{#                        type: 'GET',#}
-{##}
-{#                        data: form_data,#}
-{##}
-{#                        success: function (ret) {#}
-{##}
-{#                            $("#result_table").html(ret['data']);#}
-{#                            initTable($("#data"))#}
-{##}
-{#                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});#}
-{#                            chart.showLoading({#}
-{#                                text: 'Data Loading'#}
-{#                            });#}
-{##}
-{#                            chart.clear();#}
-{#                            chart.setOption(ret['bar_total_trend']);#}
-{#                            chart.hideLoading()#}
-{##}
-{#                            var chart1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});#}
-{#                            chart1.showLoading({#}
-{#                                text: 'Data Loading'#}
-{#                            });#}
-{##}
-{#                            chart1.clear();#}
-{#                            chart1.setOption(ret['bar_total_trend1']);#}
-{#                            chart1.hideLoading()#}
-{##}
-{##}
-{##}
-{#                        },#}
-{#                        error: function () {#}
-{#                            console.log('fail')#}
-{#                        }#}
-{#                    });#}
-{#                })#}
-{#            </script>#}
-{##}
-{#            <br><br><br>#}
+            {#            <div class="ui buttons">#}
+            {#                <input class="ui blue button" type='button' id='Load_data' value="Load Data"/>#}
+            {#            </div>#}
+            {#            <script type="text/javascript">#}
+            {#                $("#Load_data").click(function (event) {#}
+            {#                    event.preventDefault();#}
+            {##}
+            {#                    var form_data = {#}
+            {#                        "Load_data": 'Load_data',#}
+            {#                    };#}
+            {##}
+            {##}
+            {#                    $.ajax({#}
+            {#                        url: '{% url 'query' %}',#}
+            {##}
+            {#                        type: 'GET',#}
+            {##}
+            {#                        data: form_data,#}
+            {##}
+            {#                        success: function (ret) {#}
+            {##}
+            {#                            $("#result_table").html(ret['data']);#}
+            {#                            initTable($("#data"))#}
+            {##}
+            {#                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});#}
+            {#                            chart.showLoading({#}
+            {#                                text: 'Data Loading'#}
+            {#                            });#}
+            {##}
+            {#                            chart.clear();#}
+            {#                            chart.setOption(ret['bar_total_trend']);#}
+            {#                            chart.hideLoading()#}
+            {##}
+            {#                            var chart1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});#}
+            {#                            chart1.showLoading({#}
+            {#                                text: 'Data Loading'#}
+            {#                            });#}
+            {##}
+            {#                            chart1.clear();#}
+            {#                            chart1.setOption(ret['bar_total_trend1']);#}
+            {#                            chart1.hideLoading()#}
+            {##}
+            {##}
+            {##}
+            {#                        },#}
+            {#                        error: function () {#}
+            {#                            console.log('fail')#}
+            {#                        }#}
+            {#                    });#}
+            {#                })#}
+            {#            </script>#}
+            {##}
+            {#            <br><br><br>#}
 
             <h3 class="ui header" id="analysis">Algorithm</h3>
             <div class="field">
@@ -117,7 +131,14 @@
 
             <div class="ui buttons">
 
-                <input class="ui blue button" type='button' id='AJAX_get' value="Anomaly Detection"/>
+                {#                <input class="ui blue button" type='button' id='AJAX_get' value="Anomaly Detection" disabled=""/>#}
+                {% if enable %}
+                    <input type="button" class="ui blue button" id='AJAX_get' value="Anomaly Detection"/>
+
+                {% else %}
+                    <input type="button" class="ui blue button" id='AJAX_get' value="Anomaly Detection" disabled/>
+
+                {% endif %}
             </div>
             <script type="text/javascript">
                 $("#AJAX_get").click(function (event) {
@@ -194,7 +215,7 @@
             </div>
 
             <div class="ui buttons">
-                <input class="ui blue button" type='button' id='Gap_filling' value="Gap Filling"/>
+                <input class="ui blue button" type='button' id='Gap_filling' value="Gap Filling" disabled=""/>
             </div>
             <script type="text/javascript">
                 $("#Gap_filling").click(function (event) {

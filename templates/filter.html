@@ -36,12 +36,15 @@
                     function FileUpload() {
                         var form_data = new FormData();
                         var file_info = $('#file')[0].files[0];
-                        form_data.append('myFile', file_info);
-                        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-                        var dimmer = $("#dimmer");
-                        dimmer.attr('class', 'ui active dimmer');
-                        dimmer.children('div').remove();
-                        dimmer.append('<div class="ui text loader">Loading……</div>');
+                        var Val = $('#file').val();
+                        if (Val != '') {
+                            form_data.append('myFile', file_info);
+                            form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+                            var dimmer = $("#dimmer");
+                            dimmer.attr('class', 'ui active dimmer');
+                            dimmer.children('div').remove();
+                            dimmer.append('<div class="ui text loader">Loading……</div>');
+                        }
                         $.ajax({
                             url: '{% url 'upload' %}',
                             type: 'POST',
@@ -52,13 +55,13 @@
                                 $("#result_table").html(ret['data']);
                                 initTable($("#data"))
                                 dimmer.attr('class', 'ui dimmer');
-                                $('#upload').attr("disabled","disabled");
-                                $('#AJAX_get').attr("disabled",false);
+                                $('#upload').attr("disabled", "disabled");
+                                $('#AJAX_get').attr("disabled", false);
                             },
                             error: function () {
-                            console.log('fail')
-                            dimmer.children('div').text('An error occurred');
-                        }
+                                console.log('fail')
+                                alert("empty file")
+                            }
                         })
                     }
                 </script>

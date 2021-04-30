@@ -28,9 +28,15 @@ export2 = pd.DataFrame()
 
 
 def home(request):
+    return render(request, "display.html")
+
+
+def upload(request):
     global csv
     if request.method == "POST":
+
         file = request.FILES["myFile"]
+
         csv = pd.read_excel(file)
         print(csv.head())
         if csv is not None:
@@ -42,45 +48,9 @@ def home(request):
         )
         context = {
             'enable': enable,
+            'data': table,
         }
-        # col = csv.columns.values.tolist()
-        # col.remove('timestamp')
-        # sensor = col[0]
-        #
-        # csv['timestamp'] = pd.to_datetime(csv['timestamp'])
-        #
-        # line = (
-        #     Line()
-        #         .add_xaxis(xaxis_data=csv['timestamp'].tolist())
-        #         .add_yaxis(
-        #         series_name=sensor,
-        #         y_axis=csv[sensor].tolist(),
-        #         is_connect_nones=False,
-        #     )
-        #         .set_global_opts(
-        #
-        #         tooltip_opts=opts.TooltipOpts(is_show=False),
-        #         yaxis_opts=opts.AxisOpts(
-        #             splitline_opts=opts.SplitLineOpts(is_show=True),
-        #         )
-        #     )
-        #
-        # )
-        #
-        # bar_total_trend = json.loads(line.dump_options())
-        #
-        # context = {
-        #     'data': table,
-        #     'bar_total_trend': bar_total_trend
-        # }
-        return render(request, "display.html", context)
-        # return HttpResponse(csv.to_html())
-    else:
-        return render(request, "display.html")
-
-
-def upload(request):
-    return render(request, "fileupload.html")
+        return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 
 
 def query(request):
@@ -92,11 +62,13 @@ def query(request):
     global export2
     pd_data = csv
 
-    context = {}
     table = pd_data.to_html(
         classes='ui selectable celled table',
         table_id='data'
     )
+    context = {
+        'data': table,
+    }
 
     form_dict = dict(six.iterlists(request.GET))
 

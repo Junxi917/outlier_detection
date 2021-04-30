@@ -1,6 +1,6 @@
 <div class="ui container">
     <div class="ui form">
-        <form action="" method="post" enctype="multipart/form-data" name="frm" onsubmit="return validateForm()">
+        <form class="uploadForm" action="" method="post" enctype="multipart/form-data" name="frm">
 
             {% csrf_token %}
             <h3 class="ui header" id="dimension">Dimension</h3>
@@ -31,86 +31,43 @@
                 <input type="submit" name="upload" class="ui blue button" value="Submit" disabled/>
 
             {% else %}
-                <input type="submit" id="upload" class="ui blue button" name="upload" value="Submit"/>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#upload').bind("click", function () {
-                            var Val = $('#file').val();
-                            if (Val == '') {
-                                alert("empty input file");
-                                return false;
-                            }
-                            return true;
-
-                        });
-                    })
-
+                <input type="button" id="upload" class="ui blue button" onclick="FileUpload()" value="Submit"/>
+                <script>
+                    function FileUpload() {
+                        var form_data = new FormData();
+                        var file_info = $('#file')[0].files[0];
+                        form_data.append('myFile', file_info);
+                        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+                        var dimmer = $("#dimmer");
+                        dimmer.attr('class', 'ui active dimmer');
+                        dimmer.children('div').remove();
+                        dimmer.append('<div class="ui text loader">Loading……</div>');
+                        $.ajax({
+                            url: '{% url 'upload' %}',
+                            type: 'POST',
+                            data: form_data,
+                            processData: false,  // tell jquery not to process the data
+                            contentType: false, // tell jquery not to set contentType
+                            success: function (ret) {
+                                $("#result_table").html(ret['data']);
+                                initTable($("#data"))
+                                dimmer.attr('class', 'ui dimmer');
+                                $('#upload').attr("disabled","disabled");
+                                $('#AJAX_get').attr("disabled",false);
+                            },
+                            error: function () {
+                            console.log('fail')
+                            dimmer.children('div').text('An error occurred');
+                        }
+                        })
+                    }
                 </script>
+
 
             {% endif %}
 
 
-
-            {##}
-            {#            <input type="file" name="myFile"><br>#}
-            {#            <input type="submit" name="submit">#}
-
-
             <br><br><br>
-
-            {#            <div class="ui buttons">#}
-            {#                <input class="ui blue button" type='button' id='Load_data' value="Load Data"/>#}
-            {#            </div>#}
-            {#            <script type="text/javascript">#}
-            {#                $("#Load_data").click(function (event) {#}
-            {#                    event.preventDefault();#}
-            {##}
-            {#                    var form_data = {#}
-            {#                        "Load_data": 'Load_data',#}
-            {#                    };#}
-            {##}
-            {##}
-            {#                    $.ajax({#}
-            {#                        url: '{% url 'query' %}',#}
-            {##}
-            {#                        type: 'GET',#}
-            {##}
-            {#                        data: form_data,#}
-            {##}
-            {#                        success: function (ret) {#}
-            {##}
-            {#                            $("#result_table").html(ret['data']);#}
-            {#                            initTable($("#data"))#}
-            {##}
-            {#                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});#}
-            {#                            chart.showLoading({#}
-            {#                                text: 'Data Loading'#}
-            {#                            });#}
-            {##}
-            {#                            chart.clear();#}
-            {#                            chart.setOption(ret['bar_total_trend']);#}
-            {#                            chart.hideLoading()#}
-            {##}
-            {#                            var chart1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});#}
-            {#                            chart1.showLoading({#}
-            {#                                text: 'Data Loading'#}
-            {#                            });#}
-            {##}
-            {#                            chart1.clear();#}
-            {#                            chart1.setOption(ret['bar_total_trend1']);#}
-            {#                            chart1.hideLoading()#}
-            {##}
-            {##}
-            {##}
-            {#                        },#}
-            {#                        error: function () {#}
-            {#                            console.log('fail')#}
-            {#                        }#}
-            {#                    });#}
-            {#                })#}
-            {#            </script>#}
-            {##}
-            {#            <br><br><br>#}
 
             <h3 class="ui header" id="analysis">Algorithm</h3>
             <div class="field">
@@ -147,6 +104,11 @@
                     var form_data = {
                         "ALGO_select": $("#ALGO_select").val(),
                     };
+
+                    var dimmer = $("#dimmer");
+                    dimmer.attr('class', 'ui active dimmer');
+                    dimmer.children('div').remove();
+                    dimmer.append('<div class="ui text loader">Loading……</div>');
 
                     $.ajax({
                         url: '{% url 'query' %}',
@@ -188,9 +150,12 @@
                             chart2.setOption(ret['bar_total_trend2']);
                             chart2.hideLoading()
 
+                            dimmer.attr('class', 'ui dimmer');
+
                         },
                         error: function () {
                             console.log('fail')
+                            dimmer.children('div').text('An error occurred');
                         }
                     });
                 })

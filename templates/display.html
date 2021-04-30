@@ -3,6 +3,12 @@
 
 {% block display %}
 
+
+        <div class="ui active dimmer" id="dimmer">
+            <div class="ui text" style="color: #FFFFFF"></div>
+        </div>
+
+
     <div class="ui pointing secondary menu">
         <a class="active item " data-tab="data">Data</a>
         <a class="item " data-tab="graph">Graph</a>
@@ -15,11 +21,14 @@
         </h3>
         <div class="ui divider"></div>
 
-        <div class="ui container" id='result_table' style="width: 100%; overflow-x: scroll; overflow-y: hidden;">
 
-            {{ data|safe }}
 
-        </div>
+            <div class="ui container" id='result_table' style="width: 100%; overflow-x: scroll; overflow-y: hidden;">
+
+                {{ data|safe }}
+
+            </div>
+
 
     </div>
 

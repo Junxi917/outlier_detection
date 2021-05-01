@@ -4,9 +4,9 @@
 {% block display %}
 
 
-        <div class="ui active dimmer" id="dimmer">
-            <div class="ui text" style="color: #FFFFFF"></div>
-        </div>
+    <div class="ui active dimmer" id="dimmer">
+        <div class="ui text" style="color: #FFFFFF"></div>
+    </div>
 
 
     <div class="ui pointing secondary menu">
@@ -22,12 +22,11 @@
         <div class="ui divider"></div>
 
 
+        <div class="ui celled table" id='result_table' style="width: 100%">
 
-            <div class="ui container" id='result_table' style="width: 100%; overflow-x: scroll; overflow-y: hidden;">
+            {{ data|safe }}
 
-                {{ data|safe }}
-
-            </div>
+        </div>
 
 
     </div>

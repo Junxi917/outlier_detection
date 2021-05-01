@@ -25,8 +25,6 @@
                 Open File</label>
             <input type="file" id="file" name="myFile" style="display:none">
 
-            {#            <button class="ui blue button" type="submit" id="submit" onclick="dis()">Submit</button>#}
-            {#            <input class="ui blue button" type='submit' id='btnSubmit' value="Submit" onclick="return dis();"/>#}
             {% if enable %}
                 <input type="submit" name="upload" class="ui blue button" value="Submit" disabled/>
 
@@ -53,10 +51,19 @@
                             contentType: false, // tell jquery not to set contentType
                             success: function (ret) {
                                 $("#result_table").html(ret['data']);
-                                initTable($("#data"))
+                                $(document).ready(function () {
+                                    var table = $('#data').DataTable({
+                                        buttons: ['copy', 'excel', 'pdf', 'colvis']
+                                    });
+
+                                    table.buttons().container()
+                                        .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                                });
+
                                 dimmer.attr('class', 'ui dimmer');
                                 $('#upload').attr("disabled", "disabled");
                                 $('#AJAX_get').attr("disabled", false);
+                                $('#Gap_filling').attr("disabled", false);
                             },
                             error: function () {
                                 console.log('fail')
@@ -64,6 +71,7 @@
                             }
                         })
                     }
+
                 </script>
 
 
@@ -124,7 +132,14 @@
                             $("#label_size_unit").html(form_data['ALGO_select']);
 
                             $("#result_table").html(ret['data']);
-                            initTable($("#data"))
+                            $(document).ready(function () {
+                                    var table = $('#data').DataTable({
+                                        buttons: ['copy', 'excel', 'pdf', 'colvis']
+                                    });
+
+                                    table.buttons().container()
+                                        .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                                });
 
                             var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
                             chart.showLoading({
@@ -204,7 +219,14 @@
                         success: function (ret) {
 
                             $("#result_table").html(ret['data']);
-                            initTable($("#data"))
+                            $(document).ready(function () {
+                                    var table = $('#data').DataTable({
+                                        buttons: ['copy', 'excel', 'pdf', 'colvis']
+                                    });
+
+                                    table.buttons().container()
+                                        .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                                });
 
                             var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
                             chart.showLoading({
@@ -249,7 +271,8 @@
 <script>
     function initTable(table) {
         table.DataTable(
-            {}
+            {
+            }
         );
     }
 </script>

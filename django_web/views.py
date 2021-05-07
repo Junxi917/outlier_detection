@@ -42,13 +42,54 @@ def upload(request):
         if csv is not None:
             enable = True
 
+        col = csv.columns.values.tolist()
+        col.remove('timestamp')
+        sensor = col[0]
+        csv['timestamp'] = pd.to_datetime(csv['timestamp'])
+
+        line = (
+            Line()
+                .add_xaxis(xaxis_data=csv['timestamp'].tolist())
+                .add_yaxis(
+                series_name=sensor,
+                y_axis=csv[sensor].tolist(),
+                is_connect_nones=False,
+            )
+                .set_global_opts(
+                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
+                                              feature=opts.ToolBoxFeatureOpts(
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
+                                                                                                   ,
+                                                                                                   background_color='#eee'),
+                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
+                                              )),
+                tooltip_opts=opts.TooltipOpts(is_show=False),
+                datazoom_opts=opts.DataZoomOpts(),
+                yaxis_opts=opts.AxisOpts(
+                    splitline_opts=opts.SplitLineOpts(is_show=True),
+                )
+            )
+        )
+        bar_total_trend = json.loads(line.dump_options())
+
         table = csv.to_html(
             classes='ui selectable celled table',
             table_id='data'
         )
+
+        table1 = csv.to_html(
+            classes='ui selectable celled table',
+            table_id='data1'
+        )
         context = {
             'enable': enable,
             'data': table,
+            'data1': table1,
+            'bar_total_trend': bar_total_trend,
         }
         return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 
@@ -94,7 +135,7 @@ def query(request):
             print(default[sensor])
         table = pd_data.to_html(
             classes='ui selectable celled table',
-            table_id='data'
+            table_id='data1'
         )
 
         line = (
@@ -259,7 +300,7 @@ def query(request):
         pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
         table = pd_data.to_html(
             classes='ui selectable celled table',
-            table_id='data'
+            table_id='data2'
         )
 
         line1 = (

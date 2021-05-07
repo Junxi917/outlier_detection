@@ -60,6 +60,16 @@
                                         .appendTo($('div.eight.column:eq(0)', table.table().container()));
                                 });
 
+                                var chart = echarts.init(document.getElementById('bar_total_trend_original'), 'white', {renderer: 'canvas'});
+                                chart.showLoading({
+                                    text: 'Data Loading'
+                                });
+
+                                chart.clear();
+                                chart.setOption(ret['bar_total_trend']);
+                                chart.hideLoading()
+
+
                                 dimmer.attr('class', 'ui dimmer');
                                 $('#upload').attr("disabled", "disabled");
                                 $('#AJAX_get').attr("disabled", false);
@@ -131,15 +141,15 @@
                         success: function (ret) {
                             $("#label_size_unit").html(form_data['ALGO_select']);
 
-                            $("#result_table").html(ret['data']);
+                            $("#result_table1").html(ret['data']);
                             $(document).ready(function () {
-                                    var table = $('#data').DataTable({
-                                        buttons: ['copy', 'excel', 'pdf', 'colvis']
-                                    });
-
-                                    table.buttons().container()
-                                        .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                                var table = $('#data1').DataTable({
+                                    buttons: ['copy', 'excel', 'pdf', 'colvis']
                                 });
+
+                                table.buttons().container()
+                                    .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                            });
 
                             var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
                             chart.showLoading({
@@ -169,6 +179,7 @@
                             chart2.hideLoading()
 
                             dimmer.attr('class', 'ui dimmer');
+                            $('#AJAX_get').attr("disabled", "disabled");
 
                         },
                         error: function () {
@@ -208,6 +219,10 @@
                         "Gap_filling": $("#Filling_select").val(),
                     };
 
+                    var dimmer = $("#dimmer");
+                    dimmer.attr('class', 'ui active dimmer');
+                    dimmer.children('div').remove();
+                    dimmer.append('<div class="ui text loader">Loading……</div>');
 
                     $.ajax({
                         url: '{% url 'query' %}',
@@ -218,17 +233,17 @@
 
                         success: function (ret) {
 
-                            $("#result_table").html(ret['data']);
+                            $("#result_table2").html(ret['data']);
                             $(document).ready(function () {
-                                    var table = $('#data').DataTable({
-                                        buttons: ['copy', 'excel', 'pdf', 'colvis']
-                                    });
-
-                                    table.buttons().container()
-                                        .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                                var table = $('#data2').DataTable({
+                                    buttons: ['copy', 'excel', 'pdf', 'colvis']
                                 });
 
-                            var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
+                                table.buttons().container()
+                                    .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                            });
+
+                            var chart = echarts.init(document.getElementById('gap_filling_bar_total_trend'), 'white', {renderer: 'canvas'});
                             chart.showLoading({
                                 text: 'Data Loading'
                             });
@@ -237,7 +252,7 @@
                             chart.setOption(ret['bar_total_trend']);
                             chart.hideLoading()
 
-                            var chart1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});
+                            var chart1 = echarts.init(document.getElementById('gap_filling_bar_total_trend1'), 'white', {renderer: 'canvas'});
                             chart1.showLoading({
                                 text: 'Data Loading'
                             });
@@ -246,7 +261,7 @@
                             chart1.setOption(ret['bar_total_trend1']);
                             chart1.hideLoading()
 
-                            var chart2 = echarts.init(document.getElementById('bar_total_trend2'), 'white', {renderer: 'canvas'});
+                            var chart2 = echarts.init(document.getElementById('gap_filling_bar_total_trend2'), 'white', {renderer: 'canvas'});
                             chart2.showLoading({
                                 text: 'Data Loading'
                             });
@@ -254,6 +269,9 @@
                             chart2.clear();
                             chart2.setOption(ret['bar_total_trend2']);
                             chart2.hideLoading()
+
+                            dimmer.attr('class', 'ui dimmer');
+                            $('#Gap_filling').attr("disabled", "disabled");
 
                         },
                         error: function () {
@@ -271,8 +289,7 @@
 <script>
     function initTable(table) {
         table.DataTable(
-            {
-            }
+            {}
         );
     }
 </script>

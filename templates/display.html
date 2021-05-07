@@ -13,60 +13,128 @@
         <a class="active item " data-tab="data">Data</a>
         <a class="item " data-tab="graph">Graph</a>
     </div>
+
+
+
     <div class="ui active tab segment" data-tab="data">
-        <h3 class="ui header">
-            <div class="content">
-                Data
+
+        <div class="ui pointing secondary menu">
+            <a class="active item " data-tab="original_data">Original Data</a>
+            <a class="item " data-tab="anomaly_detection_data">Anomaly Detection Data</a>
+            <a class="item " data-tab="gap_filling_data">Gap Filling Data</a>
+        </div>
+
+        <div class="ui active tab segment" data-tab="original_data">
+            {#            <h3 class="ui header">#}
+            {#                <div class="content">#}
+            {#                    Data#}
+            {#                </div>#}
+            {#            </h3>#}
+            <div class="ui divider"></div>
+
+            <div class="ui celled table" id='result_table' style="width: 100%">
+
+                {{ data|safe }}
+
             </div>
-        </h3>
-        <div class="ui divider"></div>
+        </div>
 
+        <div class="ui tab segment" data-tab="anomaly_detection_data">
+            <div class="ui divider"></div>
 
-        <div class="ui celled table" id='result_table' style="width: 100%">
+            <div class="ui celled table" id='result_table1' style="width: 100%">
 
-            {{ data|safe }}
+                {{ data1|safe }}
 
+            </div>
+        </div>
+
+        <div class="ui tab segment" data-tab="gap_filling_data">
+
+            <div class="ui celled table" id='result_table2' style="width: 100%">
+
+                {{ data2|safe }}
+
+            </div>
         </div>
 
 
     </div>
 
     <div class="ui tab segment" data-tab="graph">
-        <h3 class="ui header">
 
-            <div class="ui buttons" style="margin-left:10px;">
-                <input class="ui blue button" type='button' id='export_data' value="Export Data"/>
-            </div>
-        </h3>
+        <div class="ui pointing secondary menu">
+            <a class="active item " data-tab="original_graph">Original Graph</a>
+            <a class="item " data-tab="anomaly_detection_graph">Anomaly Detection Graph</a>
+            <a class="item " data-tab="gap_filling_graph">Gap Filling Graph</a>
+        </div>
 
-        <div class="ui divider"></div>
-        <div class="ui container">
-            <div id="bar_total_trend" style="width:1000px; height:600px;">
+        <div class="ui active tab segment" data-tab="original_graph">
+            <div class="ui divider"></div>
+            <div class="ui container">
+                <div id="bar_total_trend_original" style="width:1000px; height:600px;">
+                </div>
             </div>
         </div>
 
-        <h3 class="ui header">
-            <div class="ui buttons" style="margin-left:10px;">
-                <input class="ui blue button" type='button' id='export_data1' value="Export Data"/>
-            </div>
-        </h3>
+        <div class="ui tab segment" data-tab="anomaly_detection_graph">
+            <h3 class="ui header">
+                <div class="ui buttons" style="margin-left:10px;">
+                    <input class="ui blue button" type='button' id='export_data' value="Export Data"/>
+                </div>
+            </h3>
 
-        <div class="ui divider"></div>
-        <div class="ui container">
-            <div id="bar_total_trend1" style="width:1000px; height:600px;">
+            <div class="ui divider"></div>
+            <div class="ui container">
+                <div id="bar_total_trend" style="width:1000px; height:600px;">
+                </div>
             </div>
+
+            <h3 class="ui header">
+                <div class="ui buttons" style="margin-left:10px;">
+                    <input class="ui blue button" type='button' id='export_data1' value="Export Data"/>
+                </div>
+            </h3>
+
+            <div class="ui divider"></div>
+            <div class="ui container">
+                <div id="bar_total_trend1" style="width:1000px; height:600px;">
+                </div>
+            </div>
+
+            <h3 class="ui header">
+                <div class="ui buttons" style="margin-left:10px;">
+                    <input class="ui blue button" type='button' id='export_data2' value="Export Data"/>
+                </div>
+            </h3>
+
+            <div class="ui divider"></div>
+            <div class="ui container">
+                <div id="bar_total_trend2" style="width:1000px; height:600px;">
+                </div>
+            </div>
+
         </div>
 
-        <h3 class="ui header">
-            <div class="ui buttons" style="margin-left:10px;">
-                <input class="ui blue button" type='button' id='export_data2' value="Export Data"/>
+        <div class="ui tab segment" data-tab="gap_filling_graph">
+            <div class="ui divider"></div>
+            <div class="ui container">
+                <div id="gap_filling_bar_total_trend" style="width:1000px; height:600px;">
+                </div>
             </div>
-        </h3>
 
-        <div class="ui divider"></div>
-        <div class="ui container">
-            <div id="bar_total_trend2" style="width:1000px; height:600px;">
+            <div class="ui divider"></div>
+            <div class="ui container">
+                <div id="gap_filling_bar_total_trend1" style="width:1000px; height:600px;">
+                </div>
             </div>
+
+            <div class="ui divider"></div>
+            <div class="ui container">
+                <div id="gap_filling_bar_total_trend2" style="width:1000px; height:600px;">
+                </div>
+            </div>
+
         </div>
 
 

@@ -69,7 +69,17 @@ def upload(request):
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 datazoom_opts=opts.DataZoomOpts(),
+                xaxis_opts=opts.AxisOpts(
+                    name='Timestamp',
+                    # name_location='middle',
+                    # name_gap=20,
+                    # name_textstyle_opts=opts.TextStyleOpts(
+                    #     font_family='Times New Roman',
+                    #     font_size=14,
+                    # ),
+                ),
                 yaxis_opts=opts.AxisOpts(
+                    name=sensor,
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -160,7 +170,17 @@ def query(request):
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 datazoom_opts=opts.DataZoomOpts(),
+                xaxis_opts=opts.AxisOpts(
+                    name='Timestamp',
+                    # name_location='middle',
+                    # name_gap=20,
+                    # name_textstyle_opts=opts.TextStyleOpts(
+                    #     font_family='Times New Roman',
+                    #     font_size=14,
+                    # ),
+                ),
                 yaxis_opts=opts.AxisOpts(
+                    name=sensor,
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -183,17 +203,28 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
-                                                      background_color='#eee'),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
+                                                                                                   ,
+                                                                                                   background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 datazoom_opts=opts.DataZoomOpts(),
+                xaxis_opts=opts.AxisOpts(
+                    name='Timestamp',
+                    # name_location='middle',
+                    # name_gap=20,
+                    # name_textstyle_opts=opts.TextStyleOpts(
+                    #     font_family='Times New Roman',
+                    #     font_size=14,
+                    # ),
+                ),
                 yaxis_opts=opts.AxisOpts(
+                    name=sensor,
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -233,17 +264,28 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
-                                                      background_color='#eee'),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
+                                                                                                   ,
+                                                                                                   background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 datazoom_opts=opts.DataZoomOpts(),
+                xaxis_opts=opts.AxisOpts(
+                    name='Timestamp',
+                    # name_location='middle',
+                    # name_gap=20,
+                    # name_textstyle_opts=opts.TextStyleOpts(
+                    #     font_family='Times New Roman',
+                    #     font_size=14,
+                    # ),
+                ),
                 yaxis_opts=opts.AxisOpts(
+                    name=sensor,
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -279,17 +321,28 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
-                                                      background_color='#eee'),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
+                                                                                                   ,
+                                                                                                   background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 datazoom_opts=opts.DataZoomOpts(),
+                xaxis_opts=opts.AxisOpts(
+                    name='Timestamp',
+                    # name_location='middle',
+                    # name_gap=20,
+                    # name_textstyle_opts=opts.TextStyleOpts(
+                    #     font_family='Times New Roman',
+                    #     font_size=14,
+                    # ),
+                ),
                 yaxis_opts=opts.AxisOpts(
+                    name=sensor,
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -314,17 +367,28 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
-                                                      background_color='#eee'),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
+                                                                                                   ,
+                                                                                                   background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 datazoom_opts=opts.DataZoomOpts(),
+                xaxis_opts=opts.AxisOpts(
+                    name='Timestamp',
+                    # name_location='middle',
+                    # name_gap=20,
+                    # name_textstyle_opts=opts.TextStyleOpts(
+                    #     font_family='Times New Roman',
+                    #     font_size=14,
+                    # ),
+                ),
                 yaxis_opts=opts.AxisOpts(
+                    name=sensor,
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -373,16 +437,28 @@ def query(request):
                 .set_global_opts(
                 toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
                                               feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(),
+                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
+                                                                                                   ,
+                                                                                                   background_color='#eee'),
                                                   restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
+                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
+                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
+                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
                                               )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
                 datazoom_opts=opts.DataZoomOpts(),
+                xaxis_opts=opts.AxisOpts(
+                    name='Timestamp',
+                    # name_location='middle',
+                    # name_gap=20,
+                    # name_textstyle_opts=opts.TextStyleOpts(
+                    #     font_family='Times New Roman',
+                    #     font_size=14,
+                    # ),
+                ),
                 yaxis_opts=opts.AxisOpts(
+                    name=sensor,
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )

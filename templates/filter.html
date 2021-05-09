@@ -69,6 +69,8 @@
                                 chart.setOption(ret['bar_total_trend']);
                                 chart.hideLoading()
 
+                                $("#data_graph").show();
+
 
                                 dimmer.attr('class', 'ui dimmer');
                                 $('#upload').attr("disabled", "disabled");
@@ -126,6 +128,8 @@
                         "ALGO_select": $("#ALGO_select").val(),
                     };
 
+                    $("#data_graph").hide();
+
                     var dimmer = $("#dimmer");
                     dimmer.attr('class', 'ui active dimmer');
                     dimmer.children('div').remove();
@@ -178,6 +182,8 @@
                             chart2.setOption(ret['bar_total_trend2']);
                             chart2.hideLoading()
 
+                            $("#data_graph").show();
+
                             dimmer.attr('class', 'ui dimmer');
                             $('#AJAX_get').attr("disabled", "disabled");
 
@@ -218,6 +224,8 @@
                     var form_data = {
                         "Gap_filling": $("#Filling_select").val(),
                     };
+
+                    $("#data_graph").hide();
 
                     var dimmer = $("#dimmer");
                     dimmer.attr('class', 'ui active dimmer');
@@ -269,6 +277,8 @@
                             chart2.clear();
                             chart2.setOption(ret['bar_total_trend2']);
                             chart2.hideLoading()
+
+                            $("#data_graph").show();
 
                             dimmer.attr('class', 'ui dimmer');
                             $('#Gap_filling').attr("disabled", "disabled");

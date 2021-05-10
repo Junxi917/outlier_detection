@@ -1,0 +1,9 @@
+INFO 2021-05-10 17:34:48,580 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 17:34:53,548 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-10 17:35:00,387 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-10 17:35:04,226 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700010
+INFO 2021-05-10 17:35:25,193 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3037259
+INFO 2021-05-10 17:36:09,231 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/outlier_detection/settings.py changed, reloading.
+INFO 2021-05-10 17:36:10,685 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 17:36:23,198 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/outlier_detection/settings.py changed, reloading.
+INFO 2021-05-10 17:36:24,180 autoreload 617 Watching for file changes with StatReloader

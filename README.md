@@ -21,4 +21,4 @@ There are three files for testing.(test_pumpSpeed.xlsx, test_Temperature.xlsx an
 * Firstly user upload the data set and then click the button submit. 
 * User can choose anomaly detection or gap filling.
 ## Note
-Currently this system can only run unitvariate data, and the function of unitvariate data will be added later.
+Currently this system can only run univariate data, and the function of univariate data will be added later.

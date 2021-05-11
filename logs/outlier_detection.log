@@ -7,3 +7,325 @@ INFO 2021-05-10 17:36:09,231 autoreload 240 /home/kejunxi/PycharmProjects/outlie
 INFO 2021-05-10 17:36:10,685 autoreload 617 Watching for file changes with StatReloader
 INFO 2021-05-10 17:36:23,198 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/outlier_detection/settings.py changed, reloading.
 INFO 2021-05-10 17:36:24,180 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 17:54:02,066 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-10 18:02:50,137 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 18:02:54,195 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 18:03:00,520 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/compat/_optional.py", line 127, in import_optional_dependency
+    raise ImportError(msg)
+ImportError: Pandas requires version '1.1.0' or newer of 'xlrd' (version '1.0.0' currently installed).
+ERROR 2021-05-10 18:03:00,522 basehttp 157 "POST /upload/ HTTP/1.1" 500 94802
+ERROR 2021-05-10 18:03:10,933 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/compat/_optional.py", line 127, in import_optional_dependency
+    raise ImportError(msg)
+ImportError: Pandas requires version '1.1.0' or newer of 'xlrd' (version '1.0.0' currently installed).
+ERROR 2021-05-10 18:03:10,934 basehttp 157 "POST /upload/ HTTP/1.1" 500 94802
+INFO 2021-05-10 18:03:14,009 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-10 18:17:31,415 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 18:18:02,689 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 18:18:06,405 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 18:18:16,768 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/compat/_optional.py", line 127, in import_optional_dependency
+    raise ImportError(msg)
+ImportError: Pandas requires version '1.1.0' or newer of 'xlrd' (version '1.0.0' currently installed).
+ERROR 2021-05-10 18:18:16,771 basehttp 157 "POST /upload/ HTTP/1.1" 500 97928
+INFO 2021-05-10 18:22:46,885 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 18:22:52,161 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 18:22:59,762 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/compat/_optional.py", line 127, in import_optional_dependency
+    raise ImportError(msg)
+ImportError: Pandas requires version '1.1.0' or newer of 'xlrd' (version '1.0.0' currently installed).
+ERROR 2021-05-10 18:22:59,764 basehttp 157 "POST /upload/ HTTP/1.1" 500 97928
+INFO 2021-05-10 18:29:09,726 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 18:29:15,390 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-10 18:29:22,448 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-10 18:51:57,517 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 18:52:05,018 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 18:52:12,423 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/compat/_optional.py", line 127, in import_optional_dependency
+    raise ImportError(msg)
+ImportError: Pandas requires version '1.1.0' or newer of 'xlrd' (version '1.0.0' currently installed).
+ERROR 2021-05-10 18:52:12,426 basehttp 157 "POST /upload/ HTTP/1.1" 500 97760
+INFO 2021-05-10 18:57:17,476 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 18:57:21,712 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 18:57:30,656 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/compat/_optional.py", line 127, in import_optional_dependency
+    raise ImportError(msg)
+ImportError: Pandas requires version '1.1.0' or newer of 'xlrd' (version '1.0.0' currently installed).
+ERROR 2021-05-10 18:57:30,660 basehttp 157 "POST /upload/ HTTP/1.1" 500 97318
+INFO 2021-05-10 19:02:24,145 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:02:28,323 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 19:02:34,964 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/venv/lib/python3.6/site-packages/pandas/compat/_optional.py", line 127, in import_optional_dependency
+    raise ImportError(msg)
+ImportError: Pandas requires version '1.1.0' or newer of 'xlrd' (version '1.0.0' currently installed).
+ERROR 2021-05-10 19:02:34,965 basehttp 157 "POST /upload/ HTTP/1.1" 500 97316
+INFO 2021-05-10 19:37:13,273 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:37:42,491 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:37:50,819 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 19:37:58,291 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/compat/_optional.py", line 110, in import_optional_dependency
+    raise ImportError(msg) from None
+ImportError: Missing optional dependency 'xlrd'. Install xlrd >= 1.0.0 for Excel support Use pip or conda to install xlrd.
+ERROR 2021-05-10 19:37:58,296 basehttp 157 "POST /upload/ HTTP/1.1" 500 112497
+INFO 2021-05-10 19:39:02,576 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:39:09,250 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 19:39:17,201 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 351, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 35, in load_workbook
+    return open_workbook(file_contents=data)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/xlrd/__init__.py", line 170, in open_workbook
+    raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+'; not supported')
+xlrd.biffh.XLRDError: Excel xlsx file; not supported
+ERROR 2021-05-10 19:39:17,203 basehttp 157 "POST /upload/ HTTP/1.1" 500 116503
+INFO 2021-05-10 19:41:34,018 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:41:38,233 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 19:41:45,003 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 351, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 35, in load_workbook
+    return open_workbook(file_contents=data)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/xlrd/__init__.py", line 170, in open_workbook
+    raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+'; not supported')
+xlrd.biffh.XLRDError: Excel xlsx file; not supported
+ERROR 2021-05-10 19:41:45,008 basehttp 157 "POST /upload/ HTTP/1.1" 500 116503
+INFO 2021-05-10 19:47:05,113 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:47:09,624 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 19:47:16,846 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 351, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 35, in load_workbook
+    return open_workbook(file_contents=data)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/xlrd/__init__.py", line 170, in open_workbook
+    raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+'; not supported')
+xlrd.biffh.XLRDError: Excel xlsx file; not supported
+ERROR 2021-05-10 19:47:16,850 basehttp 157 "POST /upload/ HTTP/1.1" 500 116503
+ERROR 2021-05-10 19:48:17,705 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 351, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 35, in load_workbook
+    return open_workbook(file_contents=data)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/xlrd/__init__.py", line 170, in open_workbook
+    raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+'; not supported')
+xlrd.biffh.XLRDError: Excel xlsx file; not supported
+ERROR 2021-05-10 19:48:17,707 basehttp 157 "POST /upload/ HTTP/1.1" 500 116503
+INFO 2021-05-10 19:49:59,058 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:50:12,665 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-10 19:50:19,239 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-10 19:52:05,095 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:52:11,758 basehttp 157 "GET / HTTP/1.1" 200 21278
+ERROR 2021-05-10 19:52:19,180 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 351, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 35, in load_workbook
+    return open_workbook(file_contents=data)
+  File "/home/kejunxi/.virtualenvs/detection/lib/python3.6/site-packages/xlrd/__init__.py", line 170, in open_workbook
+    raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+'; not supported')
+xlrd.biffh.XLRDError: Excel xlsx file; not supported
+ERROR 2021-05-10 19:52:19,181 basehttp 157 "POST /upload/ HTTP/1.1" 500 116501
+INFO 2021-05-10 19:53:49,592 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:53:54,291 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-10 19:54:00,602 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-10 19:54:13,459 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700025
+INFO 2021-05-10 19:54:32,921 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3037148
+INFO 2021-05-10 19:58:20,372 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-10 19:58:25,976 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-10 19:58:33,309 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-10 19:58:47,126 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700009
+INFO 2021-05-10 20:01:03,382 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3037278

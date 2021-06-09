@@ -32,6 +32,7 @@
                 <input type="button" id="upload" class="ui blue button" onclick="FileUpload()" value="Submit"/>
                 <script>
                     function FileUpload() {
+                        $("#data_graph").hide();
                         var form_data = new FormData();
                         var file_info = $('#file')[0].files[0];
                         var Val = $('#file').val();
@@ -50,6 +51,24 @@
                             processData: false,  // tell jquery not to process the data
                             contentType: false, // tell jquery not to set contentType
                             success: function (ret) {
+
+                                $("#result_table").empty();
+                                $("#result_table1").empty();
+                                $("#result_table2").empty();
+                                var chart_total_trend = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
+                                var chart_total_trend1 = echarts.init(document.getElementById('bar_total_trend1'), 'white', {renderer: 'canvas'});
+                                var chart_total_trend2 = echarts.init(document.getElementById('bar_total_trend2'), 'white', {renderer: 'canvas'});
+                                var chart_gap_filling_bar_total_trend = echarts.init(document.getElementById('gap_filling_bar_total_trend'), 'white', {renderer: 'canvas'});
+                                var chart_gap_filling_bar_total_trend1 = echarts.init(document.getElementById('gap_filling_bar_total_trend1'), 'white', {renderer: 'canvas'});
+                                var chart_gap_filling_bar_total_trend2 = echarts.init(document.getElementById('gap_filling_bar_total_trend2'), 'white', {renderer: 'canvas'});
+                                chart_total_trend.clear();
+                                chart_total_trend1.clear();
+                                chart_total_trend2.clear();
+                                chart_gap_filling_bar_total_trend.clear();
+                                chart_gap_filling_bar_total_trend1.clear();
+                                chart_gap_filling_bar_total_trend2.clear();
+
+
                                 $("#result_table").html(ret['data']);
                                 $(document).ready(function () {
                                     var table = $('#data').DataTable({
@@ -73,7 +92,7 @@
 
 
                                 dimmer.attr('class', 'ui dimmer');
-                                $('#upload').attr("disabled", "disabled");
+                                {#$('#upload').attr("disabled", "disabled");#}
                                 $('#AJAX_get').attr("disabled", false);
                                 $('#Gap_filling').attr("disabled", false);
                             },
@@ -186,6 +205,7 @@
 
                             dimmer.attr('class', 'ui dimmer');
                             $('#AJAX_get').attr("disabled", "disabled");
+                            $('#Gap_filling').attr("disabled", false);
 
                         },
                         error: function () {
@@ -282,6 +302,7 @@
 
                             dimmer.attr('class', 'ui dimmer');
                             $('#Gap_filling').attr("disabled", "disabled");
+                            $('#AJAX_get').attr("disabled", false);
 
                         },
                         error: function () {

@@ -329,3 +329,123 @@ INFO 2021-05-10 19:58:25,976 basehttp 157 "GET / HTTP/1.1" 200 21278
 INFO 2021-05-10 19:58:33,309 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
 INFO 2021-05-10 19:58:47,126 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700009
 INFO 2021-05-10 20:01:03,382 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3037278
+INFO 2021-05-12 13:54:02,191 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-05-12 13:54:09,521 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-12 13:54:09,640 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.js HTTP/1.1" 200 526094
+WARNING 2021-05-12 13:54:11,976 log 230 Not Found: /favicon.ico
+WARNING 2021-05-12 13:54:11,979 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-05-12 13:54:18,248 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-12 13:54:27,231 basehttp 157 "GET / HTTP/1.1" 200 21278
+WARNING 2021-05-12 13:54:29,785 log 230 Forbidden (CSRF token missing or incorrect.): /upload/
+WARNING 2021-05-12 13:54:29,786 basehttp 157 "POST /upload/ HTTP/1.1" 403 2513
+WARNING 2021-05-12 14:01:47,888 log 230 Forbidden (CSRF token missing or incorrect.): /upload/
+WARNING 2021-05-12 14:01:47,904 basehttp 157 "POST /upload/ HTTP/1.1" 403 2513
+INFO 2021-05-12 14:02:07,547 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-12 14:03:38,834 basehttp 157 "GET / HTTP/1.1" 200 21278
+INFO 2021-05-12 14:05:38,484 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-05-12 14:06:42,978 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700025
+INFO 2021-05-12 14:09:50,765 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3036595
+INFO 2021-05-12 14:35:27,411 basehttp 157 "GET / HTTP/1.1" 200 21278
+WARNING 2021-05-12 14:35:39,520 log 230 Forbidden (CSRF token missing or incorrect.): /upload/
+WARNING 2021-05-12 14:35:39,524 basehttp 157 "POST /upload/ HTTP/1.1" 403 2513
+INFO 2021-06-09 07:21:25,401 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:21:29,518 basehttp 157 "GET / HTTP/1.1" 200 21417
+INFO 2021-06-09 07:21:29,576 basehttp 157 "GET /static/DataTables-1.10.23/css/dataTables.semanticui.min.css HTTP/1.1" 304 0
+INFO 2021-06-09 07:21:29,580 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.min.css HTTP/1.1" 200 379837
+INFO 2021-06-09 07:21:29,582 basehttp 157 "GET /static/DataTables-1.10.23/js/dataTables.semanticui.min.js HTTP/1.1" 304 0
+INFO 2021-06-09 07:21:29,596 basehttp 157 "GET /static/DataTables-1.10.23/js/jquery.dataTables.min.js HTTP/1.1" 200 86533
+INFO 2021-06-09 07:21:29,599 basehttp 157 "GET /static/DataTables-1.10.23/js/percentageBars.js HTTP/1.1" 304 0
+INFO 2021-06-09 07:21:29,629 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.js HTTP/1.1" 200 526094
+WARNING 2021-06-09 07:21:31,636 log 230 Not Found: /favicon.ico
+WARNING 2021-06-09 07:21:31,643 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+WARNING 2021-06-09 07:21:33,231 log 230 Forbidden (CSRF token missing or incorrect.): /upload/
+WARNING 2021-06-09 07:21:33,232 basehttp 157 "POST /upload/ HTTP/1.1" 403 2513
+INFO 2021-06-09 07:22:03,386 basehttp 157 "POST /upload/ HTTP/1.1" 200 18872437
+INFO 2021-06-09 07:22:07,392 basehttp 157 "GET / HTTP/1.1" 200 21417
+INFO 2021-06-09 07:22:22,760 basehttp 157 "GET / HTTP/1.1" 200 21417
+INFO 2021-06-09 07:22:39,963 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 07:22:52,713 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700021
+INFO 2021-06-09 07:23:11,276 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3036840
+INFO 2021-06-09 07:23:31,798 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3638156
+INFO 2021-06-09 07:23:49,276 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3423972
+INFO 2021-06-09 07:24:05,178 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3644760
+INFO 2021-06-09 07:24:46,426 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:24:53,389 basehttp 157 "GET / HTTP/1.1" 200 21375
+INFO 2021-06-09 07:29:41,851 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402756
+INFO 2021-06-09 07:31:44,312 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21546193
+INFO 2021-06-09 07:34:10,540 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33489148
+INFO 2021-06-09 07:35:59,377 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 37992960
+INFO 2021-06-09 07:38:32,727 basehttp 157 "GET / HTTP/1.1" 200 21408
+INFO 2021-06-09 07:38:50,248 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:38:54,427 basehttp 157 "GET / HTTP/1.1" 200 21432
+INFO 2021-06-09 07:39:07,806 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 07:39:07,846 basehttp 157 "GET / HTTP/1.1" 200 21432
+INFO 2021-06-09 07:39:39,612 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:39:43,824 basehttp 157 "GET / HTTP/1.1" 200 21424
+INFO 2021-06-09 07:39:52,773 basehttp 157 "GET / HTTP/1.1" 200 21424
+INFO 2021-06-09 07:53:26,429 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:53:30,836 basehttp 157 "GET / HTTP/1.1" 200 21436
+INFO 2021-06-09 07:53:40,171 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 07:54:52,159 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:54:58,280 basehttp 157 "GET / HTTP/1.1" 200 21434
+INFO 2021-06-09 07:55:10,948 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 07:56:02,362 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:56:05,999 basehttp 157 "GET / HTTP/1.1" 200 21377
+INFO 2021-06-09 07:56:21,492 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 07:57:57,650 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:58:01,505 basehttp 157 "GET / HTTP/1.1" 200 21434
+INFO 2021-06-09 07:58:10,614 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-06-09 07:59:42,571 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 07:59:46,690 basehttp 157 "GET / HTTP/1.1" 200 21426
+INFO 2021-06-09 07:59:58,123 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:02:26,045 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:02:30,615 basehttp 157 "GET / HTTP/1.1" 200 21558
+INFO 2021-06-09 08:02:39,429 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-06-09 08:03:00,880 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 703091
+INFO 2021-06-09 08:03:15,183 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2876040
+INFO 2021-06-09 08:03:37,513 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:03:59,087 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700009
+INFO 2021-06-09 08:07:38,789 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:07:41,737 basehttp 157 "GET / HTTP/1.1" 200 21683
+INFO 2021-06-09 08:07:49,379 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:10:08,380 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:10:15,015 basehttp 157 "GET / HTTP/1.1" 200 22117
+INFO 2021-06-09 08:10:24,350 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:10:36,887 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700009
+INFO 2021-06-09 08:10:54,505 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3037497
+INFO 2021-06-09 08:11:10,573 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3638815
+INFO 2021-06-09 08:11:27,414 basehttp 157 "POST /upload/ HTTP/1.1" 200 527437
+INFO 2021-06-09 08:12:21,218 basehttp 157 "GET / HTTP/1.1" 200 22117
+INFO 2021-06-09 08:12:43,976 basehttp 157 "POST /upload/ HTTP/1.1" 200 527437
+INFO 2021-06-09 08:12:49,427 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 698391
+INFO 2021-06-09 08:13:04,006 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:14:46,096 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:15:00,456 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:15:13,144 basehttp 157 "GET / HTTP/1.1" 200 21332
+INFO 2021-06-09 08:15:24,011 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:15:38,118 basehttp 157 "POST /upload/ HTTP/1.1" 200 527437
+INFO 2021-06-09 08:16:28,201 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:16:36,709 basehttp 157 "GET / HTTP/1.1" 200 20843
+INFO 2021-06-09 08:16:46,722 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:16:54,474 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700021
+INFO 2021-06-09 08:17:07,610 basehttp 157 "POST /upload/ HTTP/1.1" 200 527437
+INFO 2021-06-09 08:19:07,422 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:20:04,023 basehttp 157 "GET / HTTP/1.1" 200 21018
+INFO 2021-06-09 08:20:16,162 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:30:54,251 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:30:59,655 basehttp 157 "GET / HTTP/1.1" 200 21459
+INFO 2021-06-09 08:31:11,174 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:31:24,938 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700007
+INFO 2021-06-09 08:31:42,026 basehttp 157 "POST /upload/ HTTP/1.1" 200 527437
+INFO 2021-06-09 08:32:00,849 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2899360
+INFO 2021-06-09 08:32:18,989 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3501344
+INFO 2021-06-09 08:32:40,944 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-06-09 08:34:45,330 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:34:48,861 basehttp 157 "GET / HTTP/1.1" 200 22209
+INFO 2021-06-09 08:35:06,910 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:35:19,357 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700009
+INFO 2021-06-09 08:35:47,355 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3037467
+INFO 2021-06-09 08:36:02,653 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-06-09 08:36:22,601 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2960681
+INFO 2021-06-09 08:36:47,542 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3562542
+INFO 2021-06-09 08:37:13,070 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488

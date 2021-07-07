@@ -100,6 +100,7 @@ def upload(request):
             'data': table,
             'data1': table1,
             'bar_total_trend': bar_total_trend,
+            'default_algo': 'LSTM test',
         }
         return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 

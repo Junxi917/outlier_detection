@@ -449,3 +449,119 @@ INFO 2021-06-09 08:36:02,653 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
 INFO 2021-06-09 08:36:22,601 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2960681
 INFO 2021-06-09 08:36:47,542 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3562542
 INFO 2021-06-09 08:37:13,070 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-06-09 08:40:42,516 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-06-09 08:40:59,358 basehttp 157 "GET / HTTP/1.1" 200 22209
+INFO 2021-06-09 08:41:16,024 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-06-09 08:41:39,699 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 08:29:50,247 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 08:29:58,415 basehttp 157 "GET / HTTP/1.1" 200 22209
+INFO 2021-07-07 08:29:58,491 basehttp 157 "GET /static/DataTables-1.10.23/css/dataTables.semanticui.min.css HTTP/1.1" 304 0
+INFO 2021-07-07 08:29:58,535 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.min.css HTTP/1.1" 200 379837
+INFO 2021-07-07 08:29:58,538 basehttp 157 "GET /static/DataTables-1.10.23/js/jquery.dataTables.min.js HTTP/1.1" 200 86533
+INFO 2021-07-07 08:29:58,556 basehttp 157 "GET /static/DataTables-1.10.23/js/dataTables.semanticui.min.js HTTP/1.1" 304 0
+INFO 2021-07-07 08:29:58,560 basehttp 157 "GET /static/DataTables-1.10.23/js/percentageBars.js HTTP/1.1" 304 0
+INFO 2021-07-07 08:29:58,561 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.js HTTP/1.1" 200 526094
+WARNING 2021-07-07 08:30:00,379 log 230 Not Found: /favicon.ico
+WARNING 2021-07-07 08:30:00,380 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+ERROR 2021-07-07 08:30:28,073 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 40, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_base.py", line 351, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_xlrd.py", line 35, in load_workbook
+    return open_workbook(file_contents=data)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/xlrd/__init__.py", line 157, in open_workbook
+    ragged_rows=ragged_rows,
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/xlrd/book.py", line 92, in open_workbook_xls
+    biff_version = bk.getbof(XL_WORKBOOK_GLOBALS)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/xlrd/book.py", line 1278, in getbof
+    bof_error('Expected BOF record; found %r' % self.mem[savpos:savpos+8])
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/xlrd/book.py", line 1272, in bof_error
+    raise XLRDError('Unsupported format, or corrupt file: ' + msg)
+xlrd.biffh.XLRDError: Unsupported format, or corrupt file: Expected BOF record; found b'{\n "cell'
+ERROR 2021-07-07 08:30:28,077 basehttp 157 "POST /upload/ HTTP/1.1" 500 134369
+INFO 2021-07-07 08:30:42,891 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 08:33:39,148 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 08:33:41,766 basehttp 157 "GET / HTTP/1.1" 200 22209
+INFO 2021-07-07 08:37:47,612 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 08:37:53,090 basehttp 157 "GET / HTTP/1.1" 200 22318
+INFO 2021-07-07 08:38:09,520 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 08:41:25,130 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 08:41:28,304 basehttp 157 "GET / HTTP/1.1" 200 22318
+INFO 2021-07-07 08:41:57,870 basehttp 157 "POST /upload/ HTTP/1.1" 200 18872437
+INFO 2021-07-07 09:11:36,152 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:11:45,164 basehttp 157 "GET / HTTP/1.1" 200 22316
+INFO 2021-07-07 09:11:53,932 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:14:14,834 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:14:20,269 basehttp 157 "GET / HTTP/1.1" 200 22310
+INFO 2021-07-07 09:14:29,502 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:19:11,244 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:19:13,970 basehttp 157 "GET / HTTP/1.1" 200 22350
+INFO 2021-07-07 09:19:29,903 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-07-07 09:24:51,398 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:24:53,846 basehttp 157 "GET / HTTP/1.1" 200 22350
+INFO 2021-07-07 09:25:06,600 basehttp 157 "POST /upload/ HTTP/1.1" 200 527437
+INFO 2021-07-07 09:25:33,779 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:25:37,633 basehttp 157 "GET / HTTP/1.1" 200 22350
+INFO 2021-07-07 09:25:49,108 basehttp 157 "GET / HTTP/1.1" 200 22275
+INFO 2021-07-07 09:25:58,508 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:30:25,073 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:30:36,993 basehttp 157 "GET / HTTP/1.1" 200 22344
+INFO 2021-07-07 09:30:44,977 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:30:56,901 basehttp 157 "GET / HTTP/1.1" 200 22344
+INFO 2021-07-07 09:33:59,641 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:34:02,207 basehttp 157 "GET / HTTP/1.1" 200 22339
+INFO 2021-07-07 09:34:13,012 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:38:12,297 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:38:14,653 basehttp 157 "GET / HTTP/1.1" 200 22354
+INFO 2021-07-07 09:38:24,706 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:38:36,667 basehttp 157 "GET / HTTP/1.1" 200 22354
+INFO 2021-07-07 09:43:34,402 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:43:39,420 basehttp 157 "GET / HTTP/1.1" 200 22357
+INFO 2021-07-07 09:43:53,738 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:45:32,386 basehttp 157 "POST /upload/ HTTP/1.1" 200 527437
+INFO 2021-07-07 09:45:49,652 basehttp 157 "GET / HTTP/1.1" 200 22357
+INFO 2021-07-07 09:49:52,388 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:50:04,080 basehttp 157 "GET / HTTP/1.1" 200 22359
+INFO 2021-07-07 09:50:13,652 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:50:36,888 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:50:39,685 basehttp 157 "GET / HTTP/1.1" 200 22372
+INFO 2021-07-07 09:50:49,054 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-07-07 09:51:12,215 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:51:16,600 basehttp 157 "GET / HTTP/1.1" 200 22372
+INFO 2021-07-07 09:51:29,704 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:53:42,863 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:53:48,490 basehttp 157 "GET / HTTP/1.1" 200 22412
+INFO 2021-07-07 09:54:03,549 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:56:30,562 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:56:33,062 basehttp 157 "GET / HTTP/1.1" 200 22359
+INFO 2021-07-07 09:56:44,542 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 09:57:40,902 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 09:57:44,448 basehttp 157 "GET / HTTP/1.1" 200 22485
+INFO 2021-07-07 09:57:53,932 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 10:00:08,727 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 10:00:15,091 basehttp 157 "GET / HTTP/1.1" 200 22500
+INFO 2021-07-07 10:00:33,645 basehttp 157 "POST /upload/ HTTP/1.1" 200 526313
+INFO 2021-07-07 10:01:29,830 basehttp 157 "POST /upload/ HTTP/1.1" 200 527488
+INFO 2021-07-07 10:10:32,079 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 10:10:34,828 basehttp 157 "GET / HTTP/1.1" 200 22496
+INFO 2021-07-07 10:10:44,390 basehttp 157 "POST /upload/ HTTP/1.1" 200 526334
+INFO 2021-07-07 10:12:20,650 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 10:12:24,677 basehttp 157 "GET / HTTP/1.1" 200 22504
+INFO 2021-07-07 10:12:37,609 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 10:12:52,738 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 699998
+INFO 2021-07-07 10:19:08,020 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3036278
+INFO 2021-07-07 10:19:23,413 basehttp 157 "GET / HTTP/1.1" 200 22438

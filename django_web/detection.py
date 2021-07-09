@@ -40,17 +40,22 @@ def forest_detection(df, algo_select, contamination=0.05):
     model.fit(data)
 
     df['anomaly'] = pd.Series(model.fit_predict(data))
-    df['original'] = df[sensor]
+    if len(col) == 1:
+        df['original'] = df[sensor]
+    if len(col) == 2:
+        df['original' + " " + col[0]] = df[col[0]]
+        df['original' + " " + col[1]] = df[col[1]]
 
     outlier_data = df.loc[df['anomaly'] == 1]
     for index in outlier_data.index.tolist():
         df.loc[index, new_df.columns.values] = np.nan
 
-    df = df[[sensor, 'original', 'anomaly', 'timestamp']]
+    # df = df[[sensor, 'original', 'anomaly', 'timestamp']]
     return df
 
 
 def gap_filling(df, filling_select):
+    print (df.head())
     col = df.columns.values.tolist()
     col.remove('timestamp')
     sensor = col[0]
@@ -72,8 +77,10 @@ def gap_filling(df, filling_select):
     df = df_date_new
 
     df = df.rename_axis('timestamp').reset_index()
-    df = df[[sensor, 'timestamp']]
-
+    if len(col) == 1:
+        df = df[[sensor, 'timestamp']]
+    if len(col) == 2:
+        df = df[[col[0], col[1], 'timestamp']]
     filling_data = df.loc[df[sensor].isnull()]
 
     # filling = {"Interpolate": df.interpolate(method='linear', limit_direction='forward'),
@@ -91,9 +98,19 @@ def gap_filling(df, filling_select):
 
     # df = df.interpolate(method='linear', limit_direction='forward')  # make a gap filling with interpolate
 
-    df['filling'] = np.nan
-    for index in filling_data.index.tolist():
-        df.loc[index, 'filling'] = df.loc[index, sensor]
+    if len(col) == 1:
+        sen = 'filling' + " " + col[0]
+        df[sen] = np.nan
+        for index in filling_data.index.tolist():
+            df.at[index, sen] = df.at[index, sensor]
+    if len(col) == 2:
+        sen1 = 'filling' + " " + col[0]
+        sen2 = 'filling' + " " + col[1]
+        df[sen1] = np.nan
+        df[sen2] = np.nan
+        for index in filling_data.index.tolist():
+            df.loc[index, sen1] = df.loc[index, col[0]]
+            df.loc[index, sen2] = df.loc[index, col[1]]
 
     return df
 
@@ -128,7 +145,6 @@ def lstm_detection(df, contamination=0.05):
     sensor = col[0]
 
     new_df = df[col].copy()
-
 
     model = load_model(train_model[sensor], compile=False)
 

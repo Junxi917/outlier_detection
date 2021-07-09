@@ -76,6 +76,8 @@ def upload(request):
                    "KLT11_pumpSpeed_p1 (Hz)": 'Default(LSTM)',
                    "KLT11_Fan1Speed_HZ (Hz)": 'Default(LSTM)',
                    "KLT13_inletTempBeforeHydraulicGate (°C)": 'Default(LSTM)',
+                   "KLT14_pumpSpeed_p1": 'Default(HBOS)',
+                   "wetBulb": 'Default(LSTM)',
                    }
 
         file = request.FILES["myFile"]
@@ -91,73 +93,50 @@ def upload(request):
         col.remove('timestamp')
         sensor = col[0]
         csv['timestamp'] = pd.to_datetime(csv['timestamp'])
+        print (col)
 
-        line = draw_line(csv['timestamp'], csv[sensor], sensor)
+        if form_dict['dim_select'][0] == 'Multi':
+            line = draw_line(csv['timestamp'], csv[col[0]], col[0])
 
-        # line = (
-        #     Line()
-        #         .add_xaxis(xaxis_data=csv['timestamp'].tolist())
-        #         .add_yaxis(
-        #         series_name="wetBulb",
-        #         y_axis=csv["wetBulb"].tolist(),
-        #         is_connect_nones=False,
-        #     )
-        #         .set_global_opts(
-        #         toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-        #                                       feature=opts.ToolBoxFeatureOpts(
-        #                                           save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
-        #                                                                                            ,
-        #                                                                                            background_color='#eee'),
-        #                                           restore=opts.ToolBoxFeatureRestoreOpts(),
-        #                                           data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                           magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                       )),
-        #         tooltip_opts=opts.TooltipOpts(is_show=False),
-        #         datazoom_opts=opts.DataZoomOpts(),
-        #         xaxis_opts=opts.AxisOpts(
-        #             name='Timestamp',
-        #         ),
-        #         yaxis_opts=opts.AxisOpts(
-        #             name="Bulb",
-        #             splitline_opts=opts.SplitLineOpts(is_show=True),
-        #         )
-        #     )
-        # )
-        #
-        # line1 = (
-        #     Line()
-        #         .add_xaxis(xaxis_data=csv['timestamp'].tolist())
-        #         .add_yaxis(
-        #         series_name="dryBulb",
-        #         # yaxis_index=1,
-        #         y_axis=csv["dryBulb"].tolist(),
-        #         is_connect_nones=False,
-        #     )
-        #
-        # )
-        #
-        # line2 = (
-        #     Line()
-        #         .add_xaxis(xaxis_data=csv['timestamp'].tolist())
-        #         .add_yaxis(
-        #         series_name="relativeHumidity",
-        #         yaxis_index=1,  # when extend new y axis
-        #         y_axis=csv["relativeHumidity"].tolist(),
-        #         is_connect_nones=False,
-        #     )
-        #
-        # )
-        #
-        # line.overlap(line1)
-        # line.overlap(line2)
-        # line.extend_axis(
-        #     yaxis=opts.AxisOpts(
-        #         name="relativeHumidity",
-        #         splitline_opts=opts.SplitLineOpts(is_show=True),
-        #     )
-        # )
+            line1 = (
+                Line()
+                    .add_xaxis(xaxis_data=csv['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name=col[1],
+                    # yaxis_index=1,
+                    y_axis=csv[col[1]].tolist(),
+                    is_connect_nones=False,
+                )
+            )
+            if len(col) == 2:
+                line.overlap(line1)
+                line.extend_axis(
+                    yaxis=opts.AxisOpts(
+                        name=col[1],
+                        splitline_opts=opts.SplitLineOpts(is_show=True),
+                    )
+                )
+            if len(col) == 3:
+                line2 = (
+                    Line()
+                        .add_xaxis(xaxis_data=csv['timestamp'].tolist())
+                        .add_yaxis(
+                        series_name=col[2],
+                        y_axis=csv[col[2]].tolist(),
+                        is_connect_nones=False,
+                    )
+                )
+                line.overlap(line1)
+                line.overlap(line2)
+                line.extend_axis(
+                    yaxis=opts.AxisOpts(
+                        name=col[2],
+                        splitline_opts=opts.SplitLineOpts(is_show=True),
+                    )
+                )
+
+        else:
+            line = draw_line(csv['timestamp'], csv[sensor], sensor)
 
         bar_total_trend = json.loads(line.dump_options())
 
@@ -216,177 +195,181 @@ def query(request):
                }
 
     if 'ALGO_select' in form_dict:
-        csv = csv[[sensor, 'timestamp']]
-        if form_dict['ALGO_select'][0] == 'Lstm':
-            pd_data = lstm_detection(csv, contamination=0.05)
-        elif form_dict['ALGO_select'][0] in algo:
-            pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
-        else:
-            pd_data = lstm_detection(csv, contamination=0.05)
-            print(default[sensor])
-        table = pd_data.to_html(
-            classes='ui selectable celled table',
-            table_id='data1'
-        )
+        if len(col) == 1:
+            csv = csv[[sensor, 'timestamp']]
+            if form_dict['ALGO_select'][0] == 'Lstm':
+                pd_data = lstm_detection(csv, contamination=0.05)
+            elif form_dict['ALGO_select'][0] in algo:
+                pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
+            else:
+                pd_data = lstm_detection(csv, contamination=0.05)
+                print(default[sensor])
+            table = pd_data.to_html(
+                classes='ui selectable celled table',
+                table_id='data1'
+            )
 
-        line = draw_line(pd_data['timestamp'], pd_data['original'], sensor)
-        # line = (
-        #     Line()
-        #         .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
-        #         .add_yaxis(
-        #         series_name=sensor,
-        #         y_axis=pd_data['original'].tolist(),
-        #         is_connect_nones=False,
-        #     )
-        #         .set_global_opts(
-        #         toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-        #                                       feature=opts.ToolBoxFeatureOpts(
-        #                                           save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
-        #                                                                                            ,
-        #                                                                                            background_color='#eee'),
-        #                                           restore=opts.ToolBoxFeatureRestoreOpts(),
-        #                                           data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                           magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                       )),
-        #         tooltip_opts=opts.TooltipOpts(is_show=False),
-        #         datazoom_opts=opts.DataZoomOpts(),
-        #         xaxis_opts=opts.AxisOpts(
-        #             name='Timestamp',
-        #             # name_location='middle',
-        #             # name_gap=20,
-        #             # name_textstyle_opts=opts.TextStyleOpts(
-        #             #     font_family='Times New Roman',
-        #             #     font_size=14,
-        #             # ),
-        #         ),
-        #         yaxis_opts=opts.AxisOpts(
-        #             name=sensor,
-        #             splitline_opts=opts.SplitLineOpts(is_show=True),
-        #         )
-        #     )
-        #
-        # )
+            line = draw_line(pd_data['timestamp'], pd_data['original'], sensor)
 
-        outlier_data = pd_data.loc[pd_data['anomaly'] == 1]
-        pd_data['cleananomaly'] = np.nan
-        for index in outlier_data.index.tolist():
-            pd_data.loc[index, 'cleananomaly'] = pd_data.loc[index, 'original']
+            outlier_data = pd_data.loc[pd_data['anomaly'] == 1]
+            pd_data['cleananomaly'] = np.nan
+            for index in outlier_data.index.tolist():
+                pd_data.loc[index, 'cleananomaly'] = pd_data.loc[index, 'original']
 
-        line1 = draw_line(pd_data['timestamp'], pd_data['original'], sensor)
+            line1 = draw_line(pd_data['timestamp'], pd_data['original'], sensor)
 
-        # line1 = (
-        #     Line()
-        #         .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
-        #         .add_yaxis(
-        #         series_name=sensor,
-        #         y_axis=pd_data['original'].tolist(),
-        #         is_connect_nones=False,
-        #     )
-        #         .set_global_opts(
-        #         toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-        #                                       feature=opts.ToolBoxFeatureOpts(
-        #                                           save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
-        #                                                                                            ,
-        #                                                                                            background_color='#eee'),
-        #                                           restore=opts.ToolBoxFeatureRestoreOpts(),
-        #                                           data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                           magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                       )),
-        #         tooltip_opts=opts.TooltipOpts(is_show=False),
-        #         datazoom_opts=opts.DataZoomOpts(),
-        #         xaxis_opts=opts.AxisOpts(
-        #             name='Timestamp',
-        #             # name_location='middle',
-        #             # name_gap=20,
-        #             # name_textstyle_opts=opts.TextStyleOpts(
-        #             #     font_family='Times New Roman',
-        #             #     font_size=14,
-        #             # ),
-        #         ),
-        #         yaxis_opts=opts.AxisOpts(
-        #             name=sensor,
-        #             splitline_opts=opts.SplitLineOpts(is_show=True),
-        #         )
-        #     )
-        #
-        # )
+            scatter = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name="outlier",
+                    y_axis=pd_data['cleananomaly'].tolist(),
+                    # symbol_size=5,
+                    is_connect_nones=False,
 
-        scatter = (
-            Line()
-                .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
-                .add_yaxis(
-                series_name="outlier",
-                y_axis=pd_data['cleananomaly'].tolist(),
-                # symbol_size=5,
-                is_connect_nones=False,
+                )
+                    .set_global_opts(
+
+                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    yaxis_opts=opts.AxisOpts(
+                        splitline_opts=opts.SplitLineOpts(is_show=True),
+
+                    )
+                )
 
             )
-                .set_global_opts(
+            line1.overlap(scatter)
 
-                tooltip_opts=opts.TooltipOpts(is_show=False),
-                yaxis_opts=opts.AxisOpts(
+            line2 = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
+
+        if len(col) == 2:
+            csv = csv[[col[0], col[1], 'timestamp']]
+            if form_dict['ALGO_select'][0] == 'Lstm':
+                pd_data = lstm_detection(csv, contamination=0.05)
+            elif form_dict['ALGO_select'][0] in algo:
+                pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
+            else:
+                pd_data = lstm_detection(csv, contamination=0.05)
+                print(default[sensor])
+            table = pd_data.to_html(
+                classes='ui selectable celled table',
+                table_id='data1'
+            )
+
+            line = draw_line(pd_data['timestamp'], pd_data['original' + " " + col[0]], col[0])
+            line_1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name=col[1],
+                    y_axis=pd_data['original' + " " + col[1]].tolist(),
+                    is_connect_nones=False,
+                )
+            )
+            line.overlap(line_1)
+            line.extend_axis(
+                yaxis=opts.AxisOpts(
+                    name=col[1],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
-
                 )
             )
 
-        )
-        line1.overlap(scatter)
+            outlier_data = pd_data.loc[pd_data['anomaly'] == 1]
+            pd_data['cleananomaly' + " " + col[0]] = np.nan
+            pd_data['cleananomaly' + " " + col[1]] = np.nan
+            for index in outlier_data.index.tolist():
+                pd_data.loc[index, 'cleananomaly' + " " + col[0]] = pd_data.loc[index, 'original' + " " + col[0]]
+                pd_data.loc[index, 'cleananomaly' + " " + col[1]] = pd_data.loc[index, 'original' + " " + col[1]]
 
-        line2 = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
+            line1 = draw_line(pd_data['timestamp'], pd_data['original' + " " + col[0]], col[0])
+            line1_1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name=col[1],
+                    y_axis=pd_data['original' + " " + col[1]].tolist(),
+                    is_connect_nones=False,
+                )
+            )
 
-        # line2 = (
-        #     Line()
-        #         .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
-        #         .add_yaxis(
-        #         series_name=sensor,
-        #         y_axis=pd_data[sensor].tolist(),
-        #         is_connect_nones=False,
-        #     )
-        #         .set_global_opts(
-        #         toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-        #                                       feature=opts.ToolBoxFeatureOpts(
-        #                                           save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
-        #                                                                                            ,
-        #                                                                                            background_color='#eee'),
-        #                                           restore=opts.ToolBoxFeatureRestoreOpts(),
-        #                                           data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                           magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-        #                                           brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-        #                                       )),
-        #         tooltip_opts=opts.TooltipOpts(is_show=False),
-        #         datazoom_opts=opts.DataZoomOpts(),
-        #         xaxis_opts=opts.AxisOpts(
-        #             name='Timestamp',
-        #             # name_location='middle',
-        #             # name_gap=20,
-        #             # name_textstyle_opts=opts.TextStyleOpts(
-        #             #     font_family='Times New Roman',
-        #             #     font_size=14,
-        #             # ),
-        #         ),
-        #         yaxis_opts=opts.AxisOpts(
-        #             name=sensor,
-        #             splitline_opts=opts.SplitLineOpts(is_show=True),
-        #         )
-        #     )
-        #
-        # )
+            scatter_1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name="outlier" + " " + col[0],
+                    y_axis=pd_data['cleananomaly' + " " + col[0]].tolist(),
+                    is_connect_nones=False,
+
+                )
+                    .set_global_opts(
+
+                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    yaxis_opts=opts.AxisOpts(
+                        splitline_opts=opts.SplitLineOpts(is_show=True),
+
+                    )
+                )
+
+            )
+            scatter_2 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name="outlier" + " " + col[1],
+                    y_axis=pd_data['cleananomaly' + " " + col[1]].tolist(),
+                    is_connect_nones=False,
+
+                )
+                    .set_global_opts(
+
+                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    yaxis_opts=opts.AxisOpts(
+                        splitline_opts=opts.SplitLineOpts(is_show=True),
+
+                    )
+                )
+
+            )
+            line1.overlap(scatter_1)
+            line1_1.overlap(scatter_2)
+            line1.overlap(line1_1)
+            line1.extend_axis(
+                yaxis=opts.AxisOpts(
+                    name=col[1],
+                    splitline_opts=opts.SplitLineOpts(is_show=True),
+                )
+            )
+
+            line2 = draw_line(pd_data['timestamp'], pd_data[col[0]], col[0])
+            line2_1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name=col[1],
+                    y_axis=pd_data[col[1]].tolist(),
+                    is_connect_nones=False,
+                )
+            )
+            line2.overlap(line2_1)
+            line2.extend_axis(
+                yaxis=opts.AxisOpts(
+                    name=col[1],
+                    splitline_opts=opts.SplitLineOpts(is_show=True),
+                )
+            )
 
         bar_total_trend = json.loads(line.dump_options())
         bar_total_trend1 = json.loads(line1.dump_options())
         bar_total_trend2 = json.loads(line2.dump_options())
 
-        export = pd_data[['original', 'timestamp']]
-        export1 = pd_data
-        export2 = pd_data[[sensor, 'timestamp']]
+        # export = pd_data[['original', 'timestamp']]
+        # export1 = pd_data
+        # export2 = pd_data[[sensor, 'timestamp']]
 
-        csv = pd_data
+        if len(col) == 1:
+            csv = pd_data[[sensor, 'timestamp']]
+        if len(col) == 2:
+            csv = pd_data[[col[0], col[1], 'timestamp']]
 
         context = {
             'data': table,
@@ -396,45 +379,28 @@ def query(request):
         }
 
     if 'Gap_filling' in form_dict:
-        line = (
-            Line()
-                .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
-                .add_yaxis(
-                series_name=sensor,
-                y_axis=pd_data[sensor].tolist(),
-                is_connect_nones=False,
+        print (len(col))
+
+        line = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
+        if len(col) == 2:
+            line_1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name=col[1],
+                    y_axis=pd_data[col[1]].tolist(),
+                    is_connect_nones=False,
+                )
             )
-                .set_global_opts(
-                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-                                              feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
-                                                                                                   ,
-                                                                                                   background_color='#eee'),
-                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-                                              )),
-                tooltip_opts=opts.TooltipOpts(is_show=False),
-                datazoom_opts=opts.DataZoomOpts(),
-                xaxis_opts=opts.AxisOpts(
-                    name='Timestamp',
-                    # name_location='middle',
-                    # name_gap=20,
-                    # name_textstyle_opts=opts.TextStyleOpts(
-                    #     font_family='Times New Roman',
-                    #     font_size=14,
-                    # ),
-                ),
-                yaxis_opts=opts.AxisOpts(
-                    name=sensor,
+            line.overlap(line_1)
+            line.extend_axis(
+                yaxis=opts.AxisOpts(
+                    name=col[1],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
 
-        )
-        export = pd_data
+        # export = pd_data
 
         pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
         table = pd_data.to_html(
@@ -442,68 +408,19 @@ def query(request):
             table_id='data2'
         )
 
-        line1 = (
-            Line()
-                .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
-                .add_yaxis(
-                series_name=sensor,
-                y_axis=pd_data[sensor].tolist(),
-                is_connect_nones=False,
-            )
-                .set_global_opts(
-                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-                                              feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
-                                                                                                   ,
-                                                                                                   background_color='#eee'),
-                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-                                              )),
-                tooltip_opts=opts.TooltipOpts(is_show=False),
-                datazoom_opts=opts.DataZoomOpts(),
-                xaxis_opts=opts.AxisOpts(
-                    name='Timestamp',
-                    # name_location='middle',
-                    # name_gap=20,
-                    # name_textstyle_opts=opts.TextStyleOpts(
-                    #     font_family='Times New Roman',
-                    #     font_size=14,
-                    # ),
-                ),
-                yaxis_opts=opts.AxisOpts(
-                    name=sensor,
-                    splitline_opts=opts.SplitLineOpts(is_show=True),
-                )
-            )
-
-        )
+        line1 = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
 
         scatter = (
             Line()
                 .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                 .add_yaxis(
-                series_name="filling",
-                y_axis=pd_data['filling'].tolist(),
-                # symbol_size=5,
+                series_name="filling" + " " + col[0],
+                y_axis=pd_data['filling' + " " + col[0]].tolist(),
                 is_connect_nones=False,
 
             )
                 .set_global_opts(
-                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-                                              feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(
-                                                      background_color='#eee'),
-                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(),
-                                              )),
                 tooltip_opts=opts.TooltipOpts(is_show=False),
-                datazoom_opts=opts.DataZoomOpts(),
                 yaxis_opts=opts.AxisOpts(
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
@@ -511,52 +428,64 @@ def query(request):
 
         )
         line1.overlap(scatter)
-
-        line2 = (
-            Line()
-                .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
-                .add_yaxis(
-                series_name=sensor,
-                y_axis=pd_data[sensor].tolist(),
-                is_connect_nones=False,
+        if len(col) == 2:
+            line1_1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name=col[1],
+                    y_axis=pd_data[col[1]].tolist(),
+                    is_connect_nones=False,
+                )
             )
-                .set_global_opts(
-                toolbox_opts=opts.ToolboxOpts(is_show=True, orient='vertical', pos_left='right',
-                                              feature=opts.ToolBoxFeatureOpts(
-                                                  save_as_image=opts.ToolBoxFeatureSaveAsImageOpts(title="Save as Image"
-                                                                                                   ,
-                                                                                                   background_color='#eee'),
-                                                  restore=opts.ToolBoxFeatureRestoreOpts(),
-                                                  data_view=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-                                                  data_zoom=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-                                                  magic_type=opts.ToolBoxFeatureDataViewOpts(is_show=False),
-                                                  brush=opts.ToolBoxFeatureDataZoomOpts(is_show=False),
-                                              )),
-                tooltip_opts=opts.TooltipOpts(is_show=False),
-                datazoom_opts=opts.DataZoomOpts(),
-                xaxis_opts=opts.AxisOpts(
-                    name='Timestamp',
-                    # name_location='middle',
-                    # name_gap=20,
-                    # name_textstyle_opts=opts.TextStyleOpts(
-                    #     font_family='Times New Roman',
-                    #     font_size=14,
-                    # ),
-                ),
-                yaxis_opts=opts.AxisOpts(
+            scatter1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name="filling" + " " + col[1],
+                    y_axis=pd_data['filling' + " " + col[1]].tolist(),
+                    is_connect_nones=False,
+
+                )
+                    .set_global_opts(
+                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    yaxis_opts=opts.AxisOpts(
+                        splitline_opts=opts.SplitLineOpts(is_show=True),
+                    )
+                )
+
+            )
+            line1_1.overlap(scatter1)
+            line1.overlap(line1_1)
+            line1.extend_axis(
+                yaxis=opts.AxisOpts(
+                    name=col[1],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
 
-        )
+        line2 = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
+        if len(col) == 2:
+            line2_1 = draw_line(pd_data['timestamp'], pd_data[col[1]], col[1])
+            line2.overlap(line2_1)
+            line2.extend_axis(
+                yaxis=opts.AxisOpts(
+                    name=col[1],
+                    splitline_opts=opts.SplitLineOpts(is_show=True),
+                )
+            )
+
         bar_total_trend = json.loads(line.dump_options())
         bar_total_trend1 = json.loads(line1.dump_options())
         bar_total_trend2 = json.loads(line2.dump_options())
 
-        export1 = pd_data
-        export2 = pd_data
+        # export1 = pd_data
+        # export2 = pd_data
 
-        csv = pd_data
+        if len(col) == 1:
+            csv = pd_data[[sensor, 'timestamp']]
+        if len(col) == 2:
+            csv = pd_data[[col[0], col[1], 'timestamp']]
 
         context = {
             'data': table,

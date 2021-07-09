@@ -1044,3 +1044,5 @@ INFO 2021-07-09 09:22:40,919 autoreload 240 /home/kejunxi/PycharmProjects/outlie
 INFO 2021-07-09 09:22:42,410 autoreload 617 Watching for file changes with StatReloader
 INFO 2021-07-09 09:34:54,923 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
 INFO 2021-07-09 09:34:55,979 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 09:42:48,400 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-09 09:42:49,773 autoreload 617 Watching for file changes with StatReloader

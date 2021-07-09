@@ -565,3 +565,482 @@ INFO 2021-07-07 10:12:37,609 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
 INFO 2021-07-07 10:12:52,738 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 699998
 INFO 2021-07-07 10:19:08,020 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3036278
 INFO 2021-07-07 10:19:23,413 basehttp 157 "GET / HTTP/1.1" 200 22438
+INFO 2021-07-07 11:00:53,336 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 11:01:10,911 basehttp 157 "GET / HTTP/1.1" 200 22438
+INFO 2021-07-07 11:01:11,901 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-07 11:01:13,989 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 11:01:23,011 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 11:06:27,126 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 11:06:33,508 basehttp 157 "GET / HTTP/1.1" 200 22438
+INFO 2021-07-07 11:06:42,379 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 11:11:02,259 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 11:11:07,214 basehttp 157 "GET / HTTP/1.1" 200 22438
+INFO 2021-07-07 11:11:16,622 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 11:11:29,712 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700018
+INFO 2021-07-07 14:53:28,486 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 14:53:34,538 basehttp 157 "GET / HTTP/1.1" 200 22438
+WARNING 2021-07-07 14:53:37,250 log 230 Not Found: /favicon.ico
+WARNING 2021-07-07 14:53:37,251 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-07 15:16:34,421 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:16:48,954 basehttp 157 "GET / HTTP/1.1" 200 22569
+ERROR 2021-07-07 15:16:59,881 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'dim'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 74, in upload
+    print(request.FILES["dim"])
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'dim'
+ERROR 2021-07-07 15:16:59,882 basehttp 157 "POST /upload/ HTTP/1.1" 500 77371
+ERROR 2021-07-07 15:17:12,025 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'dim'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 74, in upload
+    print(request.FILES["dim"])
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'dim'
+ERROR 2021-07-07 15:17:12,027 basehttp 157 "POST /upload/ HTTP/1.1" 500 77371
+INFO 2021-07-07 15:19:44,279 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:19:47,859 basehttp 157 "GET / HTTP/1.1" 200 22569
+INFO 2021-07-07 15:20:03,007 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 15:20:44,987 basehttp 157 "GET / HTTP/1.1" 200 22569
+INFO 2021-07-07 15:20:57,060 basehttp 157 "POST /upload/ HTTP/1.1" 200 527517
+INFO 2021-07-07 15:24:33,859 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:24:38,952 basehttp 157 "GET / HTTP/1.1" 200 22588
+INFO 2021-07-07 15:24:50,419 basehttp 157 "POST /upload/ HTTP/1.1" 200 527517
+INFO 2021-07-07 15:38:43,529 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:38:46,850 basehttp 157 "GET / HTTP/1.1" 200 22624
+INFO 2021-07-07 15:39:29,780 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 15:40:33,153 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:40:36,308 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 15:40:44,156 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 15:44:10,786 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:44:15,522 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 15:44:26,555 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 15:45:03,977 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:45:06,916 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 15:45:17,088 basehttp 157 "POST /upload/ HTTP/1.1" 200 527517
+INFO 2021-07-07 15:46:58,706 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 15:47:01,648 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 15:47:17,964 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 16:11:35,674 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-07 16:11:37,252 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:14:30,310 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:14:37,971 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:15:19,987 basehttp 157 "POST /upload/ HTTP/1.1" 200 1569078
+INFO 2021-07-07 16:20:55,951 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-07 16:20:57,890 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:22:42,705 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:22:45,794 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:22:56,282 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734686
+INFO 2021-07-07 16:23:54,092 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:24:37,160 basehttp 157 "POST /upload/ HTTP/1.1" 200 21544606
+INFO 2021-07-07 16:28:46,265 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-07 16:28:48,301 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:29:38,294 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-07 16:29:39,354 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:30:49,970 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:30:53,861 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:31:12,323 basehttp 157 "POST /upload/ HTTP/1.1" 200 1735003
+INFO 2021-07-07 16:38:29,873 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-07 16:38:31,338 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:38:53,037 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:39:00,011 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:39:13,096 basehttp 157 "POST /upload/ HTTP/1.1" 200 1991281
+INFO 2021-07-07 16:43:09,637 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:43:29,802 basehttp 157 "POST /upload/ HTTP/1.1" 200 1991281
+INFO 2021-07-07 16:49:15,380 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:49:55,340 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:50:07,799 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:50:18,363 basehttp 157 "POST /upload/ HTTP/1.1" 200 797332
+INFO 2021-07-07 16:51:00,353 basehttp 157 "POST /upload/ HTTP/1.1" 200 1991264
+INFO 2021-07-07 16:52:02,816 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-07 16:52:04,046 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:52:57,690 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 16:53:02,013 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:53:16,749 basehttp 157 "POST /upload/ HTTP/1.1" 200 2163448
+INFO 2021-07-07 16:56:39,277 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 16:57:45,953 basehttp 157 "POST /upload/ HTTP/1.1" 200 26976746
+INFO 2021-07-07 17:05:01,828 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-07 17:07:20,157 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 17:07:57,686 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-07 17:08:06,292 basehttp 157 "GET / HTTP/1.1" 200 22648
+INFO 2021-07-07 17:08:42,886 basehttp 157 "POST /upload/ HTTP/1.1" 200 22782397
+INFO 2021-07-09 05:50:13,734 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 05:51:23,490 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 05:51:43,478 basehttp 157 "GET / HTTP/1.1" 200 22648
+WARNING 2021-07-09 05:51:45,178 log 230 Not Found: /favicon.ico
+WARNING 2021-07-09 05:51:45,179 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-09 05:53:25,437 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 05:54:07,754 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 05:54:51,989 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560998
+ERROR 2021-07-09 05:56:33,941 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 210, in query
+    pd_data = lstm_detection(csv, contamination=0.05)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 126, in lstm_detection
+    model = load_model('KLT12_flowRate1_model2.h5', compile=False)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/saving/save.py", line 202, in load_model
+    compile)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/saving/hdf5_format.py", line 181, in load_model_from_hdf5
+    custom_objects=custom_objects)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/saving/model_config.py", line 59, in model_from_config
+    return deserialize(config, custom_objects=custom_objects)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/serialization.py", line 163, in deserialize
+    printable_module_name='layer')
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/utils/generic_utils.py", line 672, in deserialize_keras_object
+    list(custom_objects.items())))
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/sequential.py", line 499, in from_config
+    model.add(layer)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/training/tracking/base.py", line 522, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/sequential.py", line 228, in add
+    output_tensor = layer(self.outputs[0])
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 668, in __call__
+    return super(RNN, self).__call__(inputs, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 970, in __call__
+    input_list)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 1108, in _functional_construction_call
+    inputs, input_masks, args, kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 840, in _keras_tensor_symbolic_call
+    return self._infer_output_signature(inputs, args, kwargs, input_masks)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 880, in _infer_output_signature
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent_v2.py", line 1153, in call
+    inputs, initial_state, _ = self._process_inputs(inputs, initial_state, None)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 868, in _process_inputs
+    initial_state = self.get_initial_state(inputs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 651, in get_initial_state
+    inputs=None, batch_size=batch_size, dtype=dtype)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 2517, in get_initial_state
+    self, inputs, batch_size, dtype))
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 2998, in _generate_zero_filled_state_for_cell
+    return _generate_zero_filled_state(batch_size, cell.state_size, dtype)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 3014, in _generate_zero_filled_state
+    return nest.map_structure(create_zeros, state_size)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/util/nest.py", line 867, in map_structure
+    structure[0], [func(*x) for x in entries],
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/util/nest.py", line 867, in <listcomp>
+    structure[0], [func(*x) for x in entries],
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 3011, in create_zeros
+    return array_ops.zeros(init_state_size, dtype=dtype)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/util/dispatch.py", line 206, in wrapper
+    return target(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 2911, in wrapped
+    tensor = fun(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 2960, in zeros
+    output = _constant_if_small(zero, shape, dtype, name)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 2896, in _constant_if_small
+    if np.prod(shape) < 1000:
+  File "<__array_function__ internals>", line 6, in prod
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 3052, in prod
+    keepdims=keepdims, initial=initial, where=where)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 86, in _wrapreduction
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 870, in __array__
+    " a NumPy call, which is not supported".format(self.name))
+NotImplementedError: Cannot convert a symbolic Tensor (lstm/strided_slice:0) to a numpy array. This error may indicate that you're trying to pass a Tensor to a NumPy call, which is not supported
+ERROR 2021-07-09 05:56:33,955 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 500 274863
+INFO 2021-07-09 06:02:00,860 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:02:05,817 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:02:17,671 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+ERROR 2021-07-09 06:02:30,256 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 210, in query
+    pd_data = lstm_detection(csv, contamination=0.05)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 126, in lstm_detection
+    model = load_model('KLT12_flowRate1_model2.h5', compile=False)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/saving/save.py", line 202, in load_model
+    compile)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/saving/hdf5_format.py", line 181, in load_model_from_hdf5
+    custom_objects=custom_objects)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/saving/model_config.py", line 59, in model_from_config
+    return deserialize(config, custom_objects=custom_objects)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/serialization.py", line 163, in deserialize
+    printable_module_name='layer')
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/utils/generic_utils.py", line 672, in deserialize_keras_object
+    list(custom_objects.items())))
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/sequential.py", line 499, in from_config
+    model.add(layer)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/training/tracking/base.py", line 522, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/sequential.py", line 228, in add
+    output_tensor = layer(self.outputs[0])
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 668, in __call__
+    return super(RNN, self).__call__(inputs, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 970, in __call__
+    input_list)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 1108, in _functional_construction_call
+    inputs, input_masks, args, kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 840, in _keras_tensor_symbolic_call
+    return self._infer_output_signature(inputs, args, kwargs, input_masks)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 880, in _infer_output_signature
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent_v2.py", line 1153, in call
+    inputs, initial_state, _ = self._process_inputs(inputs, initial_state, None)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 868, in _process_inputs
+    initial_state = self.get_initial_state(inputs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 651, in get_initial_state
+    inputs=None, batch_size=batch_size, dtype=dtype)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 2517, in get_initial_state
+    self, inputs, batch_size, dtype))
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 2998, in _generate_zero_filled_state_for_cell
+    return _generate_zero_filled_state(batch_size, cell.state_size, dtype)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 3014, in _generate_zero_filled_state
+    return nest.map_structure(create_zeros, state_size)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/util/nest.py", line 867, in map_structure
+    structure[0], [func(*x) for x in entries],
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/util/nest.py", line 867, in <listcomp>
+    structure[0], [func(*x) for x in entries],
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/layers/recurrent.py", line 3011, in create_zeros
+    return array_ops.zeros(init_state_size, dtype=dtype)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/util/dispatch.py", line 206, in wrapper
+    return target(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 2911, in wrapped
+    tensor = fun(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 2960, in zeros
+    output = _constant_if_small(zero, shape, dtype, name)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 2896, in _constant_if_small
+    if np.prod(shape) < 1000:
+  File "<__array_function__ internals>", line 6, in prod
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 3052, in prod
+    keepdims=keepdims, initial=initial, where=where)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 86, in _wrapreduction
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 870, in __array__
+    " a NumPy call, which is not supported".format(self.name))
+NotImplementedError: Cannot convert a symbolic Tensor (lstm/strided_slice:0) to a numpy array. This error may indicate that you're trying to pass a Tensor to a NumPy call, which is not supported
+ERROR 2021-07-09 06:02:30,269 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 500 274834
+INFO 2021-07-09 06:05:57,920 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/numpy/lib/type_check.py changed, reloading.
+INFO 2021-07-09 06:05:58,998 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:06:37,244 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:06:51,664 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:07:28,940 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:08:37,437 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/numpy/__config__.py changed, reloading.
+INFO 2021-07-09 06:08:38,093 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:14:43,624 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py changed, reloading.
+INFO 2021-07-09 06:14:44,658 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:16:26,565 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:19:57,708 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:21:51,077 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:22:49,571 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:23:41,180 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:24:56,623 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/__init__.py changed, reloading.
+INFO 2021-07-09 06:24:57,965 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:25:22,242 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:25:30,897 basehttp 157 "GET / HTTP/1.1" 200 22711
+ERROR 2021-07-09 06:25:46,995 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 77, in upload
+    csv = pd.read_excel(file)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_base.py", line 364, in read_excel
+    io = ExcelFile(io, storage_options=storage_options, engine=engine)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_base.py", line 1233, in __init__
+    self._reader = self._engines[engine](self._io, storage_options=storage_options)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/io/excel/_openpyxl.py", line 521, in __init__
+    import_optional_dependency("openpyxl")
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/compat/_optional.py", line 118, in import_optional_dependency
+    raise ImportError(msg) from None
+ImportError: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+ERROR 2021-07-09 06:25:46,996 basehttp 157 "POST /upload/ HTTP/1.1" 500 111090
+INFO 2021-07-09 06:26:23,839 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:26:32,399 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:26:48,809 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+INFO 2021-07-09 06:28:16,395 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 1731887
+ERROR 2021-07-09 06:28:39,784 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 428, in query
+    pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 87, in gap_filling
+    df = df.interpolate(method='linear').ffill().bfill()
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/frame.py", line 10717, in interpolate
+    **kwargs,
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/generic.py", line 6899, in interpolate
+    **kwargs,
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 377, in interpolate
+    return self.apply("interpolate", **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 327, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/internals/blocks.py", line 1370, in interpolate
+    new_values = values.fillna(value=fill_value, method=method, limit=limit)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/arrays/_mixins.py", line 219, in fillna
+    value, method, validate_scalar_dict_value=False
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/util/_validators.py", line 372, in validate_fillna_kwargs
+    method = clean_fill_method(method)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/missing.py", line 120, in clean_fill_method
+    raise ValueError(f"Invalid fill method. Expecting {expecting}. Got {method}")
+ValueError: Invalid fill method. Expecting pad (ffill) or backfill (bfill). Got linear
+ERROR 2021-07-09 06:28:39,798 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 500 142452
+INFO 2021-07-09 06:35:08,980 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:35:15,470 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:35:26,103 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+INFO 2021-07-09 06:35:40,376 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 1744064
+ERROR 2021-07-09 06:35:46,144 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 428, in query
+    pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 87, in gap_filling
+    df = df.interpolate(method='linear')
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/frame.py", line 10717, in interpolate
+    **kwargs,
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/generic.py", line 6899, in interpolate
+    **kwargs,
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 377, in interpolate
+    return self.apply("interpolate", **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 327, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/internals/blocks.py", line 1370, in interpolate
+    new_values = values.fillna(value=fill_value, method=method, limit=limit)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/arrays/_mixins.py", line 219, in fillna
+    value, method, validate_scalar_dict_value=False
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/util/_validators.py", line 372, in validate_fillna_kwargs
+    method = clean_fill_method(method)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/core/missing.py", line 120, in clean_fill_method
+    raise ValueError(f"Invalid fill method. Expecting {expecting}. Got {method}")
+ValueError: Invalid fill method. Expecting pad (ffill) or backfill (bfill). Got linear
+ERROR 2021-07-09 06:35:46,160 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 500 142420
+INFO 2021-07-09 06:36:26,170 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pandas/compat/chainmap.py changed, reloading.
+INFO 2021-07-09 06:36:31,314 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:37:45,888 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:38:01,517 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:38:13,061 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+INFO 2021-07-09 06:38:50,852 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4201598
+INFO 2021-07-09 06:39:05,616 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 06:39:07,827 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:39:19,198 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:39:26,426 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:39:40,342 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+INFO 2021-07-09 06:40:06,747 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 1744064
+INFO 2021-07-09 06:40:33,196 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4148640
+INFO 2021-07-09 06:40:50,096 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:41:25,438 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560998
+INFO 2021-07-09 06:45:26,110 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:45:52,910 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:45:58,364 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:46:16,022 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+INFO 2021-07-09 06:47:26,489 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 1731887
+INFO 2021-07-09 06:48:28,276 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4145446
+INFO 2021-07-09 06:48:55,624 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 4889007
+INFO 2021-07-09 06:51:00,066 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 06:51:22,966 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560998
+INFO 2021-07-09 06:53:25,774 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 06:53:52,192 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 07:32:25,116 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 07:32:29,427 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:33:23,542 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 07:33:25,871 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:34:31,159 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 07:34:38,371 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:35:07,970 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 07:35:13,198 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:37:03,041 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 07:37:07,733 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:37:15,789 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:37:33,022 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 07:37:51,856 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+INFO 2021-07-09 07:39:46,629 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 1731887
+INFO 2021-07-09 07:42:32,519 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:42:40,243 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 07:42:51,805 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-09 07:44:14,338 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 689676
+INFO 2021-07-09 07:47:32,936 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 07:48:58,859 basehttp 157 "POST /upload/ HTTP/1.1" 200 18872466
+INFO 2021-07-09 07:53:26,971 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 07:53:34,734 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 07:53:54,183 basehttp 157 "POST /upload/ HTTP/1.1" 200 526342
+INFO 2021-07-09 07:54:36,765 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 689676
+INFO 2021-07-09 07:55:26,563 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2966104
+INFO 2021-07-09 07:57:22,925 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 3556021
+INFO 2021-07-09 07:58:24,827 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3340350
+INFO 2021-07-09 08:01:44,962 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 3548659
+INFO 2021-07-09 08:06:52,124 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 08:06:54,023 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:07:10,307 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:07:17,023 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 08:07:29,260 basehttp 157 "POST /upload/ HTTP/1.1" 200 527517
+INFO 2021-07-09 08:09:04,144 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 692569
+INFO 2021-07-09 08:11:11,637 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321161
+INFO 2021-07-09 08:11:49,036 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 1731887
+INFO 2021-07-09 08:13:03,509 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 08:13:04,753 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:13:25,778 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 08:13:26,854 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:13:52,118 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 08:13:53,154 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:25:38,460 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 08:25:40,710 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:29:35,851 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-09 08:29:40,909 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:30:30,656 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-09 08:30:33,533 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:32:01,465 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-09 08:32:02,715 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:32:13,824 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:33:22,434 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:33:37,223 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 08:33:55,467 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321165
+INFO 2021-07-09 08:35:22,314 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 1731887
+INFO 2021-07-09 08:36:19,316 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:36:29,566 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 08:36:43,222 basehttp 157 "POST /upload/ HTTP/1.1" 200 526349
+INFO 2021-07-09 08:37:53,749 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 689676
+INFO 2021-07-09 08:37:54,464 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-09 08:37:56,690 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 08:38:41,300 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 08:38:51,699 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-09 08:38:58,005 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-09 08:39:16,534 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 08:39:17,744 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 09:12:14,100 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-09 09:12:15,891 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 09:22:40,919 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-09 09:22:42,410 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-09 09:34:54,923 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-09 09:34:55,979 autoreload 617 Watching for file changes with StatReloader

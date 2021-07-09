@@ -35,7 +35,11 @@
                         $("#data_graph").hide();
                         var form_data = new FormData();
                         var file_info = $('#file')[0].files[0];
+                        var dim_select = $("#DIM_select").val();
                         var Val = $('#file').val();
+                        if (dim_select != '') {
+                            form_data.append('dim_select', dim_select);
+                        }
                         if (Val != '') {
                             form_data.append('myFile', file_info);
                             form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
@@ -69,7 +73,7 @@
                                 chart_gap_filling_bar_total_trend2.clear();
 
                                 $("#ALGO_select option[value='Default']").remove();
-                                $("#ALGO_select").append('<option value=' + "Default" + ' selected'  + '>' + ret['default_algo'] + '</option>');
+                                $("#ALGO_select").append('<option value=' + "Default" + ' selected' + '>' + ret['default_algo'] + '</option>');
 
                                 $("#result_table").html(ret['data']);
                                 $(document).ready(function () {
@@ -120,6 +124,7 @@
                         <select name="algo_select" id="ALGO_select" class="ui fluid search dropdown">
                             <option value="Forest">Isolation Forest</option>
                             <option value="Default" selected>Default</option>
+                            <option value="Lstm">LSTM</option>
                             <option value="Hbos">HBOS</option>
                             <option value="Cblof">CBLOF</option>
                             <option value="Pca">PCA</option>

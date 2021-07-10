@@ -109,8 +109,8 @@ def gap_filling(df, filling_select):
         df[sen1] = np.nan
         df[sen2] = np.nan
         for index in filling_data.index.tolist():
-            df.loc[index, sen1] = df.loc[index, col[0]]
-            df.loc[index, sen2] = df.loc[index, col[1]]
+            df.at[index, sen1] = df.at[index, col[0]]
+            df.at[index, sen2] = df.at[index, col[1]]
 
     return df
 
@@ -133,6 +133,8 @@ train_model = {"KLT12_flowRate1 (l/min)": 'KLT12_flowRate1_model2.h5',
                "KLT11_pumpSpeed_p1 (Hz)": 'KLT11_pumpSpeed_p1_model2.h5',
                "KLT11_Fan1Speed_HZ (Hz)": 'KLT11_Fan1Speed_model2.h5',
                "KLT13_inletTempBeforeHydraulicGate (°C)": 'KLT13_inletTempBeforeHydraulicGate_model2.h5',
+               "KLT14_pumpSpeed_p1": 'multi_KLT14pumpSpeed_model1.h5',
+               "KLT14_Fan1Speed_HZ": 'multi_KLT14_FanSpeed_model2.h5',
                }
 
 
@@ -188,4 +190,63 @@ def lstm_detection(df, contamination=0.05):
         test_score_df.loc[index, new_df.columns.values] = np.nan
 
     test_score_df = test_score_df[[sensor, 'original', 'anomaly', 'timestamp']]
+    return test_score_df
+
+
+def multi_lstm_detection(df, contamination=0.05):
+    df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
+    df = df.sort_values('timestamp')
+
+    col = df.columns.values.tolist()
+    col.remove('timestamp')
+    sensor = col[0]
+
+    new_df = df[col].copy()
+
+    model = load_model(train_model[sensor], compile=False)
+
+    df_test = df
+
+    test = df_test[[col[0], col[1]]]
+    test = test.astype('float32')
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    scaler = scaler.fit(test[[sensor]])
+    test[sensor] = scaler.transform(test[[sensor]])
+    scaler = scaler.fit(test[[col[1]]])
+    test[col[1]] = scaler.transform(test[[col[1]]])
+
+    testX, testY = create_sequences(test[[col[0], col[1]]], test.values)
+
+    predict = model.predict_on_batch(testX)
+
+    test_mae_loss = np.mean(predict, axis=1)
+
+    original_test = pd.DataFrame(test[col[1]][30:])
+    original_test = original_test.values
+
+    test_mae_loss = test_mae_loss[:, 1].reshape(len(testX), 1)
+    test_mae_loss = np.abs(test_mae_loss - original_test)
+
+    number_of_outliers = int(len(df) * contamination)
+    data = np.array(test_mae_loss).reshape(len(test_mae_loss), 1)
+    data_list = map(lambda x: x[0], data)
+    test_mae_loss_df = pd.Series(data_list)
+
+    threshold = test_mae_loss_df.nlargest(number_of_outliers).min()
+
+    test_score_df = pd.DataFrame(df_test[TIME_STEPS:])
+
+    test_score_df = test_score_df.reset_index()
+    test_score_df = test_score_df[['timestamp', sensor, col[1]]]
+    test_score_df['anomaly'] = (test_mae_loss_df >= threshold).astype(int)
+
+    test_score_df['original' + " " + col[0]] = test_score_df[col[0]]
+    test_score_df['original' + " " + col[1]] = test_score_df[col[1]]
+
+    outlier_data = test_score_df.loc[test_score_df['anomaly'] == 1]
+    for index in outlier_data.index.tolist():
+        test_score_df.loc[index, new_df.columns.values] = np.nan
+
+    test_score_df = test_score_df[
+        [col[0], col[1], 'original' + " " + col[0], 'original' + " " + col[1], 'anomaly', 'timestamp']]
     return test_score_df

@@ -78,6 +78,7 @@ def upload(request):
                    "KLT13_inletTempBeforeHydraulicGate (°C)": 'Default(LSTM)',
                    "KLT14_pumpSpeed_p1": 'Default(HBOS)',
                    "wetBulb": 'Default(LSTM)',
+                   "KLT14_Fan1Speed_HZ": 'Default(IForest)',
                    }
 
         file = request.FILES["myFile"]
@@ -192,6 +193,9 @@ def query(request):
                "KLT11_pumpSpeed_p1 (Hz)": 'Default(LSTM)',
                "KLT11_Fan1Speed_HZ (Hz)": 'Default(LSTM)',
                "KLT13_inletTempBeforeHydraulicGate (°C)": 'Default(LSTM)',
+               "KLT14_pumpSpeed_p1": 'Default(HBOS)',
+               "wetBulb": 'Default(LSTM)',
+               "KLT14_Fan1Speed_HZ": 'Default(IForest)',
                }
 
     if 'ALGO_select' in form_dict:
@@ -245,11 +249,17 @@ def query(request):
         if len(col) == 2:
             csv = csv[[col[0], col[1], 'timestamp']]
             if form_dict['ALGO_select'][0] == 'Lstm':
-                pd_data = lstm_detection(csv, contamination=0.05)
+                pd_data = multi_lstm_detection(csv, contamination=0.05)
             elif form_dict['ALGO_select'][0] in algo:
                 pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
             else:
-                pd_data = lstm_detection(csv, contamination=0.05)
+                if default[sensor] == 'Default(LSTM)':
+                    pd_data = multi_lstm_detection(csv, contamination=0.05)
+                else:
+                    if sensor == "KLT14_pumpSpeed_p1":
+                        pd_data = forest_detection(csv, 'Hbos', contamination=0.05)
+                    if sensor == "KLT14_Fan1Speed_HZ":
+                        pd_data = forest_detection(csv, 'Forest', contamination=0.05)
                 print(default[sensor])
             table = pd_data.to_html(
                 classes='ui selectable celled table',

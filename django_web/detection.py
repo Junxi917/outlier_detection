@@ -20,9 +20,7 @@ from tensorflow import keras
 def forest_detection(df, algo_select, contamination=0.05):
     algo = {"Hbos": HBOS(contamination=contamination),
             "Forest": IForest(contamination=contamination),
-            "Cblof": CBLOF(contamination=contamination),
-            # "OCSVM": OCSVM(contamination=contamination),
-            "Pca": PCA(contamination=contamination)}
+            "Cblof": CBLOF(contamination=contamination),}
     model = algo[algo_select]
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
     df = df.sort_values('timestamp')

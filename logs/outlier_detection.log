@@ -1565,3 +1565,17 @@ ERROR 2021-07-10 09:29:50,791 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1
 INFO 2021-07-10 09:30:35,448 basehttp 157 "GET / HTTP/1.1" 200 22711
 INFO 2021-07-10 09:33:46,874 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
 INFO 2021-07-10 09:33:47,844 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-10 09:34:38,113 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-10 09:34:42,196 basehttp 157 "GET / HTTP/1.1" 200 22711
+INFO 2021-07-10 09:34:58,183 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734990
+INFO 2021-07-10 09:35:17,338 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 6366000
+INFO 2021-07-10 09:35:47,458 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 7404684
+INFO 2021-07-10 09:36:17,771 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 7027309
+INFO 2021-07-10 09:38:34,848 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 7388508
+INFO 2021-07-11 11:25:31,947 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-11 11:25:42,849 basehttp 157 "GET / HTTP/1.1" 200 22628
+WARNING 2021-07-11 11:25:46,613 log 230 Not Found: /favicon.ico
+WARNING 2021-07-11 11:25:46,614 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-11 11:27:54,615 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-11 11:28:09,415 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 700281
+INFO 2021-07-11 11:28:18,854 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2958078

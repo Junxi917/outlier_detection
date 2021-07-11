@@ -185,7 +185,7 @@ def query(request):
 
     csv['timestamp'] = pd.to_datetime(csv['timestamp'])
 
-    algo = ['Forest', 'Hbos', 'Cblof', 'Pca']
+    algo = ['Forest', 'Hbos', 'Cblof']
 
     default = {"KLT12_flowRate1 (l/min)": 'Default(LSTM)',
                "IT Power Consumption (W)": 'Default(LSTM)',

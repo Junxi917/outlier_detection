@@ -21,4 +21,8 @@ There are three files for testing.(test_pumpSpeed.xlsx, test_Temperature.xlsx an
 * Firstly user upload the data set and then click the button submit. 
 * User can choose anomaly detection or gap filling.
 ## Note
-Currently this system can only run univariate data, and the function of univariate data will be added later.
+Currently this system can run univariate data and multivariate data, but for univariate data, it can only accept sensor type: "KLT12_flowRate1 (l/min)", "IT Power Consumption (W)", "Outside Temperature (°C)",
+               "KLT11_pumpSpeed_p1 (Hz)",
+               "KLT11_Fan1Speed_HZ (Hz)",
+               "KLT13_inletTempBeforeHydraulicGate (°C)", 
+for the multivariate data, it can accept: "KLT14_pumpSpeed_p1" and "KLT14_pumpSpeed_p2", "KLT14_Fan1Speed_HZ" and  "KLT14_Fan2Speed_HZ".

@@ -1601,3 +1601,78 @@ INFO 2021-07-12 19:59:42,600 basehttp 157 "GET /query?Gap_filling=Interpolate HT
 INFO 2021-07-12 20:15:35,263 autoreload 617 Watching for file changes with StatReloader
 INFO 2021-07-12 20:15:45,451 basehttp 157 "GET / HTTP/1.1" 200 22628
 INFO 2021-07-12 20:16:16,219 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734990
+INFO 2021-07-13 17:54:52,982 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-13 17:55:05,047 basehttp 157 "GET / HTTP/1.1" 200 22852
+WARNING 2021-07-13 17:55:08,486 log 230 Not Found: /favicon.ico
+WARNING 2021-07-13 17:55:08,497 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+WARNING 2021-07-13 17:55:22,077 log 230 Bad Request: /upload/
+WARNING 2021-07-13 17:55:22,082 basehttp 157 "POST /upload/ HTTP/1.1" 400 43
+INFO 2021-07-13 17:55:34,739 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321165
+INFO 2021-07-13 17:55:55,679 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 1744064
+INFO 2021-07-13 17:56:16,043 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4148736
+INFO 2021-07-13 17:58:03,317 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 4882508
+INFO 2021-07-13 17:59:00,071 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4567343
+INFO 2021-07-13 17:59:15,040 basehttp 157 "GET / HTTP/1.1" 200 22852
+INFO 2021-07-13 17:59:28,825 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734990
+INFO 2021-07-13 17:59:53,275 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648360
+INFO 2021-07-13 18:00:11,944 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 6366115
+INFO 2021-07-13 18:00:16,883 basehttp 157 "GET / HTTP/1.1" 200 22852
+INFO 2021-07-13 18:00:34,690 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734990
+INFO 2021-07-13 18:00:43,018 basehttp 157 "GET / HTTP/1.1" 200 22852
+INFO 2021-07-13 18:00:57,106 basehttp 157 "POST /upload/ HTTP/1.1" 200 1316170
+ERROR 2021-07-13 18:01:14,214 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 253, in query
+    pd_data = lstm_detection(csv, contamination=0.05)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 162, in lstm_detection
+    predict = model.predict_on_batch(testX)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/engine/training.py", line 1891, in predict_on_batch
+    outputs = self.predict_function(iterator)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 889, in __call__
+    result = self._call(*args, **kwds)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 933, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 764, in _initialize
+    *args, **kwds))
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 3050, in _get_concrete_function_internal_garbage_collected
+    graph_function, _ = self._maybe_define_function(args, kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 3444, in _maybe_define_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 3289, in _create_graph_function
+    capture_by_value=self._capture_by_value),
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/framework/func_graph.py", line 999, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 672, in wrapped_fn
+    out = weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/framework/func_graph.py", line 986, in wrapper
+    raise e.ag_error_metadata.to_exception(e)
+ValueError: in user code:
+
+    /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/engine/training.py:1544 predict_function  *
+        return step_function(self, iterator)
+    /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/engine/training.py:1527 run_step  *
+        outputs = model.predict_step(data)
+    /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/engine/training.py:1500 predict_step  *
+        return self(x, training=False)
+    /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/engine/base_layer.py:989 __call__  *
+        input_spec.assert_input_compatibility(self.input_spec, inputs, self.name)
+    /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/engine/input_spec.py:264 assert_input_compatibility  *
+        raise ValueError('Input ' + str(input_index) +
+
+    ValueError: Input 0 is incompatible with layer sequential: expected shape=(None, None, 2), found shape=(4970, 30, 1)
+
+ERROR 2021-07-13 18:01:14,223 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 500 402330
+INFO 2021-07-13 18:02:26,003 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 1742198
+INFO 2021-07-13 20:37:22,963 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-13 20:37:30,928 basehttp 157 "GET / HTTP/1.1" 200 22726
+WARNING 2021-07-13 20:37:32,805 log 230 Not Found: /favicon.ico
+WARNING 2021-07-13 20:37:32,807 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-13 20:37:45,248 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-13 20:37:51,952 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700019
+INFO 2021-07-13 20:38:01,523 basehttp 157 "GET /query?Gap_filling=Median HTTP/1.1" 200 2751109
+INFO 2021-07-13 20:38:32,386 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 3359799
+INFO 2021-07-13 20:38:47,150 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3160087

@@ -79,7 +79,13 @@ def upload(request):
                    "KLT14_pumpSpeed_p1": 'Default(HBOS)',
                    "wetBulb": 'Default(LSTM)',
                    "KLT14_Fan1Speed_HZ": 'Default(IForest)',
+                   "P_WW": 'Default(HBOS)',
                    }
+
+        default_sensor = ["KLT12_flowRate1 (l/min)", 'IT Power Consumption (W)', 'Outside Temperature (°C)',
+                          'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',
+                          'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', 'wetBulb',
+                          'KLT14_Fan1Speed_HZ', 'P_WW']
 
         file = request.FILES["myFile"]
         form_dict = dict(six.iterlists(request.POST))
@@ -94,9 +100,13 @@ def upload(request):
         col.remove('timestamp')
         sensor = col[0]
         csv['timestamp'] = pd.to_datetime(csv['timestamp'])
-        print (col)
+        print(col)
+
+        if sensor not in default_sensor:
+            return False
 
         if form_dict['dim_select'][0] == 'Multi':
+
             line = draw_line(csv['timestamp'], csv[col[0]], col[0])
 
             line1 = (
@@ -109,6 +119,7 @@ def upload(request):
                     is_connect_nones=False,
                 )
             )
+            csv = csv[[sensor, col[1], 'timestamp']]
             if len(col) == 2:
                 line.overlap(line1)
                 line.extend_axis(
@@ -117,6 +128,7 @@ def upload(request):
                         splitline_opts=opts.SplitLineOpts(is_show=True),
                     )
                 )
+
             if len(col) == 3:
                 line2 = (
                     Line()
@@ -135,9 +147,11 @@ def upload(request):
                         splitline_opts=opts.SplitLineOpts(is_show=True),
                     )
                 )
+                csv = csv[[sensor, col[1], col[2], 'timestamp']]
 
         else:
             line = draw_line(csv['timestamp'], csv[sensor], sensor)
+            csv = csv[[sensor, 'timestamp']]
 
         bar_total_trend = json.loads(line.dump_options())
 
@@ -185,7 +199,7 @@ def query(request):
 
     csv['timestamp'] = pd.to_datetime(csv['timestamp'])
 
-    algo = ['Forest', 'Hbos', 'Cblof']
+    algo = ['Forest', 'Hbos', 'Cblof', 'Pca']
 
     default = {"KLT12_flowRate1 (l/min)": 'Default(LSTM)',
                "IT Power Consumption (W)": 'Default(LSTM)',
@@ -206,8 +220,11 @@ def query(request):
             elif form_dict['ALGO_select'][0] in algo:
                 pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
             else:
-                pd_data = lstm_detection(csv, contamination=0.05)
-                print(default[sensor])
+                if sensor == "P_WW":
+                    pd_data = forest_detection(csv, 'Hbos', contamination=0.05)
+                else:
+                    pd_data = lstm_detection(csv, contamination=0.05)
+                    print(default[sensor])
             table = pd_data.to_html(
                 classes='ui selectable celled table',
                 table_id='data1'
@@ -256,7 +273,7 @@ def query(request):
                 if default[sensor] == 'Default(LSTM)':
                     pd_data = multi_lstm_detection(csv, contamination=0.05)
                 else:
-                    if sensor == "KLT14_pumpSpeed_p1":
+                    if sensor == "KLT14_pumpSpeed_p1" or "P_WW":
                         pd_data = forest_detection(csv, 'Hbos', contamination=0.05)
                     if sensor == "KLT14_Fan1Speed_HZ":
                         pd_data = forest_detection(csv, 'Forest', contamination=0.05)
@@ -389,7 +406,7 @@ def query(request):
         }
 
     if 'Gap_filling' in form_dict:
-        print (len(col))
+        print(len(col))
 
         line = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
         if len(col) == 2:

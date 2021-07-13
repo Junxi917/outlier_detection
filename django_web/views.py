@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
 import pandas as pd
@@ -103,9 +104,22 @@ def upload(request):
         print(col)
 
         if sensor not in default_sensor:
-            return False
+            return JsonResponse({"error": "input data type not match! Unitvariate: 'KLT12_flowRate1 (l/min)', "
+                                          "'IT Power Consumption (W)', 'Outside Temperature (°C)',"
+                                          "'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',"
+                                          "'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', "
+                                          "'wetBulb', 'KLT14_Fan1Speed_HZ' "
+                                          "Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2',"
+                                          "'KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ' "},
+                                status=400)
 
         if form_dict['dim_select'][0] == 'Multi':
+            if len(col) == 1:
+                return JsonResponse({"error": "Input data is not multivariate"},
+                                    status=400)
+            if len(col) > 2:
+                return JsonResponse({"error": "only accept Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ'"},
+                                    status=400)
 
             line = draw_line(csv['timestamp'], csv[col[0]], col[0])
 
@@ -150,6 +164,9 @@ def upload(request):
                 csv = csv[[sensor, col[1], col[2], 'timestamp']]
 
         else:
+            # if len(col) > 1:
+            #     return JsonResponse({"error": "Input data is not unitvariate"},
+            #                         status=400)
             line = draw_line(csv['timestamp'], csv[sensor], sensor)
             csv = csv[[sensor, 'timestamp']]
 
@@ -199,7 +216,7 @@ def query(request):
 
     csv['timestamp'] = pd.to_datetime(csv['timestamp'])
 
-    algo = ['Forest', 'Hbos', 'Cblof', 'Pca']
+    algo = ['Forest', 'Hbos', 'Cblof']
 
     default = {"KLT12_flowRate1 (l/min)": 'Default(LSTM)',
                "IT Power Consumption (W)": 'Default(LSTM)',
@@ -211,11 +228,18 @@ def query(request):
                "wetBulb": 'Default(LSTM)',
                "KLT14_Fan1Speed_HZ": 'Default(IForest)',
                }
+    default_sensor = ["KLT12_flowRate1 (l/min)", 'IT Power Consumption (W)', 'Outside Temperature (°C)',
+                      'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',
+                      'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', 'wetBulb',
+                      'KLT14_Fan1Speed_HZ']
 
     if 'ALGO_select' in form_dict:
         if len(col) == 1:
             csv = csv[[sensor, 'timestamp']]
             if form_dict['ALGO_select'][0] == 'Lstm':
+                if sensor not in default_sensor:
+                    return JsonResponse({"error": "no match lstm model"},
+                                        status=400)
                 pd_data = lstm_detection(csv, contamination=0.05)
             elif form_dict['ALGO_select'][0] in algo:
                 pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
@@ -223,6 +247,9 @@ def query(request):
                 if sensor == "P_WW":
                     pd_data = forest_detection(csv, 'Hbos', contamination=0.05)
                 else:
+                    if sensor not in default_sensor:
+                        return JsonResponse({"error": "no match lstm model"},
+                                            status=400)
                     pd_data = lstm_detection(csv, contamination=0.05)
                     print(default[sensor])
             table = pd_data.to_html(
@@ -266,11 +293,17 @@ def query(request):
         if len(col) == 2:
             csv = csv[[col[0], col[1], 'timestamp']]
             if form_dict['ALGO_select'][0] == 'Lstm':
+                if sensor not in default_sensor:
+                    return JsonResponse({"error": "no match lstm model"},
+                                        status=400)
                 pd_data = multi_lstm_detection(csv, contamination=0.05)
             elif form_dict['ALGO_select'][0] in algo:
                 pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
             else:
                 if default[sensor] == 'Default(LSTM)':
+                    if sensor not in default_sensor:
+                        return JsonResponse({"error": "no match lstm model"},
+                                            status=400)
                     pd_data = multi_lstm_detection(csv, contamination=0.05)
                 else:
                     if sensor == "KLT14_pumpSpeed_p1" or "P_WW":

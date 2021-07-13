@@ -102,9 +102,10 @@
                                 $('#AJAX_get').attr("disabled", false);
                                 $('#Gap_filling').attr("disabled", false);
                             },
-                            error: function () {
+                            error: function (response) {
                                 console.log('fail')
-                                alert("input data type not match! Unitvariate: 'KLT12_flowRate1 (l/min)', 'IT Power Consumption (W)', 'Outside Temperature (°C)','KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)','KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', 'wetBulb', 'KLT14_Fan1Speed_HZ' Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ' ")
+                                alert(response["responseJSON"]["error"]);
+                                {#alert("input data type not match! Unitvariate: 'KLT12_flowRate1 (l/min)', 'IT Power Consumption (W)', 'Outside Temperature (°C)','KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)','KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', 'wetBulb', 'KLT14_Fan1Speed_HZ' Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ' ")#}
                                 dimmer.children('div').text('An error occurred');
 
                             }
@@ -129,7 +130,6 @@
                             <option value="Lstm">LSTM</option>
                             <option value="Hbos">HBOS</option>
                             <option value="Cblof">CBLOF</option>
-                            <option value="Pca">PCA</option>
                         </select>
                     </div>
 
@@ -217,8 +217,9 @@
                             $('#Gap_filling').attr("disabled", false);
 
                         },
-                        error: function () {
+                        error: function (response) {
                             console.log('fail')
+                            alert(response["responseJSON"]["error"]);
                             dimmer.children('div').text('An error occurred');
                         }
                     });

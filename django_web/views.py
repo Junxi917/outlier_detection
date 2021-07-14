@@ -34,7 +34,7 @@ def home(request):
 
 def draw_line(df1, df2, sensor):
     line = (
-        Line()
+        Line(init_opts=opts.InitOpts(animation_opts=opts.AnimationOpts(animation=False)))
             .add_xaxis(xaxis_data=df1.tolist())
             .add_yaxis(
             series_name=sensor,
@@ -70,6 +70,7 @@ def draw_line(df1, df2, sensor):
 def upload(request):
     global csv
     if request.method == "POST":
+        print("data upload to backe-end")
 
         default = {"KLT12_flowRate1 (l/min)": 'Default(LSTM)',
                    "IT Power Consumption (W)": 'Default(LSTM)',
@@ -188,6 +189,7 @@ def upload(request):
             'bar_total_trend': bar_total_trend,
             'default_algo': default[sensor],
         }
+        print("data will show in a while")
         return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 
 

@@ -4,12 +4,20 @@
 {% block display %}
 
 
-    <div class="ui active dimmer" id="dimmer">
-        <div class="ui text" style="color: #FFFFFF"></div>
-    </div>
+{#        <div class="ui active dimmer" id="dimmer">#}
+{#            <div class="ui text" style="color: #FFFFFF">#}
+{##}
+{#            </div>#}
+{#        </div>#}
+
+        <div class="ui blue progress" data-percent="" id="progressHTML">
+            <div class="bar"></div>
+            <div class="label">Upload</div>
+        </div>
 
 
-    <div id="data_graph" style="display: none;">
+    {#    <div id="data_graph" style="display: none;">#}
+    <div id="data_graph">
         <div class="ui pointing secondary menu">
             <a class="active item " data-tab="data">Data</a>
             <a class="item " data-tab="graph">Graph</a>
@@ -25,17 +33,20 @@
             </div>
 
             <div class="ui active tab segment" data-tab="original_data">
-                {#            <h3 class="ui header">#}
-                {#                <div class="content">#}
-                {#                    Data#}
-                {#                </div>#}
-                {#            </h3>#}
+{#                <div class="ui active dimmer" id="dimmer">#}
+{#                    <div class="ui text" style="color: #FFFFFF">#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+
                 <div class="ui divider"></div>
+                <div class="ui container" style="width: 100%">
 
-                <div class="ui celled table" id='result_table' style="width: 100%">
+                    <div class="ui celled table" id='result_table' style="display: none; ">
 
-                    {{ data|safe }}
+                        {{ data|safe }}
 
+                    </div>
                 </div>
             </div>
 
@@ -70,6 +81,11 @@
             </div>
 
             <div class="ui active tab segment" data-tab="original_graph">
+{#                <div class="ui active dimmer" id="dimmer">#}
+{#                    <div class="ui text" style="color: #FFFFFF">#}
+{##}
+{#                    </div>#}
+{#                </div>#}
                 <div class="ui divider"></div>
                 <div class="ui container">
                     <div id="bar_total_trend_original" style="width:1000px; height:600px;">
@@ -78,11 +94,11 @@
             </div>
 
             <div class="ui tab segment" data-tab="anomaly_detection_graph">
-{#                <h3 class="ui header">#}
-{#                    <div class="ui buttons" style="margin-left:10px;">#}
-{#                        <input class="ui blue button" type='button' id='export_data' value="Export Data"/>#}
-{#                    </div>#}
-{#                </h3>#}
+                {#                <h3 class="ui header">#}
+                {#                    <div class="ui buttons" style="margin-left:10px;">#}
+                {#                        <input class="ui blue button" type='button' id='export_data' value="Export Data"/>#}
+                {#                    </div>#}
+                {#                </h3>#}
 
                 <div class="ui divider"></div>
                 <div class="ui container">
@@ -90,11 +106,11 @@
                     </div>
                 </div>
 
-{#                <h3 class="ui header">#}
-{#                    <div class="ui buttons" style="margin-left:10px;">#}
-{#                        <input class="ui blue button" type='button' id='export_data1' value="Export Data"/>#}
-{#                    </div>#}
-{#                </h3>#}
+                {#                <h3 class="ui header">#}
+                {#                    <div class="ui buttons" style="margin-left:10px;">#}
+                {#                        <input class="ui blue button" type='button' id='export_data1' value="Export Data"/>#}
+                {#                    </div>#}
+                {#                </h3>#}
 
                 <div class="ui divider"></div>
                 <div class="ui container">
@@ -102,11 +118,11 @@
                     </div>
                 </div>
 
-{#                <h3 class="ui header">#}
-{#                    <div class="ui buttons" style="margin-left:10px;">#}
-{#                        <input class="ui blue button" type='button' id='export_data2' value="Export Data"/>#}
-{#                    </div>#}
-{#                </h3>#}
+                {#                <h3 class="ui header">#}
+                {#                    <div class="ui buttons" style="margin-left:10px;">#}
+                {#                        <input class="ui blue button" type='button' id='export_data2' value="Export Data"/>#}
+                {#                    </div>#}
+                {#                </h3>#}
 
                 <div class="ui divider"></div>
                 <div class="ui container">

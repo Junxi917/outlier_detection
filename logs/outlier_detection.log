@@ -1676,3 +1676,177 @@ INFO 2021-07-13 20:37:51,952 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.
 INFO 2021-07-13 20:38:01,523 basehttp 157 "GET /query?Gap_filling=Median HTTP/1.1" 200 2751109
 INFO 2021-07-13 20:38:32,386 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 3359799
 INFO 2021-07-13 20:38:47,150 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3160087
+INFO 2021-07-13 20:47:31,993 basehttp 157 "GET / HTTP/1.1" 200 22726
+INFO 2021-07-14 08:42:13,717 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 08:42:21,452 basehttp 157 "GET / HTTP/1.1" 200 22991
+WARNING 2021-07-14 08:42:23,333 log 230 Not Found: /favicon.ico
+WARNING 2021-07-14 08:42:23,334 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-14 08:43:10,651 basehttp 157 "GET / HTTP/1.1" 200 22991
+INFO 2021-07-14 08:44:28,390 basehttp 157 "GET / HTTP/1.1" 200 22995
+INFO 2021-07-14 08:44:31,434 basehttp 157 "GET / HTTP/1.1" 200 22995
+INFO 2021-07-14 08:44:41,930 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 08:44:49,081 basehttp 157 "GET / HTTP/1.1" 200 22995
+INFO 2021-07-14 08:45:18,937 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 08:47:04,318 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 08:47:10,175 basehttp 157 "GET / HTTP/1.1" 200 22610
+INFO 2021-07-14 08:52:08,966 basehttp 157 "GET / HTTP/1.1" 200 22704
+INFO 2021-07-14 08:52:48,448 basehttp 157 "GET / HTTP/1.1" 200 22713
+INFO 2021-07-14 08:54:17,919 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 08:55:50,000 basehttp 157 "GET / HTTP/1.1" 200 22723
+INFO 2021-07-14 08:57:46,639 basehttp 157 "GET / HTTP/1.1" 200 22699
+INFO 2021-07-14 08:58:09,265 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 08:59:34,112 basehttp 157 "GET / HTTP/1.1" 200 22699
+INFO 2021-07-14 08:59:59,267 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 09:02:52,342 basehttp 157 "GET / HTTP/1.1" 200 22720
+INFO 2021-07-14 09:03:49,333 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 09:08:26,388 basehttp 157 "GET / HTTP/1.1" 200 22720
+INFO 2021-07-14 09:09:19,572 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 09:11:10,782 basehttp 157 "GET / HTTP/1.1" 200 22696
+INFO 2021-07-14 09:11:35,000 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 09:12:56,123 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21809052
+INFO 2021-07-14 09:16:44,606 basehttp 157 "GET / HTTP/1.1" 200 22706
+INFO 2021-07-14 09:18:09,217 basehttp 157 "GET / HTTP/1.1" 200 22726
+INFO 2021-07-14 09:26:57,966 basehttp 157 "GET / HTTP/1.1" 200 22988
+INFO 2021-07-14 09:27:47,222 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 13:52:18,789 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 13:52:27,532 basehttp 157 "GET / HTTP/1.1" 200 22988
+WARNING 2021-07-14 13:52:29,697 log 230 Not Found: /favicon.ico
+WARNING 2021-07-14 13:52:29,698 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-14 13:53:39,355 basehttp 157 "GET / HTTP/1.1" 200 23017
+INFO 2021-07-14 13:54:56,621 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 13:55:09,876 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 13:55:27,736 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 13:56:01,973 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 13:58:15,649 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 13:59:11,978 basehttp 157 "POST /upload/ HTTP/1.1" 200 16409161
+INFO 2021-07-14 14:02:19,600 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 14:02:38,751 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 14:02:51,652 basehttp 157 "POST /upload/ HTTP/1.1" 200 1316170
+INFO 2021-07-14 14:03:16,412 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 14:03:57,638 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 14:04:03,473 basehttp 157 "GET / HTTP/1.1" 200 23542
+INFO 2021-07-14 14:04:28,492 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 14:05:00,363 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 14:05:08,596 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 14:05:29,986 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 14:11:22,441 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 14:11:45,919 basehttp 157 "POST /upload/ HTTP/1.1" 200 16232284
+INFO 2021-07-14 14:26:03,945 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 14:26:24,127 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 14:28:09,266 basehttp 157 "GET / HTTP/1.1" 200 23515
+INFO 2021-07-14 14:28:36,051 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 14:33:13,003 basehttp 157 "GET / HTTP/1.1" 200 23634
+INFO 2021-07-14 14:33:32,421 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 14:34:51,962 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21808987
+INFO 2021-07-14 14:36:42,426 basehttp 157 "GET / HTTP/1.1" 200 23637
+INFO 2021-07-14 14:37:10,306 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 15:10:57,844 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 15:11:06,533 basehttp 157 "GET / HTTP/1.1" 200 23086
+WARNING 2021-07-14 15:11:10,145 log 230 Not Found: /favicon.ico
+WARNING 2021-07-14 15:11:10,146 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-14 15:11:37,553 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 15:12:07,916 basehttp 157 "GET / HTTP/1.1" 200 23162
+INFO 2021-07-14 15:12:35,574 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 15:13:59,221 basehttp 157 "GET / HTTP/1.1" 200 23239
+INFO 2021-07-14 15:15:06,206 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 15:18:02,159 basehttp 157 "GET / HTTP/1.1" 200 23353
+INFO 2021-07-14 15:18:52,576 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 15:21:43,869 basehttp 157 "GET / HTTP/1.1" 200 23319
+INFO 2021-07-14 15:22:23,786 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 15:28:26,376 basehttp 157 "GET / HTTP/1.1" 200 23354
+INFO 2021-07-14 15:29:15,007 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 15:32:29,202 basehttp 157 "GET / HTTP/1.1" 200 23355
+INFO 2021-07-14 15:32:37,451 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 15:34:52,315 basehttp 157 "GET / HTTP/1.1" 200 23362
+INFO 2021-07-14 15:35:15,653 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 15:36:42,304 basehttp 157 "GET / HTTP/1.1" 200 23212
+INFO 2021-07-14 15:36:58,057 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 15:53:57,816 basehttp 157 "GET / HTTP/1.1" 200 23993
+INFO 2021-07-14 15:54:34,862 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 15:54:52,933 basehttp 157 "GET / HTTP/1.1" 200 24000
+INFO 2021-07-14 15:55:00,977 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 16:00:26,291 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-14 16:00:28,439 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 16:05:34,043 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-14 16:05:35,891 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 16:05:42,434 basehttp 157 "GET / HTTP/1.1" 200 24000
+INFO 2021-07-14 16:05:54,653 basehttp 157 "GET / HTTP/1.1" 200 23354
+INFO 2021-07-14 16:06:58,764 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 19:34:17,198 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 19:34:26,465 basehttp 157 "GET / HTTP/1.1" 200 23356
+WARNING 2021-07-14 19:34:29,268 log 230 Not Found: /favicon.ico
+WARNING 2021-07-14 19:34:29,268 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-14 19:34:37,619 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 19:35:17,193 basehttp 157 "GET / HTTP/1.1" 200 23362
+INFO 2021-07-14 19:35:25,899 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 19:35:31,430 basehttp 157 "GET / HTTP/1.1" 200 23362
+INFO 2021-07-14 19:35:55,224 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 19:36:52,530 basehttp 157 "GET / HTTP/1.1" 200 23367
+INFO 2021-07-14 19:37:40,474 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 19:38:48,621 basehttp 157 "GET / HTTP/1.1" 200 23373
+INFO 2021-07-14 19:39:28,468 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 19:40:26,301 basehttp 157 "GET / HTTP/1.1" 200 23368
+INFO 2021-07-14 19:40:52,937 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 19:41:49,565 basehttp 157 "GET / HTTP/1.1" 200 23398
+INFO 2021-07-14 19:42:16,591 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 19:46:37,834 basehttp 157 "GET / HTTP/1.1" 200 23387
+INFO 2021-07-14 19:48:30,123 basehttp 157 "GET / HTTP/1.1" 200 23265
+INFO 2021-07-14 19:48:46,590 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 19:51:10,001 basehttp 157 "GET / HTTP/1.1" 200 23434
+INFO 2021-07-14 19:51:24,097 basehttp 157 "GET / HTTP/1.1" 200 23412
+INFO 2021-07-14 19:54:42,823 basehttp 157 "GET / HTTP/1.1" 200 23408
+INFO 2021-07-14 19:55:18,895 basehttp 157 "GET / HTTP/1.1" 200 23286
+INFO 2021-07-14 19:55:32,257 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 19:55:42,847 basehttp 157 "GET / HTTP/1.1" 200 23286
+INFO 2021-07-14 19:56:15,812 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 19:59:17,347 basehttp 157 "GET / HTTP/1.1" 200 23259
+INFO 2021-07-14 20:00:17,067 basehttp 157 "GET / HTTP/1.1" 200 23264
+INFO 2021-07-14 20:01:20,447 basehttp 157 "GET / HTTP/1.1" 200 23269
+INFO 2021-07-14 20:01:50,369 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 20:07:41,370 basehttp 157 "GET / HTTP/1.1" 200 23512
+INFO 2021-07-14 20:08:39,385 basehttp 157 "GET / HTTP/1.1" 200 23471
+INFO 2021-07-14 20:09:54,196 basehttp 157 "GET / HTTP/1.1" 200 23478
+INFO 2021-07-14 20:10:46,112 basehttp 157 "GET / HTTP/1.1" 200 23512
+INFO 2021-07-14 20:11:24,351 basehttp 157 "GET / HTTP/1.1" 200 23526
+INFO 2021-07-14 20:13:36,513 basehttp 157 "GET / HTTP/1.1" 200 23507
+INFO 2021-07-14 20:13:44,995 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 20:17:57,360 basehttp 157 "GET / HTTP/1.1" 200 23534
+INFO 2021-07-14 20:18:39,153 basehttp 157 "GET / HTTP/1.1" 200 23536
+INFO 2021-07-14 20:18:48,420 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 20:19:18,023 basehttp 157 "GET / HTTP/1.1" 200 23548
+INFO 2021-07-14 20:19:25,908 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 20:20:32,626 basehttp 157 "GET / HTTP/1.1" 200 23521
+INFO 2021-07-14 20:20:44,621 basehttp 157 "POST /upload/ HTTP/1.1" 200 526346
+INFO 2021-07-14 20:20:47,822 basehttp 157 "GET / HTTP/1.1" 200 23521
+INFO 2021-07-14 20:22:09,370 basehttp 157 "GET / HTTP/1.1" 200 23537
+INFO 2021-07-14 20:22:29,663 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 20:23:04,502 basehttp 157 "GET / HTTP/1.1" 200 23520
+INFO 2021-07-14 20:23:29,522 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 20:24:44,157 basehttp 157 "GET / HTTP/1.1" 200 23500
+INFO 2021-07-14 20:25:06,602 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 20:25:27,490 basehttp 157 "GET / HTTP/1.1" 200 23468
+INFO 2021-07-14 20:25:55,009 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 20:26:28,598 basehttp 157 "GET / HTTP/1.1" 200 23417
+INFO 2021-07-14 20:27:03,037 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561002
+INFO 2021-07-14 20:30:32,435 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-14 20:30:33,706 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 20:30:38,457 basehttp 157 "GET / HTTP/1.1" 200 23417
+INFO 2021-07-14 20:31:09,404 basehttp 157 "GET / HTTP/1.1" 200 23247
+ERROR 2021-07-14 20:31:30,595 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 172, in upload
+    line = draw_line(csv['timestamp'], csv[sensor], sensor)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 64, in draw_line
+    splitline_opts=opts.SplitLineOpts(is_show=True),
+TypeError: set_global_opts() got an unexpected keyword argument 'animation_opts'
+ERROR 2021-07-14 20:31:30,597 basehttp 157 "POST /upload/ HTTP/1.1" 500 75909
+INFO 2021-07-14 20:36:13,439 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-14 20:36:15,408 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-14 20:36:21,055 basehttp 157 "GET / HTTP/1.1" 200 23247
+INFO 2021-07-14 20:36:33,215 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-14 20:36:44,018 basehttp 157 "GET / HTTP/1.1" 200 23247
+INFO 2021-07-14 20:37:27,263 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003

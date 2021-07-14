@@ -32,7 +32,7 @@
                 <input type="button" id="upload" class="ui blue button" onclick="FileUpload()" value="Submit"/>
                 <script>
                     function FileUpload() {
-                        $("#data_graph").hide();
+                        {#$("#data_graph").hide();#}
                         var form_data = new FormData();
                         var file_info = $('#file')[0].files[0];
                         var dim_select = $("#DIM_select").val();
@@ -48,13 +48,16 @@
                             dimmer.children('div').remove();
                             dimmer.append('<div class="ui text loader">Loading……</div>');
                         }
+                        $("#progressHTML").progress({percent: 50});
                         $.ajax({
                             url: '{% url 'upload' %}',
                             type: 'POST',
                             data: form_data,
                             processData: false,  // tell jquery not to process the data
                             contentType: false, // tell jquery not to set contentType
+
                             success: function (ret) {
+                                $("#progressHTML").progress({percent: 80});
 
                                 $("#result_table").empty();
                                 $("#result_table1").empty();
@@ -77,12 +80,16 @@
 
                                 $("#result_table").html(ret['data']);
                                 $(document).ready(function () {
+
                                     var table = $('#data').DataTable({
                                         buttons: ['copy', 'excel', 'pdf', 'colvis']
                                     });
 
                                     table.buttons().container()
                                         .appendTo($('div.eight.column:eq(0)', table.table().container()));
+                                    dimmer.attr('class', 'ui dimmer');
+                                    $("#result_table").show();
+
                                 });
 
                                 var chart = echarts.init(document.getElementById('bar_total_trend_original'), 'white', {renderer: 'canvas'});
@@ -94,13 +101,16 @@
                                 chart.setOption(ret['bar_total_trend']);
                                 chart.hideLoading()
 
-                                $("#data_graph").show();
 
 
-                                dimmer.attr('class', 'ui dimmer');
+
+
                                 {#$('#upload').attr("disabled", "disabled");#}
                                 $('#AJAX_get').attr("disabled", false);
                                 $('#Gap_filling').attr("disabled", false);
+                                $("#progressHTML").progress({percent: 100});
+
+
                             },
                             error: function (response) {
                                 console.log('fail')

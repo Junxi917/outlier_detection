@@ -48,16 +48,22 @@
                             dimmer.children('div').remove();
                             dimmer.append('<div class="ui text loader">Loading……</div>');
                         }
-                        $("#progressHTML").progress({percent: 50});
+                        {#$("#progressHTML").progress({percent: 50});#}
+                        let percentValue = 0,
+                            progressBar = $('#progressHTML');
+                        timer = setInterval(startBar, 3000);
                         $.ajax({
                             url: '{% url 'upload' %}',
                             type: 'POST',
                             data: form_data,
                             processData: false,  // tell jquery not to process the data
                             contentType: false, // tell jquery not to set contentType
+                            beforeSend: function () {
+                                startBar();
+                            },
 
                             success: function (ret) {
-                                $("#progressHTML").progress({percent: 80});
+                                {#$("#progressHTML").progress({percent: 80});#}
 
                                 $("#result_table").empty();
                                 $("#result_table1").empty();
@@ -106,6 +112,7 @@
                                 $('#AJAX_get').attr("disabled", false);
                                 $('#Gap_filling').attr("disabled", false);
                                 $("#progressHTML").progress({percent: 100});
+                                clearInterval(timer);
 
 
                             },
@@ -117,6 +124,12 @@
 
                             }
                         })
+
+                        function startBar() {
+                            percentValue += 1;
+                            if (percentValue > 75) percentValue = 75;
+                            progressBar.progress({percent: percentValue});
+                        }
                     }
 
                 </script>

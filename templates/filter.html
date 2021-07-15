@@ -33,6 +33,20 @@
                 <script>
                     function FileUpload() {
                         {#$("#data_graph").hide();#}
+                        $("#result_table").hide();
+                        $("#graph1").hide();
+                        $("#result_table1").hide();
+                        $("#graph2").hide();
+                        $("#result_table2").hide();
+                        $("#graph3").hide();
+
+                        $("#progressHTML").attr("class","ui blue progress");
+                        $("#progressHTML1").attr("class","ui blue progress");
+
+                        $("#progressHTML").progress({percent: 0});
+                        $("#progressHTML").show();
+                        $("#progressHTML1").progress({percent: 0});
+                        $("#progressHTML1").show();
                         var form_data = new FormData();
                         var file_info = $('#file')[0].files[0];
                         var dim_select = $("#DIM_select").val();
@@ -44,13 +58,15 @@
                             form_data.append('myFile', file_info);
                             form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
                             var dimmer = $("#dimmer");
-                            dimmer.attr('class', 'ui active dimmer');
-                            dimmer.children('div').remove();
-                            dimmer.append('<div class="ui text loader">Loading……</div>');
+                            dimmer.attr('class', 'ui dimmer');
+                            $("#data_graph").show();
+                            {#dimmer.children('div').remove();#}
+                            {#dimmer.append('<div class="ui text loader">Loading……</div>');#}
                         }
                         {#$("#progressHTML").progress({percent: 50});#}
                         let percentValue = 0,
                             progressBar = $('#progressHTML');
+                        progressBar1 = $('#progressHTML1');
                         timer = setInterval(startBar, 3000);
                         $.ajax({
                             url: '{% url 'upload' %}',
@@ -90,11 +106,17 @@
                                     var table = $('#data').DataTable({
                                         buttons: ['copy', 'excel', 'pdf', 'colvis']
                                     });
-
                                     table.buttons().container()
                                         .appendTo($('div.eight.column:eq(0)', table.table().container()));
                                     dimmer.attr('class', 'ui dimmer');
+
                                     $("#result_table").show();
+                                    $("#graph1").show();
+                                    $("#progressHTML").progress({percent: 100});
+                                    $("#progressHTML1").progress({percent: 100});
+                                    clearInterval(timer);
+                                    $("#progressHTML").hide();
+                                    $("#progressHTML1").hide();
 
                                 });
 
@@ -111,16 +133,20 @@
                                 {#$('#upload').attr("disabled", "disabled");#}
                                 $('#AJAX_get').attr("disabled", false);
                                 $('#Gap_filling').attr("disabled", false);
-                                $("#progressHTML").progress({percent: 100});
-                                clearInterval(timer);
 
 
                             },
                             error: function (response) {
                                 console.log('fail')
                                 alert(response["responseJSON"]["error"]);
-                                {#alert("input data type not match! Unitvariate: 'KLT12_flowRate1 (l/min)', 'IT Power Consumption (W)', 'Outside Temperature (°C)','KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)','KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', 'wetBulb', 'KLT14_Fan1Speed_HZ' Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ' ")#}
-                                dimmer.children('div').text('An error occurred');
+
+                                progressBar.attr("class","ui progress error");
+                                progressBar.progress({percent: 100});
+                                progressBar.append('<div class="label">There was an error.</div>');
+                                progressBar1.attr("class","ui progress error");
+                                progressBar1.progress({percent: 100});
+                                progressBar1.append('<div class="label">There was an error.</div>');
+                                clearInterval(timer);
 
                             }
                         })
@@ -129,6 +155,7 @@
                             percentValue += 1;
                             if (percentValue > 75) percentValue = 75;
                             progressBar.progress({percent: percentValue});
+                            progressBar1.progress({percent: percentValue});
                         }
                     }
 
@@ -176,12 +203,22 @@
                         "ALGO_select": $("#ALGO_select").val(),
                     };
 
-                    $("#data_graph").hide();
+                    {#$("#data_graph").hide();#}
+                    $("#result_table1").hide();
+                    $("#graph2").hide();
+                    $("#progressHTML2").progress({percent: 0});
+                    $("#progressHTML2").show();
+                    $("#progressHTML3").progress({percent: 0});
+                    $("#progressHTML3").show();
+                    let percentValue = 0,
+                        progressBar2 = $('#progressHTML2');
+                    progressBar3 = $('#progressHTML3');
+                    timer = setInterval(startBar, 3000);
 
-                    var dimmer = $("#dimmer");
-                    dimmer.attr('class', 'ui active dimmer');
-                    dimmer.children('div').remove();
-                    dimmer.append('<div class="ui text loader">Loading……</div>');
+                    {#var dimmer = $("#dimmer");#}
+                    {#dimmer.attr('class', 'ui active dimmer');#}
+                    {#dimmer.children('div').remove();#}
+                    {#dimmer.append('<div class="ui text loader">Loading……</div>');#}
 
                     $.ajax({
                         url: '{% url 'query' %}',
@@ -189,9 +226,14 @@
                         type: 'GET',
 
                         data: form_data,
+                        beforeSend: function () {
+                            startBar();
+                        },
 
                         success: function (ret) {
                             $("#label_size_unit").html(form_data['ALGO_select']);
+                            $('#AJAX_get').attr("disabled", "disabled");
+                            $('#Gap_filling').attr("disabled", false);
 
                             $("#result_table1").html(ret['data']);
                             $(document).ready(function () {
@@ -201,7 +243,20 @@
 
                                 table.buttons().container()
                                     .appendTo($('div.eight.column:eq(0)', table.table().container()));
+
+
+                                $("#result_table1").show();
+                                $("#progressHTML2").progress({percent: 100});
+                                clearInterval(timer);
+                                $("#graph2").show();
+                                $("#progressHTML3").progress({percent: 100});
+                                $("#progressHTML2").hide();
+                                $("#progressHTML3").hide();
+
+                                {#dimmer.attr('class', 'ui dimmer');#}
+
                             });
+
 
                             var chart = echarts.init(document.getElementById('bar_total_trend'), 'white', {renderer: 'canvas'});
                             chart.showLoading({
@@ -230,11 +285,8 @@
                             chart2.setOption(ret['bar_total_trend2']);
                             chart2.hideLoading()
 
-                            $("#data_graph").show();
+                            {#$("#data_graph").show();#}
 
-                            dimmer.attr('class', 'ui dimmer');
-                            $('#AJAX_get').attr("disabled", "disabled");
-                            $('#Gap_filling').attr("disabled", false);
 
                         },
                         error: function (response) {
@@ -242,7 +294,14 @@
                             alert(response["responseJSON"]["error"]);
                             dimmer.children('div').text('An error occurred');
                         }
-                    });
+                    })
+
+                    function startBar() {
+                        percentValue += 1;
+                        if (percentValue > 75) percentValue = 75;
+                        progressBar2.progress({percent: percentValue});
+                        progressBar3.progress({percent: percentValue});
+                    }
                 })
             </script>
 
@@ -267,77 +326,107 @@
             </div>
             <script type="text/javascript">
                 $("#Gap_filling").click(function (event) {
-                    event.preventDefault();
+                        event.preventDefault();
 
-                    var form_data = {
-                        "Gap_filling": $("#Filling_select").val(),
-                    };
+                        var form_data = {
+                            "Gap_filling": $("#Filling_select").val(),
+                        };
 
-                    $("#data_graph").hide();
+                        {#$("#data_graph").hide();#}
+                        $("#result_table2").hide();
+                        $("#graph3").hide();
+                        $("#progressHTML4").progress({percent: 0});
+                        $("#progressHTML4").show();
+                        $("#progressHTML5").progress({percent: 0});
+                        $("#progressHTML5").show();
+                        let percentValue = 0,
+                            progressBar4 = $('#progressHTML4');
+                        progressBar5 = $('#progressHTML5');
+                        timer = setInterval(startBar, 3000);
 
-                    var dimmer = $("#dimmer");
-                    dimmer.attr('class', 'ui active dimmer');
-                    dimmer.children('div').remove();
-                    dimmer.append('<div class="ui text loader">Loading……</div>');
+                        {#var dimmer = $("#dimmer");#}
+                        {#dimmer.attr('class', 'ui active dimmer');#}
+                        {#dimmer.children('div').remove();#}
+                        {#dimmer.append('<div class="ui text loader">Loading……</div>');#}
 
-                    $.ajax({
-                        url: '{% url 'query' %}',
+                        $.ajax({
+                            url: '{% url 'query' %}',
 
-                        type: 'GET',
+                            type: 'GET',
 
-                        data: form_data,
+                            data: form_data,
+                            beforeSend: function () {
+                                startBar();
+                            },
 
-                        success: function (ret) {
+                            success: function (ret) {
+                                $('#Gap_filling').attr("disabled", "disabled");
+                                $('#AJAX_get').attr("disabled", false);
 
-                            $("#result_table2").html(ret['data']);
-                            $(document).ready(function () {
-                                var table = $('#data2').DataTable({
-                                    buttons: ['copy', 'excel', 'pdf', 'colvis']
+                                $("#result_table2").html(ret['data']);
+                                $(document).ready(function () {
+                                    var table = $('#data2').DataTable({
+                                        buttons: ['copy', 'excel', 'pdf', 'colvis']
+                                    });
+
+                                    table.buttons().container()
+                                        .appendTo($('div.eight.column:eq(0)', table.table().container()));
+
+
+                                    $("#result_table2").show();
+                                    $("#progressHTML4").progress({percent: 100});
+                                    clearInterval(timer);
+                                    $("#graph3").show();
+                                    $("#progressHTML5").progress({percent: 100});
+                                    $("#progressHTML4").hide();
+                                    $("#progressHTML5").hide();
+
                                 });
 
-                                table.buttons().container()
-                                    .appendTo($('div.eight.column:eq(0)', table.table().container()));
-                            });
+                                var chart = echarts.init(document.getElementById('gap_filling_bar_total_trend'), 'white', {renderer: 'canvas'});
+                                chart.showLoading({
+                                    text: 'Data Loading'
+                                });
 
-                            var chart = echarts.init(document.getElementById('gap_filling_bar_total_trend'), 'white', {renderer: 'canvas'});
-                            chart.showLoading({
-                                text: 'Data Loading'
-                            });
+                                chart.clear();
+                                chart.setOption(ret['bar_total_trend']);
+                                chart.hideLoading()
 
-                            chart.clear();
-                            chart.setOption(ret['bar_total_trend']);
-                            chart.hideLoading()
+                                var chart1 = echarts.init(document.getElementById('gap_filling_bar_total_trend1'), 'white', {renderer: 'canvas'});
+                                chart1.showLoading({
+                                    text: 'Data Loading'
+                                });
 
-                            var chart1 = echarts.init(document.getElementById('gap_filling_bar_total_trend1'), 'white', {renderer: 'canvas'});
-                            chart1.showLoading({
-                                text: 'Data Loading'
-                            });
+                                chart1.clear();
+                                chart1.setOption(ret['bar_total_trend1']);
+                                chart1.hideLoading()
 
-                            chart1.clear();
-                            chart1.setOption(ret['bar_total_trend1']);
-                            chart1.hideLoading()
+                                var chart2 = echarts.init(document.getElementById('gap_filling_bar_total_trend2'), 'white', {renderer: 'canvas'});
+                                chart2.showLoading({
+                                    text: 'Data Loading'
+                                });
 
-                            var chart2 = echarts.init(document.getElementById('gap_filling_bar_total_trend2'), 'white', {renderer: 'canvas'});
-                            chart2.showLoading({
-                                text: 'Data Loading'
-                            });
+                                chart2.clear();
+                                chart2.setOption(ret['bar_total_trend2']);
+                                chart2.hideLoading()
 
-                            chart2.clear();
-                            chart2.setOption(ret['bar_total_trend2']);
-                            chart2.hideLoading()
+                                {#$("#data_graph").show();#}
 
-                            $("#data_graph").show();
 
-                            dimmer.attr('class', 'ui dimmer');
-                            $('#Gap_filling').attr("disabled", "disabled");
-                            $('#AJAX_get').attr("disabled", false);
+                            },
+                            error: function () {
+                                console.log('fail')
+                            }
+                        })
 
-                        },
-                        error: function () {
-                            console.log('fail')
+                        function startBar() {
+                            percentValue += 1;
+                            if (percentValue > 75) percentValue = 75;
+                            progressBar4.progress({percent: percentValue});
+                            progressBar5.progress({percent: percentValue});
                         }
-                    });
-                })
+                    }
+                )
             </script>
 
 
@@ -368,4 +457,3 @@
     $('.ui.fluid.search.dropdown')
         .dropdown({fullTextSearch: true});
 </script>
-

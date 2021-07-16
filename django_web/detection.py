@@ -20,7 +20,7 @@ from tensorflow import keras
 def forest_detection(df, algo_select, contamination=0.05):
     algo = {"Hbos": HBOS(contamination=contamination),
             "Forest": IForest(contamination=contamination),
-            "Cblof": CBLOF(contamination=contamination),}
+            "Cblof": CBLOF(contamination=contamination), }
     model = algo[algo_select]
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
     df = df.sort_values('timestamp')
@@ -130,7 +130,10 @@ train_model = {"KLT12_flowRate1 (l/min)": 'KLT12_flowRate1_model2.h5',
                "Outside Temperature (°C)": 'Outside_Temperature_model2.h5',
                "KLT11_pumpSpeed_p1 (Hz)": 'KLT11_pumpSpeed_p1_model2.h5',
                "KLT11_Fan1Speed_HZ (Hz)": 'KLT11_Fan1Speed_model2.h5',
-               "KLT13_inletTempBeforeHydraulicGate (°C)": 'KLT13_inletTempBeforeHydraulicGate_model2.h5',
+               "KLT13_inletTempBeforeHydraulicGate": 'KLT13_inletTempBeforeHydraulicGate_model2.h5',
+               "KLT11_inletTempBeforeHydraulicGate": 'KLT13_inletTempBeforeHydraulicGate_model2.h5',
+               "KLT12_inletTempBeforeHydraulicGate": 'KLT13_inletTempBeforeHydraulicGate_model2.h5',
+               "KLT14_inletTempBeforeHydraulicGate": 'KLT13_inletTempBeforeHydraulicGate_model2.h5',
                "KLT14_pumpSpeed_p1": 'multi_KLT14pumpSpeed_model1.h5',
                "KLT14_Fan1Speed_HZ": 'multi_KLT14_FanSpeed_model2.h5',
                }
@@ -191,6 +194,10 @@ def lstm_detection(df, contamination=0.05):
     return test_score_df
 
 
+train_multi_model = {"KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2": 'multi_KLT14pumpSpeed_model1.h5',
+                     }
+
+
 def multi_lstm_detection(df, contamination=0.05):
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
     df = df.sort_values('timestamp')
@@ -201,7 +208,7 @@ def multi_lstm_detection(df, contamination=0.05):
 
     new_df = df[col].copy()
 
-    model = load_model(train_model[sensor], compile=False)
+    model = load_model(train_multi_model[sensor + " " + col[1]], compile=False)
 
     df_test = df
 

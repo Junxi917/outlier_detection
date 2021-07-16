@@ -40,8 +40,10 @@
                         $("#result_table2").hide();
                         $("#graph3").hide();
 
-                        $("#progressHTML").attr("class","ui blue progress");
-                        $("#progressHTML1").attr("class","ui blue progress");
+                        $("#progressHTML").attr("class", "ui blue progress");
+                        $("#error").hide();
+                        $("#progressHTML1").attr("class", "ui blue progress");
+                        $("#error1").hide();
 
                         $("#progressHTML").progress({percent: 0});
                         $("#progressHTML").show();
@@ -98,7 +100,9 @@
                                 chart_gap_filling_bar_total_trend2.clear();
 
                                 $("#ALGO_select option[value='Default']").remove();
-                                $("#ALGO_select").append('<option value=' + "Default" + ' selected' + '>' + ret['default_algo'] + '</option>');
+                                if (ret['default_algo'] != "") {
+                                    $("#ALGO_select").append('<option value=' + "Default" + ' selected' + '>' + ret['default_algo'] + '</option>');
+                                }
 
                                 $("#result_table").html(ret['data']);
                                 $(document).ready(function () {
@@ -140,12 +144,12 @@
                                 console.log('fail')
                                 alert(response["responseJSON"]["error"]);
 
-                                progressBar.attr("class","ui progress error");
+                                progressBar.attr("class", "ui progress error");
                                 progressBar.progress({percent: 100});
-                                progressBar.append('<div class="label">There was an error.</div>');
-                                progressBar1.attr("class","ui progress error");
+                                progressBar.append('<div class="label" id="error">There was an error.</div>');
+                                progressBar1.attr("class", "ui progress error");
                                 progressBar1.progress({percent: 100});
-                                progressBar1.append('<div class="label">There was an error.</div>');
+                                progressBar1.append('<div class="label" id="error1">There was an error.</div>');
                                 clearInterval(timer);
 
                             }
@@ -202,6 +206,10 @@
                     var form_data = {
                         "ALGO_select": $("#ALGO_select").val(),
                     };
+                    $("#progressHTML2").attr("class", "ui blue progress");
+                    $("#error2").hide();
+                    $("#progressHTML3").attr("class", "ui blue progress");
+                    $("#error3").hide();
 
                     {#$("#data_graph").hide();#}
                     $("#result_table1").hide();
@@ -292,7 +300,14 @@
                         error: function (response) {
                             console.log('fail')
                             alert(response["responseJSON"]["error"]);
-                            dimmer.children('div').text('An error occurred');
+
+                            progressBar2.attr("class", "ui progress error");
+                            progressBar2.progress({percent: 100});
+                            progressBar2.append('<div class="label" id="error2">There was an error.</div>');
+                            progressBar3.attr("class", "ui progress error");
+                            progressBar3.progress({percent: 100});
+                            progressBar3.append('<div class="label" id="error3">There was an error.</div>');
+                            clearInterval(timer);
                         }
                     })
 
@@ -331,6 +346,11 @@
                         var form_data = {
                             "Gap_filling": $("#Filling_select").val(),
                         };
+
+                        $("#progressHTML4").attr("class", "ui blue progress");
+                        $("#error4").hide();
+                        $("#progressHTML5").attr("class", "ui blue progress");
+                        $("#error5").hide();
 
                         {#$("#data_graph").hide();#}
                         $("#result_table2").hide();
@@ -416,6 +436,14 @@
                             },
                             error: function () {
                                 console.log('fail')
+
+                                progressBar4.attr("class", "ui progress error");
+                                progressBar4.progress({percent: 100});
+                                progressBar4.append('<div class="label" id="error4">There was an error.</div>');
+                                progressBar5.attr("class", "ui progress error");
+                                progressBar5.progress({percent: 100});
+                                progressBar5.append('<div class="label" id="error5">There was an error.</div>');
+                                clearInterval(timer);
                             }
                         })
 

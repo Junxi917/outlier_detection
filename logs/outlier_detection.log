@@ -1912,3 +1912,207 @@ INFO 2021-07-14 22:24:09,976 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003
 INFO 2021-07-14 22:25:00,034 basehttp 157 "GET / HTTP/1.1" 200 23777
 INFO 2021-07-14 22:25:42,040 basehttp 157 "GET / HTTP/1.1" 200 23775
 INFO 2021-07-14 22:26:31,059 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003
+INFO 2021-07-15 18:05:36,880 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-15 18:06:02,511 basehttp 157 "GET / HTTP/1.1" 200 28637
+WARNING 2021-07-15 18:06:06,278 log 230 Not Found: /favicon.ico
+WARNING 2021-07-15 18:06:06,283 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-15 18:06:19,644 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-15 18:06:30,057 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700012
+INFO 2021-07-15 18:06:40,371 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3037055
+INFO 2021-07-15 18:07:55,252 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 3627941
+INFO 2021-07-15 18:08:15,782 basehttp 157 "GET /query?Gap_filling=Median HTTP/1.1" 200 3419303
+INFO 2021-07-15 18:08:34,048 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3639324
+INFO 2021-07-15 18:08:39,687 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-15 18:09:05,616 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003
+INFO 2021-07-15 18:09:58,175 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33001011
+INFO 2021-07-15 18:11:57,850 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 37554077
+INFO 2021-07-15 18:12:32,311 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-15 18:13:16,199 basehttp 157 "POST /upload/ HTTP/1.1" 200 16400863
+INFO 2021-07-15 18:14:22,329 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21541236
+INFO 2021-07-15 18:15:34,374 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33500774
+INFO 2021-07-15 18:17:37,407 basehttp 157 "GET /query?ALGO_select=Cblof HTTP/1.1" 200 38004014
+INFO 2021-07-15 18:18:40,404 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-15 18:19:48,777 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-15 18:20:06,900 basehttp 157 "GET / HTTP/1.1" 200 28637
+WARNING 2021-07-15 18:20:10,146 log 230 Not Found: /favicon.ico
+WARNING 2021-07-15 18:20:10,147 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-15 18:20:27,068 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-15 18:21:17,345 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 689679
+INFO 2021-07-15 18:22:01,226 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2966211
+INFO 2021-07-15 21:41:02,043 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-15 21:41:13,104 basehttp 157 "GET / HTTP/1.1" 200 28680
+WARNING 2021-07-15 21:41:15,237 log 230 Not Found: /favicon.ico
+WARNING 2021-07-15 21:41:15,238 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-15 21:41:35,611 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003
+INFO 2021-07-15 21:42:01,694 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-15 21:42:27,768 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003
+INFO 2021-07-15 21:42:49,871 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-15 21:43:16,202 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003
+INFO 2021-07-16 07:52:05,804 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 07:52:19,987 basehttp 157 "GET / HTTP/1.1" 200 28637
+WARNING 2021-07-16 07:52:23,318 log 230 Not Found: /favicon.ico
+WARNING 2021-07-16 07:52:23,319 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-16 08:05:30,814 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:05:32,592 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:05:52,345 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:05:53,721 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:06:13,050 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:06:14,435 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:06:28,844 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:06:30,168 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:06:33,824 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-16 08:07:32,399 basehttp 157 "POST /upload/ HTTP/1.1" 200 16993460
+INFO 2021-07-16 08:08:30,193 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 22268826
+INFO 2021-07-16 08:14:53,637 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:14:55,307 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:14:59,781 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-16 08:15:55,493 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:15:56,717 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:16:00,026 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-16 08:16:55,195 basehttp 157 "POST /upload/ HTTP/1.1" 200 16993460
+INFO 2021-07-16 08:17:53,825 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 22268826
+INFO 2021-07-16 08:40:14,826 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-16 08:40:15,845 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:51:47,732 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-16 08:51:48,792 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:53:17,870 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:53:20,632 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:55:04,207 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:55:05,063 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:55:33,376 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 08:55:35,095 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 08:55:40,904 basehttp 157 "GET / HTTP/1.1" 200 28637
+INFO 2021-07-16 08:55:49,906 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-16 08:59:07,328 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 08:59:16,557 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-16 09:00:04,682 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 09:00:05,758 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 09:00:09,752 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 09:00:21,634 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 09:00:33,224 basehttp 157 "POST /upload/ HTTP/1.1" 200 526334
+INFO 2021-07-16 09:00:47,849 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 09:00:51,237 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 09:00:59,973 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 09:01:16,871 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-16 09:01:28,099 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 700284
+INFO 2021-07-16 09:01:37,439 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2958081
+INFO 2021-07-16 09:02:00,904 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 3559428
+INFO 2021-07-16 09:02:23,226 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 09:02:24,759 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 09:02:28,966 basehttp 157 "GET / HTTP/1.1" 200 28739
+WARNING 2021-07-16 09:03:37,213 log 230 Bad Request: /upload/
+WARNING 2021-07-16 09:03:37,213 basehttp 157 "POST /upload/ HTTP/1.1" 400 42
+INFO 2021-07-16 09:03:56,026 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 09:04:06,462 basehttp 157 "POST /upload/ HTTP/1.1" 200 527522
+INFO 2021-07-16 09:15:08,508 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 09:15:09,888 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 09:15:15,466 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 09:15:23,145 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-16 09:16:03,066 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 689679
+INFO 2021-07-16 09:25:57,048 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 09:25:58,613 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 09:40:41,646 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 09:41:27,587 basehttp 157 "POST /upload/ HTTP/1.1" 200 16477895
+INFO 2021-07-16 09:46:12,435 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 09:46:24,641 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 09:46:56,703 basehttp 157 "POST /upload/ HTTP/1.1" 200 1326667
+INFO 2021-07-16 09:48:22,915 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 1747395
+INFO 2021-07-16 09:49:14,378 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4364853
+INFO 2021-07-16 09:50:13,209 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 5099350
+INFO 2021-07-16 10:01:08,392 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 10:01:09,630 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 10:01:23,210 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 10:01:24,225 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 10:06:16,223 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 10:06:18,157 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 10:06:22,377 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 10:06:40,006 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-16 10:19:13,076 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-16 10:19:14,702 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 10:19:17,970 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 10:19:43,651 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-16 10:19:54,226 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648363
+INFO 2021-07-16 10:20:43,600 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 6366118
+INFO 2021-07-16 10:20:52,067 basehttp 157 "GET / HTTP/1.1" 200 28739
+INFO 2021-07-16 10:21:06,381 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-16 10:22:11,656 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 2629896
+INFO 2021-07-16 10:25:40,847 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 10:25:42,845 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 10:25:47,100 basehttp 157 "GET / HTTP/1.1" 200 29199
+INFO 2021-07-16 10:26:07,146 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-16 10:27:26,897 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 2629896
+INFO 2021-07-16 10:27:56,516 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 10:27:58,155 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 10:28:01,641 basehttp 157 "GET / HTTP/1.1" 200 29199
+INFO 2021-07-16 10:28:24,862 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:28:34,316 log 230 Bad Request: /query
+WARNING 2021-07-16 10:28:34,316 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:28:56,377 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648363
+INFO 2021-07-16 10:30:09,772 basehttp 157 "GET / HTTP/1.1" 200 29349
+INFO 2021-07-16 10:30:37,852 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:30:44,757 log 230 Bad Request: /query
+WARNING 2021-07-16 10:30:44,758 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:31:00,889 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648363
+INFO 2021-07-16 10:32:07,916 basehttp 157 "GET / HTTP/1.1" 200 29445
+INFO 2021-07-16 10:32:33,799 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-16 10:33:10,762 basehttp 157 "GET / HTTP/1.1" 200 29370
+INFO 2021-07-16 10:33:26,642 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:33:31,974 log 230 Bad Request: /query
+WARNING 2021-07-16 10:33:31,975 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:35:03,541 basehttp 157 "GET / HTTP/1.1" 200 29402
+INFO 2021-07-16 10:35:19,458 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:35:25,989 log 230 Bad Request: /query
+WARNING 2021-07-16 10:35:25,990 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:35:38,191 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648363
+INFO 2021-07-16 10:35:55,125 basehttp 157 "GET / HTTP/1.1" 200 29402
+WARNING 2021-07-16 10:36:06,115 log 230 Bad Request: /upload/
+WARNING 2021-07-16 10:36:06,117 basehttp 157 "POST /upload/ HTTP/1.1" 400 42
+INFO 2021-07-16 10:36:54,637 basehttp 157 "POST /upload/ HTTP/1.1" 200 16561003
+INFO 2021-07-16 10:38:28,736 basehttp 157 "GET / HTTP/1.1" 200 29567
+WARNING 2021-07-16 10:38:39,417 log 230 Bad Request: /upload/
+WARNING 2021-07-16 10:38:39,418 basehttp 157 "POST /upload/ HTTP/1.1" 400 43
+INFO 2021-07-16 10:38:50,243 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321166
+INFO 2021-07-16 10:40:45,296 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 10:40:59,155 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:41:04,783 log 230 Bad Request: /query
+WARNING 2021-07-16 10:41:04,784 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:41:19,635 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 6366003
+WARNING 2021-07-16 10:41:36,518 log 230 Bad Request: /query
+WARNING 2021-07-16 10:41:36,519 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:41:59,554 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 7404687
+INFO 2021-07-16 10:42:47,159 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 10:43:05,497 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:43:11,132 log 230 Bad Request: /query
+WARNING 2021-07-16 10:43:11,135 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:43:22,024 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648363
+INFO 2021-07-16 10:45:39,787 basehttp 157 "GET / HTTP/1.1" 200 30815
+WARNING 2021-07-16 10:45:55,676 log 230 Bad Request: /upload/
+WARNING 2021-07-16 10:45:55,678 basehttp 157 "POST /upload/ HTTP/1.1" 400 43
+INFO 2021-07-16 10:46:13,214 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:46:28,572 log 230 Bad Request: /query
+WARNING 2021-07-16 10:46:28,573 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:46:39,310 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 6366003
+INFO 2021-07-16 10:47:18,401 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 7404075
+INFO 2021-07-16 10:48:20,387 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-16 10:48:30,510 log 230 Bad Request: /upload/
+WARNING 2021-07-16 10:48:30,511 basehttp 157 "POST /upload/ HTTP/1.1" 400 43
+INFO 2021-07-16 10:48:43,954 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-16 10:48:59,036 log 230 Bad Request: /query
+WARNING 2021-07-16 10:48:59,036 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 400 32
+INFO 2021-07-16 10:49:11,566 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 2648363
+INFO 2021-07-16 10:50:07,312 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-16 10:50:09,030 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 10:50:13,052 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 10:50:43,181 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-16 10:52:06,240 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 2629896
+INFO 2021-07-16 10:52:23,526 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 10:53:18,976 basehttp 157 "POST /upload/ HTTP/1.1" 200 16477895
+INFO 2021-07-16 10:55:30,652 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21664555
+INFO 2021-07-16 10:57:42,145 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33710099
+INFO 2021-07-16 11:02:10,497 basehttp 157 "GET /query?ALGO_select=Cblof HTTP/1.1" 200 38235667
+INFO 2021-07-16 11:06:59,368 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 11:07:15,985 basehttp 157 "POST /upload/ HTTP/1.1" 200 1326667
+INFO 2021-07-16 11:07:42,883 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 1747395
+INFO 2021-07-16 11:09:42,577 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4364853
+INFO 2021-07-16 11:11:07,223 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 5099350
+INFO 2021-07-16 11:11:52,716 basehttp 157 "GET / HTTP/1.1" 200 30401

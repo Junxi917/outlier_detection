@@ -8,6 +8,7 @@ from pyecharts.globals import ThemeType
 from pyecharts.charts import Bar, Line, Scatter
 import pyecharts.options as opts
 from .detection import *
+import re
 
 try:
     import six  # for modern Django
@@ -77,7 +78,10 @@ def upload(request):
                    "Outside Temperature (°C)": 'Default(LSTM)',
                    "KLT11_pumpSpeed_p1 (Hz)": 'Default(LSTM)',
                    "KLT11_Fan1Speed_HZ (Hz)": 'Default(LSTM)',
-                   "KLT13_inletTempBeforeHydraulicGate (°C)": 'Default(LSTM)',
+                   "KLT13_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+                   "KLT11_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+                   "KLT12_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+                   "KLT14_inletTempBeforeHydraulicGate": 'Default(LSTM)',
                    "KLT14_pumpSpeed_p1": 'Default(HBOS)',
                    "wetBulb": 'Default(LSTM)',
                    "KLT14_Fan1Speed_HZ": 'Default(IForest)',
@@ -86,15 +90,21 @@ def upload(request):
 
         default_sensor = ["KLT12_flowRate1 (l/min)", 'IT Power Consumption (W)', 'Outside Temperature (°C)',
                           'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',
-                          'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', 'wetBulb',
+                          'KLT11_inletTempBeforeHydraulicGate', 'KLT12_inletTempBeforeHydraulicGate',
+                          'KLT13_inletTempBeforeHydraulicGate', 'KLT14_inletTempBeforeHydraulicGate',
+                          'KLT14_pumpSpeed_p1', 'wetBulb',
                           'KLT14_Fan1Speed_HZ', 'P_WW']
+
+        default_multi_sensor = ["KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2", ]
+        default_multi = {"KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2": 'Default(Hbos)',
+                         }
 
         file = request.FILES["myFile"]
         form_dict = dict(six.iterlists(request.POST))
         print(form_dict['dim_select'][0])
 
         csv = pd.read_excel(file)
-        print(csv.head())
+
         if csv is not None:
             enable = True
 
@@ -104,23 +114,33 @@ def upload(request):
         csv['timestamp'] = pd.to_datetime(csv['timestamp'])
         print(col)
 
-        if sensor not in default_sensor:
-            return JsonResponse({"error": "input data type not match! Unitvariate: 'KLT12_flowRate1 (l/min)', "
-                                          "'IT Power Consumption (W)', 'Outside Temperature (°C)',"
-                                          "'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',"
-                                          "'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', "
-                                          "'wetBulb', 'KLT14_Fan1Speed_HZ' "
-                                          "Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2',"
-                                          "'KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ' "},
-                                status=400)
+        if len(col) == 1:
+            if sensor not in default_sensor:
+                default_dict = {'default_algo': "", }
+            # return JsonResponse({"error": "input data type not match! Unitvariate: 'KLT12_flowRate1 (l/min)', "
+            #                               "'IT Power Consumption (W)', 'Outside Temperature (°C)',"
+            #                               "'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',"
+            #                               "'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', "
+            #                               "'wetBulb', 'KLT14_Fan1Speed_HZ' "
+            #                               "Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2',"
+            #                               "'KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ' "},
+            #                     status=400)
+            else:
+                default_dict = {'default_algo': default[sensor], }
+        else:
+            if sensor + " " + col[1] not in default_multi_sensor:
+                default_dict = {'default_algo': "", }
+            else:
+                default_dict = {'default_algo': default_multi[sensor + " " + col[1]], }
 
         if form_dict['dim_select'][0] == 'Multi':
             if len(col) == 1:
                 return JsonResponse({"error": "Input data is not multivariate"},
                                     status=400)
             if len(col) > 2:
-                return JsonResponse({"error": "only accept Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ'"},
-                                    status=400)
+                return JsonResponse({
+                    "error": "only accept Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ'"},
+                    status=400)
 
             line = draw_line(csv['timestamp'], csv[col[0]], col[0])
 
@@ -165,9 +185,9 @@ def upload(request):
                 csv = csv[[sensor, col[1], col[2], 'timestamp']]
 
         else:
-            # if len(col) > 1:
-            #     return JsonResponse({"error": "Input data is not unitvariate"},
-            #                         status=400)
+            if len(col) > 1:
+                return JsonResponse({"error": "Input data is not unitvariate"},
+                                    status=400)
             line = draw_line(csv['timestamp'], csv[sensor], sensor)
             csv = csv[[sensor, 'timestamp']]
 
@@ -187,8 +207,10 @@ def upload(request):
             'data': table,
             'data1': table1,
             'bar_total_trend': bar_total_trend,
-            'default_algo': default[sensor],
+            # 'default_algo': default[sensor],
         }
+        context.update(default_dict)
+
         print("data will show in a while")
         return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 
@@ -225,15 +247,24 @@ def query(request):
                "Outside Temperature (°C)": 'Default(LSTM)',
                "KLT11_pumpSpeed_p1 (Hz)": 'Default(LSTM)',
                "KLT11_Fan1Speed_HZ (Hz)": 'Default(LSTM)',
-               "KLT13_inletTempBeforeHydraulicGate (°C)": 'Default(LSTM)',
+               "KLT13_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+               "KLT11_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+               "KLT12_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+               "KLT14_inletTempBeforeHydraulicGate": 'Default(LSTM)',
                "KLT14_pumpSpeed_p1": 'Default(HBOS)',
                "wetBulb": 'Default(LSTM)',
                "KLT14_Fan1Speed_HZ": 'Default(IForest)',
+               "P_WW": 'Default(HBOS)',
                }
     default_sensor = ["KLT12_flowRate1 (l/min)", 'IT Power Consumption (W)', 'Outside Temperature (°C)',
                       'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',
-                      'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', 'wetBulb',
-                      'KLT14_Fan1Speed_HZ']
+                      'KLT11_inletTempBeforeHydraulicGate', 'KLT12_inletTempBeforeHydraulicGate',
+                      'KLT13_inletTempBeforeHydraulicGate', 'KLT14_inletTempBeforeHydraulicGate',
+                      'KLT14_pumpSpeed_p1', 'wetBulb',
+                      'KLT14_Fan1Speed_HZ', 'P_WW']
+    default_multi_sensor = ["KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2", ]
+    default_multi = {"KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2": 'Default(Hbos)',
+                     }
 
     if 'ALGO_select' in form_dict:
         if len(col) == 1:
@@ -246,8 +277,9 @@ def query(request):
             elif form_dict['ALGO_select'][0] in algo:
                 pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
             else:
-                if sensor == "P_WW":
-                    pd_data = forest_detection(csv, 'Hbos', contamination=0.05)
+                if re.findall(r'[(](.*?)[)]', default[sensor])[0] != "LSTM":
+                    str = re.findall(r'[(](.*?)[)]', default[sensor])[0]
+                    pd_data = forest_detection(csv, str, contamination=0.05)
                 else:
                     if sensor not in default_sensor:
                         return JsonResponse({"error": "no match lstm model"},
@@ -295,24 +327,22 @@ def query(request):
         if len(col) == 2:
             csv = csv[[col[0], col[1], 'timestamp']]
             if form_dict['ALGO_select'][0] == 'Lstm':
-                if sensor not in default_sensor:
+                if sensor + " " + col[1] not in default_multi_sensor:
                     return JsonResponse({"error": "no match lstm model"},
                                         status=400)
                 pd_data = multi_lstm_detection(csv, contamination=0.05)
             elif form_dict['ALGO_select'][0] in algo:
                 pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
             else:
-                if default[sensor] == 'Default(LSTM)':
-                    if sensor not in default_sensor:
+                if re.findall(r'[(](.*?)[)]', default_multi[sensor + " " + col[1]])[0] != "LSTM":
+                    str = re.findall(r'[(](.*?)[)]', default_multi[sensor + " " + col[1]])[0]
+                    pd_data = forest_detection(csv, str, contamination=0.05)
+                else:
+                    if sensor + " " + col[1] not in default_multi_sensor:
                         return JsonResponse({"error": "no match lstm model"},
                                             status=400)
                     pd_data = multi_lstm_detection(csv, contamination=0.05)
-                else:
-                    if sensor == "KLT14_pumpSpeed_p1" or "P_WW":
-                        pd_data = forest_detection(csv, 'Hbos', contamination=0.05)
-                    if sensor == "KLT14_Fan1Speed_HZ":
-                        pd_data = forest_detection(csv, 'Forest', contamination=0.05)
-                print(default[sensor])
+                    print(default_multi[sensor + " " + col[1]])
             table = pd_data.to_html(
                 classes='ui selectable celled table',
                 table_id='data1'

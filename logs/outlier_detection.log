@@ -2140,3 +2140,25 @@ INFO 2021-07-16 16:57:15,131 basehttp 157 "GET / HTTP/1.1" 200 30401
 WARNING 2021-07-16 16:57:52,864 log 230 Bad Request: /upload/
 WARNING 2021-07-16 16:57:52,865 basehttp 157 "POST /upload/ HTTP/1.1" 400 42
 INFO 2021-07-16 16:58:01,584 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 20:09:39,599 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 20:09:47,476 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-16 20:09:49,316 log 230 Not Found: /favicon.ico
+WARNING 2021-07-16 20:09:49,317 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-16 20:10:14,235 basehttp 157 "POST /upload/ HTTP/1.1" 200 16398401
+INFO 2021-07-16 20:18:15,653 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-16 20:18:17,218 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 20:18:21,379 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 20:18:42,726 basehttp 157 "POST /upload/ HTTP/1.1" 200 16398401
+INFO 2021-07-16 20:19:34,193 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21556063
+INFO 2021-07-16 20:24:41,192 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-16 20:24:42,536 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-16 20:24:45,970 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 20:25:03,418 basehttp 157 "POST /upload/ HTTP/1.1" 200 1321153
+INFO 2021-07-16 20:25:15,935 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 20:25:25,111 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-16 20:25:55,594 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 689679
+INFO 2021-07-16 20:26:10,208 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2966211
+INFO 2021-07-16 20:26:20,426 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-16 20:26:53,271 basehttp 157 "POST /upload/ HTTP/1.1" 200 16398401
+INFO 2021-07-16 20:28:05,784 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21556007
+INFO 2021-07-16 20:29:09,589 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33093744

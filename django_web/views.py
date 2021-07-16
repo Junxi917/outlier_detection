@@ -174,6 +174,8 @@ def upload(request):
         csv['timestamp'] = pd.to_datetime(csv['timestamp'])
         print(col)
 
+        print("Data rendering...")
+
         if len(col) == 1:
             if sensor not in default_sensor:
                 default_dict = {'default_algo': "", }
@@ -251,6 +253,8 @@ def upload(request):
             line = draw_line(csv['timestamp'], csv[sensor], sensor)
             csv = csv[[sensor, 'timestamp']]
 
+        print("Data rendering finish")
+
         bar_total_trend = json.loads(line.dump_options())
 
         table = csv.to_html(
@@ -271,7 +275,7 @@ def upload(request):
         }
         context.update(default_dict)
 
-        print("data will show in a while")
+        print("Data will show in a while")
         return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 
 
@@ -302,6 +306,8 @@ def query(request):
 
     algo = ['Forest', 'Hbos', 'Cblof']
 
+    print("Request arrives at the backend")
+
     if 'ALGO_select' in form_dict:
         if len(col) == 1:
             csv = csv[[sensor, 'timestamp']]
@@ -322,6 +328,8 @@ def query(request):
                                             status=400)
                     pd_data = lstm_detection(csv, contamination=0.05)
                     print(default[sensor])
+
+            print("Data rendering...")
             table = pd_data.to_html(
                 classes='ui selectable celled table',
                 table_id='data1'
@@ -379,6 +387,8 @@ def query(request):
                                             status=400)
                     pd_data = multi_lstm_detection(csv, contamination=0.05)
                     print(default_multi[sensor + " " + col[1]])
+
+            print("Data rendering...")
             table = pd_data.to_html(
                 classes='ui selectable celled table',
                 table_id='data1'
@@ -485,6 +495,7 @@ def query(request):
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
+        print("Data rendering finish")
 
         bar_total_trend = json.loads(line.dump_options())
         bar_total_trend1 = json.loads(line1.dump_options())
@@ -498,6 +509,8 @@ def query(request):
             csv = pd_data[[sensor, 'timestamp']]
         if len(col) == 2:
             csv = pd_data[[col[0], col[1], 'timestamp']]
+
+        print("Data will show in a while")
 
         context = {
             'data': table,
@@ -535,6 +548,8 @@ def query(request):
             classes='ui selectable celled table',
             table_id='data2'
         )
+
+        print("Data rendering...")
 
         line1 = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
 
@@ -607,6 +622,8 @@ def query(request):
         bar_total_trend1 = json.loads(line1.dump_options())
         bar_total_trend2 = json.loads(line2.dump_options())
 
+        print("Data rendering finish")
+
         # export1 = pd_data
         # export2 = pd_data
 
@@ -621,6 +638,7 @@ def query(request):
             'bar_total_trend1': bar_total_trend1,
             'bar_total_trend2': bar_total_trend2
         }
+        print("Data will show in a while")
 
     return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 

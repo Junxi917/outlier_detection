@@ -35,8 +35,10 @@ def forest_detection(df, algo_select, contamination=0.05):
     scaler = StandardScaler()
     np_scaled = scaler.fit_transform(data)
     data = pd.DataFrame(np_scaled)
+    print("model training beginn")
     model.fit(data)
 
+    print("model prediction begin")
     df['anomaly'] = pd.Series(model.fit_predict(data))
     if len(col) == 1:
         df['original'] = df[sensor]
@@ -49,6 +51,7 @@ def forest_detection(df, algo_select, contamination=0.05):
         df.loc[index, new_df.columns.values] = np.nan
 
     # df = df[[sensor, 'original', 'anomaly', 'timestamp']]
+    print("model prediction finish")
     return df
 
 
@@ -85,6 +88,7 @@ def gap_filling(df, filling_select):
     #            "Mean": df.fillna(df[sensor].mean(), inplace=True),
     #            "Median": df.fillna(df[sensor].median(), inplace=True),
     #            }
+    print("gap filling begin")
 
     if filling_select == "Interpolate":
         # df = df.interpolate(method='linear', limit_direction='forward')
@@ -95,6 +99,9 @@ def gap_filling(df, filling_select):
         df.fillna(df[sensor].median(), inplace=True)
 
     # df = df.interpolate(method='linear', limit_direction='forward')  # make a gap filling with interpolate
+    print("gap filling finish")
+
+    print("locate filling data begin")
 
     if len(col) == 1:
         sen = 'filling' + " " + col[0]
@@ -109,6 +116,7 @@ def gap_filling(df, filling_select):
         for index in filling_data.index.tolist():
             df.at[index, sen1] = df.at[index, col[0]]
             df.at[index, sen2] = df.at[index, col[1]]
+    print("locate filling data finish")
 
     return df
 
@@ -172,7 +180,9 @@ def lstm_detection(df, contamination=0.05):
 
     new_df = df[col].copy()
 
+    print("load LSTM model")
     model = load_model(train_model[sensor], compile=False)
+    print("LSTM model is ready")
 
     df_test = df
 
@@ -185,7 +195,9 @@ def lstm_detection(df, contamination=0.05):
 
     testX, testY = create_sequences(test[[sensor]], test[sensor])
 
+    print("LSTM model prediction begin")
     predict = model.predict_on_batch(testX)
+    print("LSTM model prediction finish")
 
     test_mae_loss = np.mean(predict, axis=1)
 
@@ -238,7 +250,9 @@ def multi_lstm_detection(df, contamination=0.05):
 
     new_df = df[col].copy()
 
+    print("load LSTM model")
     model = load_model(train_multi_model[sensor + " " + col[1]], compile=False)
+    print("LSTM model is ready")
 
     df_test = df
 
@@ -252,7 +266,9 @@ def multi_lstm_detection(df, contamination=0.05):
 
     testX, testY = create_sequences(test[[col[0], col[1]]], test.values)
 
+    print("LSTM model prediction begin")
     predict = model.predict_on_batch(testX)
+    print("LSTM model prediction finish")
 
     test_mae_loss = np.mean(predict, axis=1)
 

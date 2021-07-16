@@ -68,36 +68,96 @@ def draw_line(df1, df2, sensor):
     return line;
 
 
+default = {"KLT11_flowRate1": 'Default(LSTM)',
+           "KLT12_flowRate1": 'Default(LSTM)',
+           "KLT13_flowRate1": 'Default(LSTM)',
+           "KLT14_flowRate1": 'Default(LSTM)',
+           "KLT11_flowRate2": 'Default(LSTM)',
+           "KLT12_flowRate2": 'Default(LSTM)',
+           "KLT13_flowRate2": 'Default(LSTM)',
+           "KLT14_flowRate2": 'Default(LSTM)',
+           "IT Power Consumption (W)": 'Default(LSTM)',
+           "Outside Temperature (°C)": 'Default(LSTM)',
+           "KLT11_pumpSpeed_p1": 'Default(LSTM)',
+           "KLT12_pumpSpeed_p1": 'Default(LSTM)',
+           "KLT13_pumpSpeed_p1": 'Default(LSTM)',
+           "KLT14_pumpSpeed_p1": 'Default(LSTM)',
+           "KLT11_pumpSpeed_p2": 'Default(LSTM)',
+           "KLT12_pumpSpeed_p2": 'Default(LSTM)',
+           "KLT13_pumpSpeed_p2": 'Default(LSTM)',
+           "KLT14_pumpSpeed_p2": 'Default(LSTM)',
+           "KLT11_Fan1Speed_HZ": 'Default(LSTM)',
+           "KLT12_Fan1Speed_HZ": 'Default(LSTM)',
+           "KLT13_Fan1Speed_HZ": 'Default(LSTM)',
+           "KLT14_Fan1Speed_HZ": 'Default(LSTM)',
+           "KLT11_Fan2Speed_HZ": 'Default(LSTM)',
+           "KLT12_Fan2Speed_HZ": 'Default(LSTM)',
+           "KLT13_Fan2Speed_HZ": 'Default(LSTM)',
+           "KLT14_Fan2Speed_HZ": 'Default(LSTM)',
+           "KLT13_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+           "KLT11_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+           "KLT12_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+           "KLT14_inletTempBeforeHydraulicGate": 'Default(LSTM)',
+           "wetBulb": 'Default(LSTM)',
+           "dryBulb": 'Default(LSTM)',
+           "P_WW": 'Default(Hbos)',
+           }
+default_sensor = ["KLT11_flowRate1",
+                  "KLT12_flowRate1",
+                  "KLT13_flowRate1",
+                  "KLT14_flowRate1",
+                  "KLT11_flowRate2",
+                  "KLT12_flowRate2",
+                  "KLT13_flowRate2",
+                  "KLT14_flowRate2",
+                  "IT Power Consumption (W)",
+                  "Outside Temperature (°C)",
+                  "KLT11_pumpSpeed_p1",
+                  "KLT12_pumpSpeed_p1",
+                  "KLT13_pumpSpeed_p1",
+                  "KLT14_pumpSpeed_p1",
+                  "KLT11_pumpSpeed_p2",
+                  "KLT12_pumpSpeed_p2",
+                  "KLT13_pumpSpeed_p2",
+                  "KLT14_pumpSpeed_p2",
+                  "KLT11_Fan1Speed_HZ",
+                  "KLT12_Fan1Speed_HZ",
+                  "KLT13_Fan1Speed_HZ",
+                  "KLT14_Fan1Speed_HZ",
+                  "KLT11_Fan2Speed_HZ",
+                  "KLT12_Fan2Speed_HZ",
+                  "KLT13_Fan2Speed_HZ",
+                  "KLT14_Fan2Speed_HZ",
+                  "KLT13_inletTempBeforeHydraulicGate",
+                  "KLT11_inletTempBeforeHydraulicGate",
+                  "KLT12_inletTempBeforeHydraulicGate",
+                  "KLT14_inletTempBeforeHydraulicGate",
+                  "wetBulb",
+                  "dryBulb",
+                  "P_WW"]
+default_multi_sensor = ["KLT11_pumpSpeed_p1 KLT11_pumpSpeed_p2",
+                        "KLT12_pumpSpeed_p1 KLT12_pumpSpeed_p2",
+                        "KLT13_pumpSpeed_p1 KLT13_pumpSpeed_p2",
+                        "KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2",
+                        "KLT11_Fan1Speed_HZ KLT11_Fan2Speed_HZ",
+                        "KLT12_Fan1Speed_HZ KLT12_Fan2Speed_HZ",
+                        "KLT13_Fan1Speed_HZ KLT13_Fan2Speed_HZ",
+                        "KLT14_Fan1Speed_HZ KLT14_Fan2Speed_HZ"]
+default_multi = {"KLT11_pumpSpeed_p1 KLT11_pumpSpeed_p2": 'Default(Hbos)',
+                 "KLT12_pumpSpeed_p1 KLT12_pumpSpeed_p2": 'Default(Hbos)',
+                 "KLT13_pumpSpeed_p1 KLT13_pumpSpeed_p2": 'Default(Hbos)',
+                 "KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2": 'Default(Hbos)',
+                 "KLT11_Fan1Speed_HZ KLT11_Fan2Speed_HZ": 'Default(Forest)',
+                 "KLT12_Fan1Speed_HZ KLT12_Fan2Speed_HZ": 'Default(Forest)',
+                 "KLT13_Fan1Speed_HZ KLT13_Fan2Speed_HZ": 'Default(Forest)',
+                 "KLT14_Fan1Speed_HZ KLT14_Fan2Speed_HZ": 'Default(Forest)',
+                 }
+
+
 def upload(request):
     global csv
     if request.method == "POST":
         print("data upload to backe-end")
-
-        default = {"KLT12_flowRate1 (l/min)": 'Default(LSTM)',
-                   "IT Power Consumption (W)": 'Default(LSTM)',
-                   "Outside Temperature (°C)": 'Default(LSTM)',
-                   "KLT11_pumpSpeed_p1 (Hz)": 'Default(LSTM)',
-                   "KLT11_Fan1Speed_HZ (Hz)": 'Default(LSTM)',
-                   "KLT13_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-                   "KLT11_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-                   "KLT12_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-                   "KLT14_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-                   "KLT14_pumpSpeed_p1": 'Default(HBOS)',
-                   "wetBulb": 'Default(LSTM)',
-                   "KLT14_Fan1Speed_HZ": 'Default(IForest)',
-                   "P_WW": 'Default(HBOS)',
-                   }
-
-        default_sensor = ["KLT12_flowRate1 (l/min)", 'IT Power Consumption (W)', 'Outside Temperature (°C)',
-                          'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',
-                          'KLT11_inletTempBeforeHydraulicGate', 'KLT12_inletTempBeforeHydraulicGate',
-                          'KLT13_inletTempBeforeHydraulicGate', 'KLT14_inletTempBeforeHydraulicGate',
-                          'KLT14_pumpSpeed_p1', 'wetBulb',
-                          'KLT14_Fan1Speed_HZ', 'P_WW']
-
-        default_multi_sensor = ["KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2", ]
-        default_multi = {"KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2": 'Default(Hbos)',
-                         }
 
         file = request.FILES["myFile"]
         form_dict = dict(six.iterlists(request.POST))
@@ -241,30 +301,6 @@ def query(request):
     csv['timestamp'] = pd.to_datetime(csv['timestamp'])
 
     algo = ['Forest', 'Hbos', 'Cblof']
-
-    default = {"KLT12_flowRate1 (l/min)": 'Default(LSTM)',
-               "IT Power Consumption (W)": 'Default(LSTM)',
-               "Outside Temperature (°C)": 'Default(LSTM)',
-               "KLT11_pumpSpeed_p1 (Hz)": 'Default(LSTM)',
-               "KLT11_Fan1Speed_HZ (Hz)": 'Default(LSTM)',
-               "KLT13_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-               "KLT11_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-               "KLT12_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-               "KLT14_inletTempBeforeHydraulicGate": 'Default(LSTM)',
-               "KLT14_pumpSpeed_p1": 'Default(HBOS)',
-               "wetBulb": 'Default(LSTM)',
-               "KLT14_Fan1Speed_HZ": 'Default(IForest)',
-               "P_WW": 'Default(HBOS)',
-               }
-    default_sensor = ["KLT12_flowRate1 (l/min)", 'IT Power Consumption (W)', 'Outside Temperature (°C)',
-                      'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',
-                      'KLT11_inletTempBeforeHydraulicGate', 'KLT12_inletTempBeforeHydraulicGate',
-                      'KLT13_inletTempBeforeHydraulicGate', 'KLT14_inletTempBeforeHydraulicGate',
-                      'KLT14_pumpSpeed_p1', 'wetBulb',
-                      'KLT14_Fan1Speed_HZ', 'P_WW']
-    default_multi_sensor = ["KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2", ]
-    default_multi = {"KLT14_pumpSpeed_p1 KLT14_pumpSpeed_p2": 'Default(Hbos)',
-                     }
 
     if 'ALGO_select' in form_dict:
         if len(col) == 1:

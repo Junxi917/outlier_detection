@@ -201,7 +201,7 @@ def upload(request):
                                     status=400)
             if len(col) > 2:
                 return JsonResponse({
-                    "error": "only accept Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ'"},
+                    "error": "only accept Two-dimensional Multivariate like:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2','KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ'"},
                     status=400)
 
             line = draw_line(csv['timestamp'], csv[col[0]], col[0])

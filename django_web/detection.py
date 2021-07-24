@@ -15,9 +15,11 @@ from pyod.models.lof import LOF
 from keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow import keras
+import tensorflow as tf
+from keras import backend as K
 
 
-def forest_detection(df, algo_select, contamination=0.05):
+def forest_detection(df, algo_select, contamination=0.01):
     algo = {"Hbos": HBOS(contamination=contamination),
             "Forest": IForest(contamination=contamination),
             "Cblof": CBLOF(contamination=contamination), }
@@ -142,7 +144,7 @@ train_model = {"KLT11_flowRate1": 'KLT12_flowRate1_model2.h5',
                "KLT13_flowRate2": 'KLT11_flowRate2_model2.h5',
                "KLT14_flowRate2": 'KLT11_flowRate2_model2.h5',
                "IT Power Consumption (W)": 'IT_Power_Consumption_model2.h5',
-               "Outside Temperature (°C)": 'Outside_Temperature_model2.h5',
+               "Outside Temperature (°C)": 'Outside Temperature (°C)_model_test1.h5',
                "P_WW": 'P_WW_model2.h5',
                "dryBulb": 'dryBulb_model2.h5',
                "wetBulb": 'dryBulb_model2.h5',
@@ -170,9 +172,9 @@ train_model = {"KLT11_flowRate1": 'KLT12_flowRate1_model2.h5',
                }
 
 
-def lstm_detection(df, contamination=0.05):
-    df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
-    df = df.sort_values('timestamp')
+def lstm_detection(df, contamination=0.01):
+    # df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
+    # df = df.sort_values('timestamp')
 
     col = df.columns.values.tolist()
     col.remove('timestamp')
@@ -196,7 +198,18 @@ def lstm_detection(df, contamination=0.05):
     testX, testY = create_sequences(test[[sensor]], test[sensor])
 
     print("LSTM model prediction begin")
-    predict = model.predict_on_batch(testX)
+
+    predict = testX
+    BATCH_INDICES = np.arange(start=0, stop=len(testX), step=1000)  # row indices of batches
+    BATCH_INDICES = np.append(BATCH_INDICES, len(testX))  # add final batch_end row
+
+    for index in np.arange(len(BATCH_INDICES) - 1):
+        batch_start = BATCH_INDICES[index]  # first row of the batch
+        batch_end = BATCH_INDICES[index + 1]  # last row of the batch
+        predict[batch_start:batch_end] = model.predict_on_batch(testX[batch_start:batch_end])
+        del batch_start
+        del batch_end
+    # predict = model.predict_on_batch(testX)
     print("LSTM model prediction finish")
 
     test_mae_loss = np.mean(predict, axis=1)
@@ -240,7 +253,7 @@ train_multi_model = {"KLT11_pumpSpeed_p1 KLT11_pumpSpeed_p2": 'multi_KLT14pumpSp
                      }
 
 
-def multi_lstm_detection(df, contamination=0.05):
+def multi_lstm_detection(df, contamination=0.01):
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
     df = df.sort_values('timestamp')
 
@@ -267,7 +280,15 @@ def multi_lstm_detection(df, contamination=0.05):
     testX, testY = create_sequences(test[[col[0], col[1]]], test.values)
 
     print("LSTM model prediction begin")
-    predict = model.predict_on_batch(testX)
+    predict = testX
+    BATCH_INDICES = np.arange(start=0, stop=len(testX), step=30)  # row indices of batches
+    BATCH_INDICES = np.append(BATCH_INDICES, len(testX))  # add final batch_end row
+
+    for index in np.arange(len(BATCH_INDICES) - 1):
+        batch_start = BATCH_INDICES[index]  # first row of the batch
+        batch_end = BATCH_INDICES[index + 1]  # last row of the batch
+        predict[batch_start:batch_end] = model.predict_on_batch(testX[batch_start:batch_end])
+    # predict = model.predict_on_batch(testX)
     print("LSTM model prediction finish")
 
     test_mae_loss = np.mean(predict, axis=1)

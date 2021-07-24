@@ -2162,3 +2162,1024 @@ INFO 2021-07-16 20:26:20,426 basehttp 157 "GET / HTTP/1.1" 200 30401
 INFO 2021-07-16 20:26:53,271 basehttp 157 "POST /upload/ HTTP/1.1" 200 16398401
 INFO 2021-07-16 20:28:05,784 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21556007
 INFO 2021-07-16 20:29:09,589 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33093744
+INFO 2021-07-17 07:38:36,330 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-17 07:38:47,265 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-17 07:38:49,270 log 230 Not Found: /favicon.ico
+WARNING 2021-07-17 07:38:49,270 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-17 07:57:35,499 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-17 08:11:29,481 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21546655
+INFO 2021-07-17 08:38:41,861 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33496298
+INFO 2021-07-17 16:51:15,405 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-17 16:51:24,602 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-17 16:51:27,450 log 230 Not Found: /favicon.ico
+WARNING 2021-07-17 16:51:27,450 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-17 16:52:00,319 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-17 18:01:33,638 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21546763
+INFO 2021-07-21 00:00:55,227 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-21 00:01:05,490 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-21 00:01:09,209 log 230 Not Found: /favicon.ico
+WARNING 2021-07-21 00:01:09,210 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-21 00:01:35,249 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-21 00:01:57,018 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-21 00:02:53,482 log 230 Bad Request: /upload/
+WARNING 2021-07-21 00:02:53,483 basehttp 157 "POST /upload/ HTTP/1.1" 400 142
+INFO 2021-07-21 00:03:10,481 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 16:19:19,322 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 16:20:07,069 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-22 16:20:10,636 log 230 Not Found: /favicon.ico
+WARNING 2021-07-22 16:20:10,637 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-22 16:21:04,560 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560990
+INFO 2021-07-22 16:22:26,895 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 16:22:48,706 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 16:23:19,853 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 16:27:55,541 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 16:29:17,669 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 16:29:17,679 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 16:29:41,630 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 17:05:40,328 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:05:50,048 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 17:06:13,613 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+ERROR 2021-07-22 17:06:49,871 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 329, in query
+    pd_data = lstm_detection(csv, contamination=0.05)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 201, in lstm_detection
+    predict = trainX
+NameError: name 'trainX' is not defined
+ERROR 2021-07-22 17:06:49,873 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 500 92112
+INFO 2021-07-22 17:07:16,433 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-22 17:07:18,215 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:07:23,555 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 17:07:31,933 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 17:08:02,788 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 17:14:51,658 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21534811
+INFO 2021-07-22 17:30:07,068 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorboard/plugins/text/metadata.py changed, reloading.
+INFO 2021-07-22 17:30:12,643 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:34:47,746 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:36:32,203 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/keras/backend/common.py changed, reloading.
+INFO 2021-07-22 17:36:33,169 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:37:51,664 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow_estimator/python/estimator/hooks/__init__.py changed, reloading.
+INFO 2021-07-22 17:37:58,789 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:38:59,322 autoreload 240 /home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/h5py/defs.cpython-37m-x86_64-linux-gnu.so changed, reloading.
+INFO 2021-07-22 17:39:00,795 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:39:10,570 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:40:30,838 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:41:13,176 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:41:36,529 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:42:18,688 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:42:53,858 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:44:05,451 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:46:32,154 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:47:19,947 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:49:23,040 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:51:37,068 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:53:02,406 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-22 17:53:03,916 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:53:10,971 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 17:53:14,662 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 17:53:18,046 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 17:54:03,452 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 17:56:09,992 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 17:58:04,506 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 20:14:46,582 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 20:14:55,973 basehttp 157 "GET / HTTP/1.1" 200 30401
+WARNING 2021-07-22 20:14:58,506 log 230 Not Found: /favicon.ico
+WARNING 2021-07-22 20:14:58,506 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-22 20:16:21,010 basehttp 157 "POST /upload/ HTTP/1.1" 200 21544911
+INFO 2021-07-22 20:19:17,049 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 32688782
+INFO 2021-07-22 20:21:22,678 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 50580704
+INFO 2021-07-22 20:27:49,110 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 56648188
+INFO 2021-07-22 20:29:32,527 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-22 20:29:34,535 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 20:29:48,737 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-22 20:29:50,620 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 20:29:54,262 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 20:30:23,285 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 20:34:47,325 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-22 20:34:51,240 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 20:34:56,676 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 20:35:37,250 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 20:44:23,840 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21534811
+INFO 2021-07-22 20:49:02,896 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-22 20:49:04,196 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 20:49:08,348 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 20:49:24,136 basehttp 157 "POST /upload/ HTTP/1.1" 200 1326667
+INFO 2021-07-22 20:50:13,588 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 1747395
+INFO 2021-07-22 20:50:44,336 basehttp 157 "GET / HTTP/1.1" 200 30401
+INFO 2021-07-22 20:51:14,651 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 20:57:47,320 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21534811
+INFO 2021-07-22 21:13:22,836 basehttp 157 "GET / HTTP/1.1" 200 34750
+WARNING 2021-07-22 21:13:23,384 log 230 Not Found: /js/echarts.min.js
+WARNING 2021-07-22 21:13:23,388 basehttp 157 "GET /js/echarts.min.js HTTP/1.1" 404 2849
+WARNING 2021-07-22 21:13:23,393 log 230 Not Found: /js/jsPdf.debug.js
+WARNING 2021-07-22 21:13:23,404 log 230 Not Found: /js/html2canvas.js
+WARNING 2021-07-22 21:13:23,425 basehttp 157 "GET /js/jsPdf.debug.js HTTP/1.1" 404 2849
+WARNING 2021-07-22 21:13:23,436 basehttp 157 "GET /js/html2canvas.js HTTP/1.1" 404 2849
+WARNING 2021-07-22 21:13:25,066 log 230 Not Found: /js/html2canvas.js
+WARNING 2021-07-22 21:13:25,069 basehttp 157 "GET /js/html2canvas.js HTTP/1.1" 404 2849
+WARNING 2021-07-22 21:13:25,097 log 230 Not Found: /js/jsPdf.debug.js
+WARNING 2021-07-22 21:13:25,098 basehttp 157 "GET /js/jsPdf.debug.js HTTP/1.1" 404 2849
+WARNING 2021-07-22 21:13:25,120 log 230 Not Found: /js/echarts.min.js
+WARNING 2021-07-22 21:13:25,121 basehttp 157 "GET /js/echarts.min.js HTTP/1.1" 404 2849
+WARNING 2021-07-22 21:13:33,154 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-22 21:13:33,177 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-22 21:17:24,183 basehttp 157 "GET / HTTP/1.1" 200 34508
+WARNING 2021-07-22 21:17:45,006 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-22 21:17:45,021 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-22 21:19:24,090 basehttp 157 "GET / HTTP/1.1" 200 31304
+INFO 2021-07-22 21:19:33,423 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-22 21:19:58,130 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-22 21:19:58,139 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-22 21:24:39,765 basehttp 157 "GET / HTTP/1.1" 200 31576
+INFO 2021-07-22 21:24:54,393 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-22 21:25:18,089 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-22 21:25:18,110 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-22 21:25:31,229 basehttp 157 "GET / HTTP/1.1" 200 31309
+INFO 2021-07-22 21:26:31,162 basehttp 157 "GET / HTTP/1.1" 200 31309
+INFO 2021-07-22 21:26:38,756 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-22 21:26:49,711 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-22 21:26:49,815 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-22 21:32:13,384 basehttp 157 "GET / HTTP/1.1" 200 31251
+INFO 2021-07-22 21:32:19,872 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-22 21:33:12,131 basehttp 157 "GET / HTTP/1.1" 200 31210
+INFO 2021-07-22 21:33:18,869 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-22 21:34:44,674 basehttp 157 "GET / HTTP/1.1" 200 31184
+INFO 2021-07-22 21:34:50,928 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-22 21:36:55,086 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-22 21:36:57,216 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-22 21:37:01,918 basehttp 157 "GET / HTTP/1.1" 200 31184
+INFO 2021-07-22 21:37:45,589 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-22 21:48:09,962 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21534822
+INFO 2021-07-23 07:57:36,528 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 07:57:44,263 basehttp 157 "GET / HTTP/1.1" 200 31340
+WARNING 2021-07-23 07:57:46,300 log 230 Not Found: /favicon.ico
+WARNING 2021-07-23 07:57:46,304 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2831
+INFO 2021-07-23 07:57:52,146 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 07:59:56,946 basehttp 157 "GET / HTTP/1.1" 200 31374
+INFO 2021-07-23 08:00:07,231 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 08:10:35,121 basehttp 157 "GET / HTTP/1.1" 200 30681
+INFO 2021-07-23 08:10:41,504 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:10:45,438 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 656, in export
+    df.to_excel(xlwriter, 'data', index=True)
+AttributeError: 'function' object has no attribute 'to_excel'
+ERROR 2021-07-23 08:10:45,439 basehttp 157 "GET /export HTTP/1.1" 500 68618
+INFO 2021-07-23 08:14:05,825 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:14:07,190 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:16:34,991 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:16:36,281 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:16:39,930 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:16:48,019 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:16:50,906 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 649, in export
+    template = get_template(template_src)
+NameError: name 'get_template' is not defined
+ERROR 2021-07-23 08:16:50,908 basehttp 157 "GET /export HTTP/1.1" 500 67953
+INFO 2021-07-23 08:17:07,636 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:17:08,887 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:17:13,300 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:17:16,413 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:17:22,752 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:17:26,449 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 651, in export
+    result = StringIO.StringIO()
+NameError: name 'StringIO' is not defined
+ERROR 2021-07-23 08:17:26,450 basehttp 157 "GET /export HTTP/1.1" 500 68104
+INFO 2021-07-23 08:17:53,933 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:17:55,166 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:18:42,571 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:18:43,593 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:19:59,430 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:20:52,856 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:23:18,701 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:26:17,704 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:30:36,440 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:30:44,782 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:30:53,484 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:30:57,198 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 656, in export
+    result = StringIO.StringIO()
+AttributeError: type object '_io.StringIO' has no attribute 'StringIO'
+ERROR 2021-07-23 08:30:57,199 basehttp 157 "GET /export HTTP/1.1" 500 68266
+INFO 2021-07-23 08:31:57,179 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:31:58,782 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:32:03,805 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:32:10,195 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:32:13,683 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 658, in export
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("ISO-8859-1")), result)
+AttributeError: type object '_io.StringIO' has no attribute 'StringIO'
+ERROR 2021-07-23 08:32:13,684 basehttp 157 "GET /export HTTP/1.1" 500 68463
+INFO 2021-07-23 08:32:26,062 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:32:48,382 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:32:54,834 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:32:58,184 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 658, in export
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("ISO-8859-1")), result)
+AttributeError: type object '_io.StringIO' has no attribute 'StringIO'
+ERROR 2021-07-23 08:32:58,185 basehttp 157 "GET /export HTTP/1.1" 500 68463
+INFO 2021-07-23 08:33:21,721 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:33:26,170 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:33:33,891 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:33:37,552 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 658, in export
+    pdf = pisa.pisaDocument(StringIO(html.encode("ISO-8859-1")), result)
+TypeError: initial_value must be str or None, not bytes
+ERROR 2021-07-23 08:33:37,553 basehttp 157 "GET /export HTTP/1.1" 500 68295
+INFO 2021-07-23 08:36:07,385 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:36:09,255 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:37:31,326 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:37:32,287 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:39:02,135 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:39:07,188 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:39:16,663 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:39:19,865 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 656, in export
+    result = io.BytesIO()
+NameError: name 'io' is not defined
+ERROR 2021-07-23 08:39:19,866 basehttp 157 "GET /export HTTP/1.1" 500 68053
+INFO 2021-07-23 08:39:32,805 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:39:34,558 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:39:39,900 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:39:47,478 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:39:50,760 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 656, in export
+    result = BytesIO()
+NameError: name 'BytesIO' is not defined
+ERROR 2021-07-23 08:39:50,762 basehttp 157 "GET /export HTTP/1.1" 500 68067
+INFO 2021-07-23 08:40:33,605 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:40:38,238 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:40:48,496 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:40:52,335 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 659, in export
+    pdf = pisa.pisaDocument(StringIO(html.encode("ISO-8859-1")), result)
+TypeError: initial_value must be str or None, not bytes
+ERROR 2021-07-23 08:40:52,338 basehttp 157 "GET /export HTTP/1.1" 500 68296
+INFO 2021-07-23 08:41:13,697 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:41:15,336 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:41:20,957 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:41:28,383 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:41:34,690 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 08:41:38,144 basehttp 157 "GET /export HTTP/1.1" 200 1494
+INFO 2021-07-23 08:42:09,715 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:42:11,309 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:42:48,869 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:42:49,574 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:42:55,256 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:43:02,462 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 08:43:07,102 basehttp 157 "GET /export HTTP/1.1" 200 1494
+INFO 2021-07-23 08:49:53,886 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 08:49:56,345 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:52:48,563 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:52:55,094 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:53:06,104 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:53:12,892 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 662, in export
+    result = file('test.pdf', 'wb')
+NameError: name 'file' is not defined
+ERROR 2021-07-23 08:53:12,897 basehttp 157 "GET /export HTTP/1.1" 500 74544
+INFO 2021-07-23 08:55:35,915 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:56:37,029 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:56:44,795 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:56:52,039 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 667, in export
+    return HttpResponse(result.getvalue(), content_type='application/pdf')
+AttributeError: '_io.BufferedWriter' object has no attribute 'getvalue'
+ERROR 2021-07-23 08:56:52,041 basehttp 157 "GET /export HTTP/1.1" 500 75168
+INFO 2021-07-23 08:57:18,073 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 08:57:29,223 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 08:57:37,762 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 08:57:41,595 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 667, in export
+    return HttpResponse(result, content_type='application/pdf')
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/http/response.py", line 298, in __init__
+    self.content = content
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/http/response.py", line 321, in content
+    content = b''.join(self.make_bytes(chunk) for chunk in value)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/http/response.py", line 321, in <genexpr>
+    content = b''.join(self.make_bytes(chunk) for chunk in value)
+io.UnsupportedOperation: read
+ERROR 2021-07-23 08:57:41,596 basehttp 157 "GET /export HTTP/1.1" 500 87632
+INFO 2021-07-23 09:00:13,850 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 09:00:15,845 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:02:13,335 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:02:29,564 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:02:31,591 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 09:02:34,848 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:02:58,304 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:03:08,623 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 09:03:13,012 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 661, in export
+    pdfkit.from_file('test.html', 'test.pdf', configuration=cfg)
+NameError: name 'cfg' is not defined
+ERROR 2021-07-23 09:03:13,015 basehttp 157 "GET /export HTTP/1.1" 500 68201
+INFO 2021-07-23 09:05:23,115 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:05:30,697 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:05:40,900 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 09:05:49,271 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 665, in export
+    response = StreamingHttpResponse(read_file(file_path))
+NameError: name 'StreamingHttpResponse' is not defined
+ERROR 2021-07-23 09:05:49,272 basehttp 157 "GET /export HTTP/1.1" 500 68737
+INFO 2021-07-23 09:06:48,015 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:06:53,406 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:07:01,583 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 09:07:08,995 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 666, in export
+    response = StreamingHttpResponse(read_file(file_path))
+NameError: name 'read_file' is not defined
+ERROR 2021-07-23 09:07:08,997 basehttp 157 "GET /export HTTP/1.1" 500 68689
+INFO 2021-07-23 09:09:22,855 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:09:33,553 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:09:44,542 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 09:09:52,061 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 666, in export
+    response = StreamingHttpResponse(file_iterator(file_path))
+NameError: name 'file_iterator' is not defined
+ERROR 2021-07-23 09:09:52,063 basehttp 157 "GET /export HTTP/1.1" 500 68713
+INFO 2021-07-23 09:16:52,149 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:17:35,679 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:20:10,052 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:20:14,304 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:20:21,197 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 09:20:31,798 basehttp 157 "GET /export HTTP/1.1" 200 8
+INFO 2021-07-23 09:22:35,141 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:22:40,968 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:22:54,472 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 09:23:04,876 basehttp 157 "GET /export HTTP/1.1" 200 8
+INFO 2021-07-23 09:26:03,307 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:26:16,711 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:26:33,155 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 09:26:41,893 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 668, in export
+    response = FileResponse(file)
+NameError: name 'FileResponse' is not defined
+ERROR 2021-07-23 09:26:41,909 basehttp 157 "GET /export HTTP/1.1" 500 68728
+INFO 2021-07-23 09:27:20,235 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:27:33,542 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:27:43,718 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 09:27:50,914 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 671, in export
+    response['Content-Disposition'] = "attachment; filename*=UTF-8''{}".format(escape_uri_path(file_name))
+NameError: name 'escape_uri_path' is not defined
+ERROR 2021-07-23 09:27:50,915 basehttp 157 "GET /export HTTP/1.1" 500 69124
+INFO 2021-07-23 09:28:26,978 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 09:28:31,446 basehttp 157 "GET / HTTP/1.1" 200 30677
+INFO 2021-07-23 09:28:39,071 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 09:28:46,014 basehttp 157 "GET /export HTTP/1.1" 200 34795
+INFO 2021-07-23 09:29:31,538 basehttp 157 "GET /export HTTP/1.1" 200 34795
+INFO 2021-07-23 10:07:57,836 basehttp 157 "GET / HTTP/1.1" 200 31193
+INFO 2021-07-23 10:08:04,567 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 10:08:20,643 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 10:08:20,666 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 10:08:20,710 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 10:08:20,782 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+WARNING 2021-07-23 10:08:20,788 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+WARNING 2021-07-23 10:08:20,819 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 10:15:43,327 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 10:15:45,182 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:15:52,357 basehttp 157 "GET / HTTP/1.1" 200 32803
+INFO 2021-07-23 10:15:59,574 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 10:17:34,036 basehttp 157 "GET / HTTP/1.1" 200 32831
+INFO 2021-07-23 10:17:39,854 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 10:17:42,192 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 10:17:42,275 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+WARNING 2021-07-23 10:17:42,677 log 230 Forbidden (CSRF token missing or incorrect.): /export
+WARNING 2021-07-23 10:17:42,678 basehttp 157 "POST /export HTTP/1.1" 403 2513
+INFO 2021-07-23 10:19:02,408 basehttp 157 "GET / HTTP/1.1" 200 32959
+INFO 2021-07-23 10:19:08,611 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 10:19:11,487 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 661, in export
+    print(form_dict['dim_select'][0])
+KeyError: 'dim_select'
+ERROR 2021-07-23 10:19:11,488 basehttp 157 "POST /export HTTP/1.1" 500 68832
+INFO 2021-07-23 10:19:36,076 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:19:39,772 basehttp 157 "GET / HTTP/1.1" 200 32959
+INFO 2021-07-23 10:19:46,614 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 10:19:53,662 basehttp 157 "POST /export HTTP/1.1" 200 34795
+INFO 2021-07-23 10:20:16,129 basehttp 157 "POST /export HTTP/1.1" 200 34795
+INFO 2021-07-23 10:22:33,273 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:22:37,182 basehttp 157 "GET / HTTP/1.1" 200 32959
+INFO 2021-07-23 10:22:44,764 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 10:22:48,576 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 662, in export
+    print(form_dict['screenshot'][0])
+KeyError: 'screenshot'
+ERROR 2021-07-23 10:22:48,577 basehttp 157 "POST /export HTTP/1.1" 500 68800
+ERROR 2021-07-23 10:22:49,364 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 662, in export
+    print(form_dict['screenshot'][0])
+KeyError: 'screenshot'
+ERROR 2021-07-23 10:22:49,365 basehttp 157 "POST /export HTTP/1.1" 500 68800
+INFO 2021-07-23 10:26:28,732 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:26:33,927 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:26:43,652 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 10:26:49,996 basehttp 157 "GET /export HTTP/1.1" 200 34795
+INFO 2021-07-23 10:29:56,421 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 10:29:57,928 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:32:23,896 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:32:27,783 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:32:35,811 basehttp 157 "POST /upload/ HTTP/1.1" 200 1303815
+INFO 2021-07-23 10:32:41,545 basehttp 157 "GET /export HTTP/1.1" 200 30490
+INFO 2021-07-23 10:34:30,317 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 10:34:31,754 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:34:35,019 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:34:40,313 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:34:46,176 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 10:35:01,556 basehttp 157 "GET /export HTTP/1.1" 200 30490
+INFO 2021-07-23 10:35:58,939 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:36:02,904 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:36:11,944 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305017
+INFO 2021-07-23 10:36:53,949 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:36:58,635 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:37:05,375 basehttp 157 "POST /upload/ HTTP/1.1" 200 1304861
+INFO 2021-07-23 10:37:33,323 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 10:37:34,587 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:37:39,978 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:37:45,564 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:37:52,238 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 10:38:01,307 basehttp 157 "GET /export HTTP/1.1" 200 31339
+INFO 2021-07-23 10:40:19,077 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 10:40:25,653 basehttp 157 "GET / HTTP/1.1" 200 30765
+INFO 2021-07-23 10:40:34,031 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 10:41:27,940 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 1675840
+INFO 2021-07-23 10:41:48,051 basehttp 157 "GET /export HTTP/1.1" 200 31867
+INFO 2021-07-23 10:46:06,164 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 10:46:07,362 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:00:18,099 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:00:22,560 basehttp 157 "GET / HTTP/1.1" 200 31668
+INFO 2021-07-23 11:00:28,514 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:00:35,411 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:05:10,564 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:05:21,253 basehttp 157 "GET / HTTP/1.1" 200 31668
+INFO 2021-07-23 11:05:29,666 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:05:37,179 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:07:04,827 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 11:07:06,249 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:07:58,533 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:08:03,649 basehttp 157 "GET / HTTP/1.1" 200 31668
+INFO 2021-07-23 11:08:13,030 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:08:21,986 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:09:51,982 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:10:00,572 basehttp 157 "GET / HTTP/1.1" 200 31710
+INFO 2021-07-23 11:10:15,389 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:11:07,726 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:11:11,920 basehttp 157 "GET / HTTP/1.1" 200 31706
+INFO 2021-07-23 11:11:19,873 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:11:29,992 basehttp 157 "POST /export HTTP/1.1" 200 31339
+WARNING 2021-07-23 11:12:15,247 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 11:12:15,320 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 11:12:19,935 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:13:34,761 basehttp 157 "GET / HTTP/1.1" 200 31700
+INFO 2021-07-23 11:13:40,356 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:13:46,512 basehttp 157 "POST /export HTTP/1.1" 200 31339
+ERROR 2021-07-23 11:13:46,617 log 230 Internal Server Error: /export1
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 702, in export1
+    df.to_excel(xlwriter, 'data', index=True)
+AttributeError: 'function' object has no attribute 'to_excel'
+ERROR 2021-07-23 11:13:46,626 basehttp 157 "GET /export1 HTTP/1.1" 500 68635
+INFO 2021-07-23 11:14:05,258 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:14:09,904 basehttp 157 "GET / HTTP/1.1" 200 31699
+INFO 2021-07-23 11:14:18,247 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:14:27,033 basehttp 157 "POST /export HTTP/1.1" 200 31339
+ERROR 2021-07-23 11:14:27,110 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 663, in export
+    print(form_dict['imgBase64:'][0].split(',')[1])
+KeyError: 'imgBase64:'
+ERROR 2021-07-23 11:14:27,111 basehttp 157 "GET /export HTTP/1.1" 500 67894
+INFO 2021-07-23 11:18:57,473 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:19:05,635 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:19:14,864 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:19:24,305 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:19:28,660 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 11:23:21,165 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:24:36,515 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:25:26,861 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:26:15,742 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:30:13,268 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:31:39,825 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 11:31:42,878 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:32:12,105 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:32:20,509 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:32:31,173 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:32:45,390 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:32:49,477 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 11:34:26,820 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 11:34:28,653 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:41:07,089 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 11:41:08,139 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:41:41,978 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:41:46,570 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:41:53,295 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 11:41:56,809 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 688, in export
+    f1.write(img2pdf.convert(f2))
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/img2pdf.py", line 2069, in convert
+    rawdata = img.read()
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+ERROR 2021-07-23 11:41:56,811 basehttp 157 "POST /export HTTP/1.1" 500 215339
+INFO 2021-07-23 11:44:16,464 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:44:21,167 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:44:30,226 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 11:44:33,386 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 687, in export
+    with open("test1.pdf", "wb" , encoding="utf8", errors='ignore') as f1, open("test.jpg" , encoding="utf8", errors='ignore') as f2:
+ValueError: binary mode doesn't take an encoding argument
+ERROR 2021-07-23 11:44:33,387 basehttp 157 "POST /export HTTP/1.1" 500 190008
+INFO 2021-07-23 11:45:01,772 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:45:05,837 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:45:13,637 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 11:45:17,235 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 11:45:17,368 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+ERROR 2021-07-23 11:45:17,642 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 687, in export
+    with open("test1.pdf", "wb" , encoding="utf8", errors='ignore') as f1, open("test.jpg") as f2:
+ValueError: binary mode doesn't take an encoding argument
+ERROR 2021-07-23 11:45:17,643 basehttp 157 "POST /export HTTP/1.1" 500 189898
+INFO 2021-07-23 11:45:40,908 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:45:52,732 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:45:59,588 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 11:46:02,995 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 688, in export
+    f1.write(img2pdf.convert(f2))
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/img2pdf.py", line 2102, in convert
+    ) in read_images(rawdata, kwargs["colorspace"], kwargs["first_frame_only"]):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/img2pdf.py", line 1348, in read_images
+    im = BytesIO(rawdata)
+TypeError: a bytes-like object is required, not 'str'
+ERROR 2021-07-23 11:46:02,996 basehttp 157 "POST /export HTTP/1.1" 500 211143
+INFO 2021-07-23 11:48:56,220 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:49:02,500 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:49:10,847 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 11:49:20,427 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 11:49:20,522 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 11:49:24,595 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:49:28,566 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 11:50:29,627 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 11:50:46,405 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 11:50:54,037 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 11:51:01,450 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 11:51:05,775 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 11:56:04,989 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 11:56:06,328 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 12:09:40,003 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 12:09:47,047 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 12:09:54,570 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 12:09:57,903 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 12:09:57,993 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 12:10:01,594 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 12:10:04,914 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 12:10:17,434 basehttp 157 "GET / HTTP/1.1" 200 31703
+INFO 2021-07-23 12:10:41,235 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 12:11:05,015 basehttp 157 "POST /export HTTP/1.1" 200 157668
+INFO 2021-07-23 12:11:12,840 basehttp 157 "GET /export_pdf HTTP/1.1" 200 157668
+INFO 2021-07-23 12:12:58,266 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 12:13:05,643 basehttp 157 "GET / HTTP/1.1" 200 30793
+INFO 2021-07-23 12:13:13,583 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 12:13:20,833 basehttp 157 "GET /export HTTP/1.1" 200 31339
+INFO 2021-07-23 12:40:28,086 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 12:40:43,783 basehttp 157 "GET / HTTP/1.1" 200 31778
+WARNING 2021-07-23 12:40:47,953 log 230 Not Found: /favicon.ico
+WARNING 2021-07-23 12:40:47,956 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2960
+INFO 2021-07-23 12:41:01,557 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 12:41:31,809 basehttp 157 "GET / HTTP/1.1" 200 31667
+INFO 2021-07-23 12:41:38,182 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+ERROR 2021-07-23 12:41:44,969 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 677, in export
+    image = Image.open(test.jpg)
+NameError: name 'test' is not defined
+ERROR 2021-07-23 12:41:44,970 basehttp 157 "POST /export HTTP/1.1" 500 189670
+INFO 2021-07-23 12:42:07,516 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 12:42:16,394 basehttp 157 "GET / HTTP/1.1" 200 31667
+INFO 2021-07-23 12:42:23,729 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 12:42:37,382 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 12:42:40,769 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 12:43:29,389 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 12:43:54,959 basehttp 157 "GET / HTTP/1.1" 200 31667
+INFO 2021-07-23 12:44:03,748 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 12:44:11,320 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 12:44:14,882 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 13:06:09,181 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:06:20,851 basehttp 157 "GET / HTTP/1.1" 200 31772
+INFO 2021-07-23 13:06:30,973 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:06:39,475 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:06:44,590 basehttp 157 "GET /export_pdf HTTP/1.1" 200 31339
+INFO 2021-07-23 13:09:01,239 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 13:09:04,015 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:25:20,752 basehttp 157 "GET / HTTP/1.1" 200 31742
+INFO 2021-07-23 13:25:26,938 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:30:28,201 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:30:35,909 basehttp 157 "GET / HTTP/1.1" 200 32007
+INFO 2021-07-23 13:30:44,535 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 13:30:47,846 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 13:30:48,037 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 13:30:52,988 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:32:02,799 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:32:07,201 basehttp 157 "GET / HTTP/1.1" 200 32188
+INFO 2021-07-23 13:32:15,111 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:32:23,629 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:32:49,334 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:32:58,257 basehttp 157 "GET / HTTP/1.1" 200 32149
+INFO 2021-07-23 13:33:09,820 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 13:33:12,873 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 13:33:13,013 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 13:33:23,400 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:35:35,100 basehttp 157 "GET / HTTP/1.1" 200 32170
+INFO 2021-07-23 13:35:42,446 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:35:50,119 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:36:19,954 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:36:24,389 basehttp 157 "GET / HTTP/1.1" 200 31763
+INFO 2021-07-23 13:36:32,168 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:36:39,284 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:38:12,424 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:38:17,160 basehttp 157 "GET / HTTP/1.1" 200 32033
+INFO 2021-07-23 13:38:25,587 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:38:38,746 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:39:50,995 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:40:00,977 basehttp 157 "GET / HTTP/1.1" 200 31948
+INFO 2021-07-23 13:40:08,950 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:40:20,474 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 13:45:15,415 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:45:19,389 basehttp 157 "GET / HTTP/1.1" 200 32318
+INFO 2021-07-23 13:45:27,226 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:46:05,033 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:46:09,272 basehttp 157 "GET / HTTP/1.1" 200 32336
+INFO 2021-07-23 13:46:17,897 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 13:53:42,012 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 13:53:46,199 basehttp 157 "GET / HTTP/1.1" 200 31712
+INFO 2021-07-23 13:53:52,676 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+WARNING 2021-07-23 13:53:55,869 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 13:53:55,962 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 13:54:00,170 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 14:00:04,871 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 14:00:11,524 basehttp 157 "GET / HTTP/1.1" 200 32236
+INFO 2021-07-23 14:00:18,491 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 14:00:35,974 basehttp 157 "POST /export HTTP/1.1" 200 31339
+INFO 2021-07-23 14:00:43,489 basehttp 157 "GET / HTTP/1.1" 200 32236
+INFO 2021-07-23 14:01:15,984 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 14:01:20,278 basehttp 157 "GET / HTTP/1.1" 200 32336
+INFO 2021-07-23 14:01:29,543 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 14:11:16,783 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 14:11:21,661 basehttp 157 "GET / HTTP/1.1" 200 32318
+INFO 2021-07-23 14:11:32,533 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 14:18:57,382 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 14:19:10,017 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 14:19:19,361 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305016
+INFO 2021-07-23 16:21:27,900 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 16:21:49,002 basehttp 157 "GET / HTTP/1.1" 200 31669
+WARNING 2021-07-23 16:21:53,669 log 230 Not Found: /favicon.ico
+WARNING 2021-07-23 16:21:53,673 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2960
+WARNING 2021-07-23 16:22:06,959 log 230 Forbidden (CSRF token missing or incorrect.): /upload/
+WARNING 2021-07-23 16:22:06,965 basehttp 157 "POST /upload/ HTTP/1.1" 403 2513
+INFO 2021-07-23 16:22:41,522 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+WARNING 2021-07-23 16:22:51,233 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-23 16:22:51,299 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+INFO 2021-07-23 16:23:08,500 basehttp 157 "POST /export HTTP/1.1" 200 157668
+INFO 2021-07-23 16:24:29,817 basehttp 157 "POST /export HTTP/1.1" 200 157668
+INFO 2021-07-23 16:26:55,019 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21534822
+INFO 2021-07-23 16:45:40,149 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 16:46:02,621 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 16:47:04,622 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33327679
+INFO 2021-07-23 17:02:34,259 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 37835587
+INFO 2021-07-23 20:02:42,961 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:02:55,974 basehttp 157 "GET / HTTP/1.1" 200 31669
+WARNING 2021-07-23 20:02:58,054 log 230 Not Found: /favicon.ico
+WARNING 2021-07-23 20:02:58,057 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2960
+INFO 2021-07-23 20:03:19,625 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 20:07:30,359 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21534822
+INFO 2021-07-23 20:08:47,141 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:08:54,249 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:09:00,238 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 20:09:28,307 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 20:15:06,497 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21534822
+INFO 2021-07-23 20:30:58,445 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-23 20:31:04,773 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:31:38,456 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:31:49,440 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:32:05,549 basehttp 157 "GET / HTTP/1.1" 200 31669
+ERROR 2021-07-23 20:32:14,227 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 271, in upload
+    line = draw_line(csv['timestamp'], csv[sensor], sensor)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 80, in draw_line
+    splitline_opts=opts.SplitLineOpts(is_show=True),
+AttributeError: 'AxisOpts' object has no attribute 'set_series_opts'
+ERROR 2021-07-23 20:32:14,229 basehttp 157 "POST /upload/ HTTP/1.1" 500 74934
+INFO 2021-07-23 20:32:57,903 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:33:16,568 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 20:33:47,285 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305100
+INFO 2021-07-23 20:34:20,241 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:34:44,379 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 20:36:27,225 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:36:34,760 basehttp 157 "GET / HTTP/1.1" 200 31669
+WARNING 2021-07-23 20:40:41,216 log 230 Bad Request: /upload/
+WARNING 2021-07-23 20:40:41,217 basehttp 157 "POST /upload/ HTTP/1.1" 400 42
+INFO 2021-07-23 20:41:04,640 basehttp 157 "POST /upload/ HTTP/1.1" 200 1735075
+INFO 2021-07-23 20:41:40,587 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:41:47,674 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 20:42:04,006 basehttp 157 "POST /upload/ HTTP/1.1" 200 1735075
+INFO 2021-07-23 20:42:45,951 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 20:42:52,192 basehttp 157 "GET / HTTP/1.1" 200 31669
+WARNING 2021-07-23 20:43:03,064 log 230 Bad Request: /upload/
+WARNING 2021-07-23 20:43:03,065 basehttp 157 "POST /upload/ HTTP/1.1" 400 42
+INFO 2021-07-23 20:43:14,747 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-23 21:22:04,193 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-23 21:22:06,430 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 21:26:19,954 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-23 21:26:21,696 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 21:27:36,039 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 21:27:42,047 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 21:28:34,579 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 21:35:31,734 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21535126
+INFO 2021-07-23 21:41:21,970 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 21:41:35,214 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 21:42:15,128 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 21:45:53,152 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21535126
+INFO 2021-07-23 22:04:38,809 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-23 22:04:40,833 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 22:13:41,480 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 22:14:09,764 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 22:14:42,207 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 22:20:35,348 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21535126
+INFO 2021-07-23 22:35:49,766 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 22:36:30,770 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560955
+INFO 2021-07-23 22:39:50,571 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21797955
+INFO 2021-07-23 22:41:14,702 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 22:41:54,387 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560955
+INFO 2021-07-23 22:43:52,567 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21808933
+INFO 2021-07-23 22:48:46,382 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 22:49:12,548 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 22:49:53,817 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560955
+INFO 2021-07-23 22:54:13,880 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21797955
+INFO 2021-07-23 23:01:41,887 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 23:01:50,400 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 23:02:20,551 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560955
+INFO 2021-07-23 23:08:10,238 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21797955
+INFO 2021-07-23 23:09:16,142 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 23:09:24,504 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 23:10:25,651 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+ERROR 2021-07-23 23:10:56,977 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 349, in query
+    pd_data = lstm_detection(csv, contamination=0.01)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 186, in lstm_detection
+    model = load_model("train_model[sensor]", compile=False)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/keras/saving/save.py", line 211, in load_model
+    loader_impl.parse_saved_model(filepath)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/tensorflow/python/saved_model/loader_impl.py", line 114, in parse_saved_model
+    constants.SAVED_MODEL_FILENAME_PB))
+OSError: SavedModel file does not exist at: train_model[sensor]/{saved_model.pbtxt|saved_model.pb}
+ERROR 2021-07-23 23:10:56,979 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 500 97796
+INFO 2021-07-23 23:11:23,658 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 23:11:58,955 basehttp 157 "GET / HTTP/1.1" 200 31669
+INFO 2021-07-23 23:12:57,241 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-23 23:16:37,816 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21549621
+INFO 2021-07-23 23:44:39,856 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 23:44:48,284 basehttp 157 "GET / HTTP/1.1" 200 31669
+WARNING 2021-07-23 23:44:51,469 log 230 Not Found: /favicon.ico
+WARNING 2021-07-23 23:44:51,470 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2960
+INFO 2021-07-23 23:45:00,593 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-23 23:45:48,661 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-23 23:45:53,970 basehttp 157 "GET / HTTP/1.1" 200 31669
+WARNING 2021-07-23 23:45:57,303 log 230 Not Found: /favicon.ico
+WARNING 2021-07-23 23:45:57,316 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2960
+INFO 2021-07-23 23:46:07,724 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-23 23:46:23,827 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 690131
+INFO 2021-07-23 23:46:42,508 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-23 23:46:44,156 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 07:51:10,777 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 07:51:28,263 basehttp 157 "GET / HTTP/1.1" 200 31696
+WARNING 2021-07-24 07:51:31,027 log 230 Not Found: /favicon.ico
+WARNING 2021-07-24 07:51:31,028 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2960
+WARNING 2021-07-24 07:51:45,107 log 230 Bad Request: /upload/
+WARNING 2021-07-24 07:51:45,108 basehttp 157 "POST /upload/ HTTP/1.1" 400 42
+INFO 2021-07-24 07:51:55,486 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+WARNING 2021-07-24 07:52:02,078 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.woff HTTP/1.1" 404 1923
+WARNING 2021-07-24 07:52:02,158 basehttp 157 "GET /static/Semantic-UI-CSS-master/themes/default/assets/fonts/icons.ttf HTTP/1.1" 404 1920
+ERROR 2021-07-24 07:52:02,610 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 696, in export
+    export.set_global_opts(
+AttributeError: 'function' object has no attribute 'set_global_opts'
+ERROR 2021-07-24 07:52:02,611 basehttp 157 "POST /export HTTP/1.1" 500 242203
+INFO 2021-07-24 07:53:51,195 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 07:53:55,083 basehttp 157 "GET / HTTP/1.1" 200 30878
+INFO 2021-07-24 07:54:10,357 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+ERROR 2021-07-24 07:54:13,554 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 696, in export
+    export.set_global_opts(
+AttributeError: 'function' object has no attribute 'set_global_opts'
+ERROR 2021-07-24 07:54:13,556 basehttp 157 "GET /export HTTP/1.1" 500 68029
+INFO 2021-07-24 07:55:34,140 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 07:55:38,745 basehttp 157 "GET / HTTP/1.1" 200 30878
+INFO 2021-07-24 07:55:50,449 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734991
+INFO 2021-07-24 07:55:56,880 basehttp 157 "GET /export HTTP/1.1" 200 44090
+INFO 2021-07-24 07:59:21,145 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 07:59:25,547 basehttp 157 "GET / HTTP/1.1" 200 30878
+INFO 2021-07-24 07:59:53,369 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-24 08:00:09,986 basehttp 157 "GET /export HTTP/1.1" 200 158142
+INFO 2021-07-24 08:12:59,192 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 08:13:05,884 basehttp 157 "GET / HTTP/1.1" 200 31369
+INFO 2021-07-24 08:13:24,631 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-24 08:13:31,936 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700485
+INFO 2021-07-24 08:13:43,822 basehttp 157 "GET /export1 HTTP/1.1" 200 50891
+INFO 2021-07-24 08:14:01,779 basehttp 157 "GET /export2 HTTP/1.1" 200 51020
+INFO 2021-07-24 08:14:35,422 basehttp 157 "GET /export3 HTTP/1.1" 200 49293
+INFO 2021-07-24 08:15:08,264 basehttp 157 "GET / HTTP/1.1" 200 31369
+INFO 2021-07-24 08:15:29,499 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-24 08:16:10,690 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21559955
+INFO 2021-07-24 08:16:16,527 basehttp 157 "GET /export HTTP/1.1" 200 158142
+INFO 2021-07-24 08:17:09,979 basehttp 157 "GET /export2 HTTP/1.1" 200 157469
+INFO 2021-07-24 08:17:29,893 basehttp 157 "GET /export1 HTTP/1.1" 200 157532
+INFO 2021-07-24 08:17:56,564 basehttp 157 "GET /export3 HTTP/1.1" 200 167438
+INFO 2021-07-24 08:21:13,368 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 08:21:40,385 basehttp 157 "GET / HTTP/1.1" 200 31369
+ERROR 2021-07-24 08:21:54,165 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 273, in upload
+    line = draw_line(csv['timestamp'], csv[sensor], sensor)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 67, in draw_line
+    type="svg"),
+TypeError: __init__() got an unexpected keyword argument 'type'
+ERROR 2021-07-24 08:21:54,166 basehttp 157 "POST /upload/ HTTP/1.1" 500 75581
+INFO 2021-07-24 08:27:40,665 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-24 08:27:51,633 basehttp 157 "GET / HTTP/1.1" 200 32296
+INFO 2021-07-24 08:28:11,277 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-24 08:28:17,000 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700479
+INFO 2021-07-24 08:28:31,550 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3034610
+INFO 2021-07-24 08:28:41,785 basehttp 157 "GET /export4 HTTP/1.1" 200 49271
+INFO 2021-07-24 08:28:55,080 basehttp 157 "GET /export5 HTTP/1.1" 200 57227
+INFO 2021-07-24 08:29:08,123 basehttp 157 "GET /export6 HTTP/1.1" 200 51774
+INFO 2021-07-24 08:29:20,906 basehttp 157 "GET /export2 HTTP/1.1" 200 51040

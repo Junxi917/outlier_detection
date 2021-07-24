@@ -10,6 +10,22 @@ import pyecharts.options as opts
 from .detection import *
 import re
 
+from io import StringIO
+import io
+from xhtml2pdf import pisa
+from django.http import HttpResponse
+from cgi import escape
+
+from django.http import StreamingHttpResponse
+import pdfkit
+from django.http import FileResponse
+import os
+import base64
+import img2pdf
+
+from reportlab.pdfgen import canvas
+from PIL import Image
+
 try:
     import six  # for modern Django
 except ImportError:
@@ -63,7 +79,9 @@ def draw_line(df1, df2, sensor):
                 name=sensor,
                 splitline_opts=opts.SplitLineOpts(is_show=True),
             )
+
         )
+        # .set_series_opts(areastyle_opts=opts.AreaStyleOpts(opacity=0.2),)
     )
     return line;
 
@@ -156,6 +174,7 @@ default_multi = {"KLT11_pumpSpeed_p1 KLT11_pumpSpeed_p2": 'Default(Hbos)',
 
 def upload(request):
     global csv
+    global export
     if request.method == "POST":
         print("data upload to backe-end")
 
@@ -171,7 +190,7 @@ def upload(request):
         col = csv.columns.values.tolist()
         col.remove('timestamp')
         sensor = col[0]
-        csv['timestamp'] = pd.to_datetime(csv['timestamp'])
+        # csv['timestamp'] = pd.to_datetime(csv['timestamp'])
         print(col)
 
         print("Data rendering...")
@@ -256,6 +275,7 @@ def upload(request):
         print("Data rendering finish")
 
         bar_total_trend = json.loads(line.dump_options())
+        export = line  # export pdf
 
         table = csv.to_html(
             classes='ui selectable celled table',
@@ -283,9 +303,13 @@ def query(request):
     global pd_data
     global csv
 
-    global export
     global export1
     global export2
+    global export3
+
+    global export4
+    global export5
+    global export6
     pd_data = csv
 
     table = pd_data.to_html(
@@ -302,7 +326,7 @@ def query(request):
     col.remove('timestamp')
     sensor = col[0]
 
-    csv['timestamp'] = pd.to_datetime(csv['timestamp'])
+    # csv['timestamp'] = pd.to_datetime(csv['timestamp'])
 
     algo = ['Forest', 'Hbos', 'Cblof']
 
@@ -315,18 +339,18 @@ def query(request):
                 if sensor not in default_sensor:
                     return JsonResponse({"error": "no match lstm model"},
                                         status=400)
-                pd_data = lstm_detection(csv, contamination=0.05)
+                pd_data = lstm_detection(csv, contamination=0.01)
             elif form_dict['ALGO_select'][0] in algo:
-                pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
+                pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.01)
             else:
                 if re.findall(r'[(](.*?)[)]', default[sensor])[0] != "LSTM":
                     str = re.findall(r'[(](.*?)[)]', default[sensor])[0]
-                    pd_data = forest_detection(csv, str, contamination=0.05)
+                    pd_data = forest_detection(csv, str, contamination=0.01)
                 else:
                     if sensor not in default_sensor:
                         return JsonResponse({"error": "no match lstm model"},
                                             status=400)
-                    pd_data = lstm_detection(csv, contamination=0.05)
+                    pd_data = lstm_detection(csv, contamination=0.01)
                     print(default[sensor])
 
             print("Data rendering...")
@@ -374,18 +398,18 @@ def query(request):
                 if sensor + " " + col[1] not in default_multi_sensor:
                     return JsonResponse({"error": "no match lstm model"},
                                         status=400)
-                pd_data = multi_lstm_detection(csv, contamination=0.05)
+                pd_data = multi_lstm_detection(csv, contamination=0.01)
             elif form_dict['ALGO_select'][0] in algo:
-                pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.05)
+                pd_data = forest_detection(csv, form_dict['ALGO_select'][0], contamination=0.01)
             else:
                 if re.findall(r'[(](.*?)[)]', default_multi[sensor + " " + col[1]])[0] != "LSTM":
                     str = re.findall(r'[(](.*?)[)]', default_multi[sensor + " " + col[1]])[0]
-                    pd_data = forest_detection(csv, str, contamination=0.05)
+                    pd_data = forest_detection(csv, str, contamination=0.01)
                 else:
                     if sensor + " " + col[1] not in default_multi_sensor:
                         return JsonResponse({"error": "no match lstm model"},
                                             status=400)
-                    pd_data = multi_lstm_detection(csv, contamination=0.05)
+                    pd_data = multi_lstm_detection(csv, contamination=0.01)
                     print(default_multi[sensor + " " + col[1]])
 
             print("Data rendering...")
@@ -500,6 +524,9 @@ def query(request):
         bar_total_trend = json.loads(line.dump_options())
         bar_total_trend1 = json.loads(line1.dump_options())
         bar_total_trend2 = json.loads(line2.dump_options())
+        export1 = line
+        export2 = line1
+        export3 = line2
 
         # export = pd_data[['original', 'timestamp']]
         # export1 = pd_data
@@ -622,6 +649,10 @@ def query(request):
         bar_total_trend1 = json.loads(line1.dump_options())
         bar_total_trend2 = json.loads(line2.dump_options())
 
+        export4 = line
+        export5 = line1
+        export6 = line2
+
         print("Data rendering finish")
 
         # export1 = pd_data
@@ -644,75 +675,99 @@ def query(request):
 
 
 def export(request):
-    form_dict = dict(six.iterlists(request.GET))
-    print(type)
+    # form_dict = dict(six.iterlists(request.POST))
+    # print(form_dict)
+    # print(form_dict['imgBase64:'][0].split(',')[1])
+    #
+    # strs = form_dict['imgBase64:'][0].split(',')[1]
+    # img = base64.b64decode(strs)
+    #
+    # file = open('test.jpg', 'wb')
+    # file.write(img)
+    # file.close()
+    #
+    # image = Image.open('test.jpg')
+    #
+    # # converting into chunks using img2pdf
+    # pdf_bytes = img2pdf.convert(image.filename, dpi=600)
+    #
+    # # opening or creating pdf file
+    # file = open('test1.pdf', "wb")
+    #
+    # # writing pdf files with chunks
+    # file.write(pdf_bytes)
+    #
+    # # closing image file
+    # image.close()
+    #
+    # # closing pdf file
+    # file.close()
+    response = export_pdf(export)
 
-    df = export
-
-    excel_file = IO()
-
-    xlwriter = pd.ExcelWriter(excel_file, engine='xlsxwriter')
-
-    df.to_excel(xlwriter, 'data', index=True)
-
-    xlwriter.save()
-    xlwriter.close()
-
-    excel_file.seek(0)
-
-    response = HttpResponse(excel_file.read(),
-                            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-
-    now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    response['Content-Disposition'] = 'attachment; filename=' + now + '.xlsx'
+    # export.set_global_opts(
+    #     tooltip_opts=opts.TooltipOpts(is_show=False),
+    # )
+    #
+    # html = export.render("test.html")
+    # # result = io.BytesIO()
+    #
+    # pdfkit.from_file('test.html', 'test.pdf')
+    #
+    # file_path = "test.pdf"
+    # file_name = "test.pdf"
+    # file = open(file_path, 'rb')
+    # response = FileResponse(file)
+    # response['Content-Type'] = 'application/octet-stream'
+    # response['Content-Disposition'] = "attachment; filename*=UTF-8''{}".format(file_name)
     return response
 
 
+def export_pdf(export):
+    export.set_global_opts(
+        tooltip_opts=opts.TooltipOpts(is_show=False),
+    )
+
+    html = export.render("echart.html")
+    # result = io.BytesIO()
+
+    pdfkit.from_file('echart.html', 'echart.pdf')
+
+    file_path = "echart.pdf"
+    file_name = "echart.pdf"
+    file = open(file_path, 'rb')
+    response = FileResponse(file)
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = "attachment; filename*=UTF-8''{}".format(file_name)
+    return response
+
+    # pdf = pisa.pisaDocument(io.BytesIO(html.encode("ISO-8859-1")), result)
+
+
 def export1(request):
-    form_dict = dict(six.iterlists(request.GET))
-    print(type)
-
-    df = export1
-
-    excel_file = IO()
-
-    xlwriter = pd.ExcelWriter(excel_file, engine='xlsxwriter')
-
-    df.to_excel(xlwriter, 'data', index=True)
-
-    xlwriter.save()
-    xlwriter.close()
-
-    excel_file.seek(0)
-
-    response = HttpResponse(excel_file.read(),
-                            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-
-    now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    response['Content-Disposition'] = 'attachment; filename=' + now + '.xlsx'
+    response = export_pdf(export1)
     return response
 
 
 def export2(request):
-    form_dict = dict(six.iterlists(request.GET))
-    print(type)
-
-    df = export2
-
-    excel_file = IO()
-
-    xlwriter = pd.ExcelWriter(excel_file, engine='xlsxwriter')
-
-    df.to_excel(xlwriter, 'data', index=True)
-
-    xlwriter.save()
-    xlwriter.close()
-
-    excel_file.seek(0)
-
-    response = HttpResponse(excel_file.read(),
-                            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-
-    now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    response['Content-Disposition'] = 'attachment; filename=' + now + '.xlsx'
+    response = export_pdf(export2)
     return response
+
+
+def export3(request):
+    response = export_pdf(export3)
+    return response
+
+def export4(request):
+    response = export_pdf(export4)
+    return response
+
+
+def export5(request):
+    response = export_pdf(export5)
+    return response
+
+
+def export6(request):
+    response = export_pdf(export6)
+    return response
+

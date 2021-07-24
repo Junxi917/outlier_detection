@@ -93,7 +93,9 @@
                         <div class="progress"></div>
                     </div>
                 </div>
+
                 <div class="ui container" id='graph1' style="display: none; ">
+                    <button id="print" class="ui blue button">Download Pdf</button>
                     <div id="bar_total_trend_original" style="width:1000px; height:600px;">
                     </div>
                 </div>
@@ -108,10 +110,13 @@
                 </div>
 
                 <div class="ui container" id='graph2' style="display: none; ">
+                    <button id="export_data1" class="ui blue button">Download Pdf</button>
                     <div id="bar_total_trend" style="width:1000px; height:600px;">
                     </div>
+                    <button id="export_data2" class="ui blue button">Download Pdf</button>
                     <div id="bar_total_trend1" style="width:1000px; height:600px;">
                     </div>
+                    <button id="export_data3" class="ui blue button">Download Pdf</button>
                     <div id="bar_total_trend2" style="width:1000px; height:600px;">
                     </div>
                 </div>
@@ -127,10 +132,13 @@
                 </div>
 
                 <div class="ui container" id='graph3' style="display: none; ">
+                    <button id="export_data4" class="ui blue button">Download Pdf</button>
                     <div id="gap_filling_bar_total_trend" style="width:1000px; height:600px;">
                     </div>
+                    <button id="export_data5" class="ui blue button">Download Pdf</button>
                     <div id="gap_filling_bar_total_trend1" style="width:1000px; height:600px;">
                     </div>
+                    <button id="export_data6" class="ui blue button">Download Pdf</button>
                     <div id="gap_filling_bar_total_trend2" style="width:1000px; height:600px;">
                     </div>
                 </div>
@@ -140,15 +148,55 @@
         </div>
     </div>
 
-    <script>
-        $("#export_data").click(function () {
-            var form_data = getForm();
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
-            var downloadUrl = '{% url 'export'  %}';
-            window.location.href = downloadUrl;
-        });
 
-    </script>
+                <script>
+                    $("#print").click(function () {
+                        var form_data = getForm();
+
+                        var downloadUrl = '{% url 'export'  %}';
+                        window.location.href = downloadUrl;
+                    });
+
+                </script>
+
+{#    <script>#}
+{#        $('#print').click(function () {#}
+            {#var w = document.getElementById("content").offsetWidth;#}
+            {#var h = document.getElementById("content").offsetHeight;#}
+{##}
+{#            html2canvas($("#graph1"), {#}
+{#                background: '#FFFFFF',#}
+{#                onrendered: function (canvas) {#}
+{#                    var img = canvas.toDataURL("image/jpeg", 1);#}
+{#                    var formData = new FormData();#}
+{#                    formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');#}
+{#                    formData.append("imgBase64:", img);#}
+{#                    $.ajax({#}
+{#                        url: '{% url 'export' %}',#}
+{#                        type: "POST",#}
+{#                        processData: false,#}
+{#                        mimeType: "multipart/form-data",#}
+{#                        contentType: false,#}
+{#                        data: formData,#}
+{#                        success: function (data) {#}
+                            {#window.location.href = '{% url 'export_pdf'  %}';#}
+{##}
+{##}
+{#                        },#}
+{#                        error: function (e) {#}
+{#                            console.log(e);#}
+{#                        }#}
+{#                    }).done(function (o) {#}
+{##}
+{##}
+{#                    });#}
+{#                }#}
+{#            });#}
+{#        });#}
+{##}
+{#    </script>#}
 
     <script>
         $("#export_data1").click(function () {
@@ -165,6 +213,45 @@
             var form_data = getForm();
 
             var downloadUrl = '{% url 'export2'  %}';
+            window.location.href = downloadUrl;
+        });
+
+    </script>
+     <script>
+        $("#export_data3").click(function () {
+            var form_data = getForm();
+
+            var downloadUrl = '{% url 'export3'  %}';
+            window.location.href = downloadUrl;
+        });
+
+    </script>
+
+    <script>
+        $("#export_data4").click(function () {
+            var form_data = getForm();
+
+            var downloadUrl = '{% url 'export4'  %}';
+            window.location.href = downloadUrl;
+        });
+
+    </script>
+
+    <script>
+        $("#export_data5").click(function () {
+            var form_data = getForm();
+
+            var downloadUrl = '{% url 'export5'  %}';
+            window.location.href = downloadUrl;
+        });
+
+    </script>
+
+    <script>
+        $("#export_data6").click(function () {
+            var form_data = getForm();
+
+            var downloadUrl = '{% url 'export6'  %}';
             window.location.href = downloadUrl;
         });
 

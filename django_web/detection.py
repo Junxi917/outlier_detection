@@ -18,6 +18,9 @@ from tensorflow import keras
 import tensorflow as tf
 from keras import backend as K
 
+from tqdm import tqdm
+import time
+
 
 def forest_detection(df, algo_select, contamination=0.01):
     algo = {"Hbos": HBOS(contamination=contamination),
@@ -203,12 +206,14 @@ def lstm_detection(df, contamination=0.01):
     BATCH_INDICES = np.arange(start=0, stop=len(testX), step=1000)  # row indices of batches
     BATCH_INDICES = np.append(BATCH_INDICES, len(testX))  # add final batch_end row
 
-    for index in np.arange(len(BATCH_INDICES) - 1):
+    for index in tqdm(np.arange(len(BATCH_INDICES) - 1)):
         batch_start = BATCH_INDICES[index]  # first row of the batch
         batch_end = BATCH_INDICES[index + 1]  # last row of the batch
         predict[batch_start:batch_end] = model.predict_on_batch(testX[batch_start:batch_end])
         del batch_start
         del batch_end
+        K.clear_session()
+    K.clear_session()
     # predict = model.predict_on_batch(testX)
     print("LSTM model prediction finish")
 
@@ -281,13 +286,15 @@ def multi_lstm_detection(df, contamination=0.01):
 
     print("LSTM model prediction begin")
     predict = testX
-    BATCH_INDICES = np.arange(start=0, stop=len(testX), step=30)  # row indices of batches
+    BATCH_INDICES = np.arange(start=0, stop=len(testX), step=1000)  # row indices of batches
     BATCH_INDICES = np.append(BATCH_INDICES, len(testX))  # add final batch_end row
 
-    for index in np.arange(len(BATCH_INDICES) - 1):
+    for index in tqdm(np.arange(len(BATCH_INDICES) - 1)):
         batch_start = BATCH_INDICES[index]  # first row of the batch
         batch_end = BATCH_INDICES[index + 1]  # last row of the batch
         predict[batch_start:batch_end] = model.predict_on_batch(testX[batch_start:batch_end])
+        K.clear_session()
+    K.clear_session()
     # predict = model.predict_on_batch(testX)
     print("LSTM model prediction finish")
 

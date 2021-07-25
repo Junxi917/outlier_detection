@@ -95,7 +95,13 @@
                 </div>
 
                 <div class="ui container" id='graph1' style="display: none; ">
-                    <button id="print" class="ui blue button">Download Pdf</button>
+                    <select class="ui dropdown" name="format_select" id="format_select">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
+                    <button id="print" class="ui blue button">Download</button>
+
                     <div id="bar_total_trend_original" style="width:1000px; height:600px;">
                     </div>
                 </div>
@@ -110,12 +116,31 @@
                 </div>
 
                 <div class="ui container" id='graph2' style="display: none; ">
+                    <select class="ui dropdown" name="format_select1" id="format_select1">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
                     <button id="export_data1" class="ui blue button">Download Pdf</button>
                     <div id="bar_total_trend" style="width:1000px; height:600px;">
                     </div>
+                    <br>
+                    <br>
+                    <select class="ui dropdown" name="format_select2" id="format_select2">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
                     <button id="export_data2" class="ui blue button">Download Pdf</button>
                     <div id="bar_total_trend1" style="width:1000px; height:600px;">
                     </div>
+                    <br>
+                    <br>
+                    <select class="ui dropdown" name="format_select3" id="format_select3">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
                     <button id="export_data3" class="ui blue button">Download Pdf</button>
                     <div id="bar_total_trend2" style="width:1000px; height:600px;">
                     </div>
@@ -132,12 +157,31 @@
                 </div>
 
                 <div class="ui container" id='graph3' style="display: none; ">
+                    <select class="ui dropdown" name="format_select4" id="format_select4">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
                     <button id="export_data4" class="ui blue button">Download Pdf</button>
                     <div id="gap_filling_bar_total_trend" style="width:1000px; height:600px;">
                     </div>
+                    <br>
+                    <br>
+                    <select class="ui dropdown" name="format_select5" id="format_select5">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
                     <button id="export_data5" class="ui blue button">Download Pdf</button>
                     <div id="gap_filling_bar_total_trend1" style="width:1000px; height:600px;">
                     </div>
+                    <br>
+                    <br>
+                    <select class="ui dropdown" name="format_select6" id="format_select6">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
                     <button id="export_data6" class="ui blue button">Download Pdf</button>
                     <div id="gap_filling_bar_total_trend2" style="width:1000px; height:600px;">
                     </div>
@@ -151,111 +195,220 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
 
-                <script>
-                    $("#print").click(function () {
-                        var form_data = getForm();
+    {#    <script>#}
+    {#        $("#print").click(function () {#}
+    {#            var form_data = getForm();#}
+    {##}
+    {#            var downloadUrl = '{% url 'export'  %}';#}
+    {#            window.location.href = downloadUrl;#}
+    {#        });#}
+    {##}
+    {#    </script>#}
 
-                        var downloadUrl = '{% url 'export'  %}';
-                        window.location.href = downloadUrl;
-                    });
-
-                </script>
+    <script type="text/javascript">
+        $("#print").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select").val(),
+                "export_select": "export",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
+    </script>
 
 {#    <script>#}
-{#        $('#print').click(function () {#}
-            {#var w = document.getElementById("content").offsetWidth;#}
-            {#var h = document.getElementById("content").offsetHeight;#}
+{#        $("#export_data1").click(function () {#}
+{#            var form_data = getForm();#}
 {##}
-{#            html2canvas($("#graph1"), {#}
-{#                background: '#FFFFFF',#}
-{#                onrendered: function (canvas) {#}
-{#                    var img = canvas.toDataURL("image/jpeg", 1);#}
-{#                    var formData = new FormData();#}
-{#                    formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');#}
-{#                    formData.append("imgBase64:", img);#}
-{#                    $.ajax({#}
-{#                        url: '{% url 'export' %}',#}
-{#                        type: "POST",#}
-{#                        processData: false,#}
-{#                        mimeType: "multipart/form-data",#}
-{#                        contentType: false,#}
-{#                        data: formData,#}
-{#                        success: function (data) {#}
-                            {#window.location.href = '{% url 'export_pdf'  %}';#}
-{##}
-{##}
-{#                        },#}
-{#                        error: function (e) {#}
-{#                            console.log(e);#}
-{#                        }#}
-{#                    }).done(function (o) {#}
-{##}
-{##}
-{#                    });#}
-{#                }#}
-{#            });#}
+{#            var downloadUrl = '{% url 'export1'  %}';#}
+{#            window.location.href = downloadUrl;#}
 {#        });#}
 {##}
 {#    </script>#}
 
-    <script>
-        $("#export_data1").click(function () {
-            var form_data = getForm();
-
-            var downloadUrl = '{% url 'export1'  %}';
-            window.location.href = downloadUrl;
-        });
-
+     <script type="text/javascript">
+        $("#export_data1").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select1").val(),
+                "export_select": "export1",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
     </script>
 
-    <script>
-        $("#export_data2").click(function () {
-            var form_data = getForm();
-
-            var downloadUrl = '{% url 'export2'  %}';
-            window.location.href = downloadUrl;
-        });
-
-    </script>
-     <script>
-        $("#export_data3").click(function () {
-            var form_data = getForm();
-
-            var downloadUrl = '{% url 'export3'  %}';
-            window.location.href = downloadUrl;
-        });
-
-    </script>
-
-    <script>
-        $("#export_data4").click(function () {
-            var form_data = getForm();
-
-            var downloadUrl = '{% url 'export4'  %}';
-            window.location.href = downloadUrl;
-        });
-
+    <script type="text/javascript">
+        $("#export_data2").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select2").val(),
+                "export_select": "export2",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
     </script>
 
-    <script>
-        $("#export_data5").click(function () {
-            var form_data = getForm();
-
-            var downloadUrl = '{% url 'export5'  %}';
-            window.location.href = downloadUrl;
-        });
-
+    <script type="text/javascript">
+        $("#export_data3").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select3").val(),
+                "export_select": "export3",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
     </script>
 
-    <script>
-        $("#export_data6").click(function () {
-            var form_data = getForm();
-
-            var downloadUrl = '{% url 'export6'  %}';
-            window.location.href = downloadUrl;
-        });
-
+    <script type="text/javascript">
+        $("#export_data4").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select4").val(),
+                "export_select": "export4",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
     </script>
+
+    <script type="text/javascript">
+        $("#export_data5").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select5").val(),
+                "export_select": "export5",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
+    </script>
+
+    <script type="text/javascript">
+        $("#export_data6").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select6").val(),
+                "export_select": "export6",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
+    </script>
+{#    <script>#}
+{#        $("#export_data2").click(function () {#}
+{#            var form_data = getForm();#}
+{##}
+{#            var downloadUrl = '{% url 'export2'  %}';#}
+{#            window.location.href = downloadUrl;#}
+{#        });#}
+{##}
+{#    </script>#}
+{#    <script>#}
+{#        $("#export_data3").click(function () {#}
+{#            var form_data = getForm();#}
+{##}
+{#            var downloadUrl = '{% url 'export3'  %}';#}
+{#            window.location.href = downloadUrl;#}
+{#        });#}
+{##}
+{#    </script>#}
+
+{#    <script>#}
+{#        $("#export_data4").click(function () {#}
+{#            var form_data = getForm();#}
+{##}
+{#            var downloadUrl = '{% url 'export4'  %}';#}
+{#            window.location.href = downloadUrl;#}
+{#        });#}
+{##}
+{#    </script>#}
+{##}
+{#    <script>#}
+{#        $("#export_data5").click(function () {#}
+{#            var form_data = getForm();#}
+{##}
+{#            var downloadUrl = '{% url 'export5'  %}';#}
+{#            window.location.href = downloadUrl;#}
+{#        });#}
+{##}
+{#    </script>#}
+{##}
+{#    <script>#}
+{#        $("#export_data6").click(function () {#}
+{#            var form_data = getForm();#}
+{##}
+{#            var downloadUrl = '{% url 'export6'  %}';#}
+{#            window.location.href = downloadUrl;#}
+{#        });#}
+{##}
+{#    </script>#}
 
     <script>
 

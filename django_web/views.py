@@ -10,21 +10,24 @@ import pyecharts.options as opts
 from .detection import *
 import re
 
-from io import StringIO
-import io
-from xhtml2pdf import pisa
-from django.http import HttpResponse
-from cgi import escape
-
-from django.http import StreamingHttpResponse
-import pdfkit
+# from io import StringIO
+# import io
+# from xhtml2pdf import pisa
+# from django.http import HttpResponse
+# from cgi import escape
+#
+# from django.http import StreamingHttpResponse
+# import pdfkit
 from django.http import FileResponse
-import os
-import base64
-import img2pdf
+# import os
+# import base64
+# import img2pdf
+#
+# from reportlab.pdfgen import canvas
+# from PIL import Image
 
-from reportlab.pdfgen import canvas
-from PIL import Image
+from snapshot_phantomjs import snapshot
+from pyecharts.render import make_snapshot
 
 try:
     import six  # for modern Django
@@ -43,6 +46,10 @@ pd_data = pd.DataFrame()
 export = pd.DataFrame()
 export1 = pd.DataFrame()
 export2 = pd.DataFrame()
+export3 = pd.DataFrame()
+export4 = pd.DataFrame()
+export5 = pd.DataFrame()
+export6 = pd.DataFrame()
 
 
 def home(request):
@@ -674,7 +681,38 @@ def query(request):
     return HttpResponse(json.dumps(context, ensure_ascii=False), content_type="application/json charset=utf-8")
 
 
+output_path = ""
+
+
 def export(request):
+    global output_path
+    form_dict = dict(six.iterlists(request.GET))
+    print(form_dict)
+    print(form_dict['format_select'][0])
+    print(form_dict['export_select'][0])
+
+    export_collection = {
+        "export": export,
+        "export1": export1,
+        "export2": export2,
+        "export3": export3,
+        "export4": export4,
+        "export5": export5,
+        "export6": export6,
+    }
+
+    export_select = export_collection[form_dict['export_select'][0]]
+
+    export_select.set_global_opts(
+        tooltip_opts=opts.TooltipOpts(is_show=False),
+    )
+    export_select.render("echart.html")
+
+    output_path = "echart" + "." + form_dict['format_select'][0]
+
+    if form_dict['format_select'][0] != "html":
+        make_snapshot(snapshot, "echart.html", output_path)
+
     # form_dict = dict(six.iterlists(request.POST))
     # print(form_dict)
     # print(form_dict['imgBase64:'][0].split(',')[1])
@@ -702,7 +740,8 @@ def export(request):
     #
     # # closing pdf file
     # file.close()
-    response = export_pdf(export)
+
+    # response = export_pdf(export)
 
     # export.set_global_opts(
     #     tooltip_opts=opts.TooltipOpts(is_show=False),
@@ -719,21 +758,21 @@ def export(request):
     # response = FileResponse(file)
     # response['Content-Type'] = 'application/octet-stream'
     # response['Content-Disposition'] = "attachment; filename*=UTF-8''{}".format(file_name)
-    return response
+    return HttpResponse("Here's the Web page.")
 
 
-def export_pdf(export):
-    export.set_global_opts(
-        tooltip_opts=opts.TooltipOpts(is_show=False),
-    )
+def export_pdf(request):
+    # export.set_global_opts(
+    #     tooltip_opts=opts.TooltipOpts(is_show=False),
+    # )
 
-    html = export.render("echart.html")
-    # result = io.BytesIO()
+    # html = export.render("echart.html")
+    # # result = io.BytesIO()
+    #
+    # pdfkit.from_file('echart.html', 'echart.pdf')
 
-    pdfkit.from_file('echart.html', 'echart.pdf')
-
-    file_path = "echart.pdf"
-    file_name = "echart.pdf"
+    file_path = output_path
+    file_name = output_path
     file = open(file_path, 'rb')
     response = FileResponse(file)
     response['Content-Type'] = 'application/octet-stream'
@@ -743,31 +782,34 @@ def export_pdf(export):
     # pdf = pisa.pisaDocument(io.BytesIO(html.encode("ISO-8859-1")), result)
 
 
-def export1(request):
-    response = export_pdf(export1)
-    return response
-
-
-def export2(request):
-    response = export_pdf(export2)
-    return response
-
-
-def export3(request):
-    response = export_pdf(export3)
-    return response
-
-def export4(request):
-    response = export_pdf(export4)
-    return response
-
-
-def export5(request):
-    response = export_pdf(export5)
-    return response
-
-
-def export6(request):
-    response = export_pdf(export6)
-    return response
-
+# def export1(request):
+#     response = export_pdf(export1)
+#     return response
+#
+#
+# def export2(request):
+#     export2.render("test.html")
+#
+#     make_snapshot(snapshot, "test.html", "test.pdf")
+#     response = export_pdf(export2)
+#     return response
+#
+#
+# def export3(request):
+#     response = export_pdf(export3)
+#     return response
+#
+#
+# def export4(request):
+#     response = export_pdf(export4)
+#     return response
+#
+#
+# def export5(request):
+#     response = export_pdf(export5)
+#     return response
+#
+#
+# def export6(request):
+#     response = export_pdf(export6)
+#     return response

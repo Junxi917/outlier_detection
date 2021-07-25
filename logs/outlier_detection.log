@@ -3596,3 +3596,35 @@ INFO 2021-07-25 09:58:12,876 basehttp 157 "GET /export_pdf HTTP/1.1" 200 219209
 INFO 2021-07-25 10:05:59,025 autoreload 617 Watching for file changes with StatReloader
 INFO 2021-07-25 10:06:05,639 basehttp 157 "GET / HTTP/1.1" 200 37557
 INFO 2021-07-25 10:06:17,091 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-25 10:07:00,771 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700480
+INFO 2021-07-25 10:07:39,954 basehttp 157 "GET /export?format_select=pdf&export_select=export1 HTTP/1.1" 200 20
+INFO 2021-07-25 10:07:39,970 basehttp 157 "GET /export_pdf HTTP/1.1" 200 225760
+INFO 2021-07-25 10:37:48,051 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-25 10:38:50,860 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-25 10:44:00,866 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-25 10:44:06,284 basehttp 157 "GET / HTTP/1.1" 200 37557
+INFO 2021-07-25 10:44:14,321 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347
+INFO 2021-07-25 10:44:24,973 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 200 20
+INFO 2021-07-25 10:44:24,986 basehttp 157 "GET /export_pdf HTTP/1.1" 200 226522
+INFO 2021-07-25 10:44:53,252 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 700479
+INFO 2021-07-25 10:45:03,619 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-07-25 10:45:03,637 basehttp 157 "GET /export_pdf HTTP/1.1" 200 229400
+INFO 2021-07-25 10:45:14,545 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 3034610
+INFO 2021-07-25 10:45:28,818 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-07-25 10:45:28,836 basehttp 157 "GET /export_pdf HTTP/1.1" 200 234369
+INFO 2021-07-25 10:45:41,701 basehttp 157 "GET / HTTP/1.1" 200 37557
+INFO 2021-07-25 10:46:22,633 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-07-25 10:46:24,370 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-25 10:46:29,471 basehttp 157 "GET / HTTP/1.1" 200 37557
+INFO 2021-07-25 10:47:05,424 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-25 10:47:28,607 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 200 20
+INFO 2021-07-25 10:47:28,645 basehttp 157 "GET /export_pdf HTTP/1.1" 200 473913
+INFO 2021-07-25 10:48:53,974 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-25 10:49:13,754 basehttp 157 "GET / HTTP/1.1" 200 37557
+INFO 2021-07-25 10:50:04,400 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-25 10:57:27,903 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21549621
+INFO 2021-07-25 10:58:11,731 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-07-25 10:58:11,744 basehttp 157 "GET /export_pdf HTTP/1.1" 200 477633
+INFO 2021-07-25 11:00:19,377 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33497091
+INFO 2021-07-25 11:01:02,137 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-07-25 11:01:02,155 basehttp 157 "GET /export_pdf HTTP/1.1" 200 460522

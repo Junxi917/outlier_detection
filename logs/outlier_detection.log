@@ -3593,3 +3593,6 @@ INFO 2021-07-25 09:57:45,629 basehttp 157 "GET /export_pdf HTTP/1.1" 200 229422
 INFO 2021-07-25 09:58:00,394 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 2949371
 INFO 2021-07-25 09:58:12,857 basehttp 157 "GET /export?format_select=pdf&export_select=export6 HTTP/1.1" 200 20
 INFO 2021-07-25 09:58:12,876 basehttp 157 "GET /export_pdf HTTP/1.1" 200 219209
+INFO 2021-07-25 10:05:59,025 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-25 10:06:05,639 basehttp 157 "GET / HTTP/1.1" 200 37557
+INFO 2021-07-25 10:06:17,091 basehttp 157 "POST /upload/ HTTP/1.1" 200 526347

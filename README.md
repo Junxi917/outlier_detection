@@ -62,3 +62,35 @@ for the multivariate data, it can accept the combination: "KLT11_pumpSpeed_p1 an
                         "KLT12_Fan1Speed_HZ and KLT12_Fan2Speed_HZ",
                         "KLT13_Fan1Speed_HZ and KLT13_Fan2Speed_HZ",
                         "KLT14_Fan1Speed_HZ and KLT14_Fan2Speed_HZ".
+                        
+                       
+ Important!
+ In the latest update, I added the pdf printing feature, but in order to use this feature, you must first install the relevant dependencies.
+ You must install phantomjs, node.js and snapshot-phantomjs. Node.js is easy  to install.  snapshot-phantomjs. has been involved into requirements.txt, so it will be installed after  the operation of"pip install -r requirements.txt". Here the phantomjs download tutorial will be provided under the linux plattform.
+ 
+ Open a terminal and udpate Apt cache first:
+ ```
+sudo apt-get update 
+```
+
+Then install required packages:
+ ```
+sudo apt-get install build-essential chrpath libssl-dev libxft-dev 
+sudo apt-get install libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev 
+```
+Now download the latest FantomJS from its official website. 
+ ```
+wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 
+sudo tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local/share/ 
+```
+Now simply create a soft link phantomjs binary file to systems bin dirctory as below:
+ ```
+ sudo ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin 
+
+```
+After completing installation, let’s verify the installed version of phantomjs.
+ ```
+phantomjs --version 
+```
+If the version number appears, the download was successful.
+ 

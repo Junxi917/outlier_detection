@@ -1,6 +1,8 @@
 # Anomaly Detection and Gap Filling System
 This system is a machine learning system for outlier detection and gap filling on uni variate and multi variate time-series data. This system provides different anomaly detection algorithm and gap filling detection. User can choose the right algorithm according their needs.After anomaly detection or gap filling the result will be showed through data visualization. This system provides functions such as image export and data visualization.
 ## Installation
+It is recommended to use python3.7.9 version
+
 Create virtual environments<br>
 Clone the repository:<br>
 ```

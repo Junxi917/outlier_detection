@@ -3628,3 +3628,67 @@ INFO 2021-07-25 10:58:11,744 basehttp 157 "GET /export_pdf HTTP/1.1" 200 477633
 INFO 2021-07-25 11:00:19,377 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33497091
 INFO 2021-07-25 11:01:02,137 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
 INFO 2021-07-25 11:01:02,155 basehttp 157 "GET /export_pdf HTTP/1.1" 200 460522
+INFO 2021-07-28 15:58:13,046 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-28 15:58:24,427 basehttp 157 "GET / HTTP/1.1" 200 37556
+WARNING 2021-07-28 15:58:29,025 log 230 Not Found: /favicon.ico
+WARNING 2021-07-28 15:58:29,026 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-07-28 15:59:02,953 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-28 16:01:18,214 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21549621
+INFO 2021-07-30 15:07:33,799 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-30 15:07:40,698 basehttp 157 "GET / HTTP/1.1" 200 37556
+WARNING 2021-07-30 15:07:42,370 log 230 Not Found: /favicon.ico
+WARNING 2021-07-30 15:07:42,370 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+ERROR 2021-07-30 15:07:54,083 log 230 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 243, in upload
+    LineStyle=opts.LineStyleOpts(line_type='dashed')
+TypeError: __init__() got an unexpected keyword argument 'line_type'
+ERROR 2021-07-30 15:07:54,086 basehttp 157 "POST /upload/ HTTP/1.1" 500 70610
+INFO 2021-07-30 15:08:16,542 basehttp 157 "GET / HTTP/1.1" 200 37556
+INFO 2021-07-30 15:12:42,012 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-07-30 15:12:43,379 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-30 15:12:52,670 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-30 15:13:08,213 basehttp 157 "GET / HTTP/1.1" 200 37556
+INFO 2021-07-30 15:13:24,645 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734992
+INFO 2021-07-30 15:14:05,507 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648363
+INFO 2021-07-30 15:14:33,034 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 200 20
+INFO 2021-07-30 15:14:33,053 basehttp 157 "GET /export_pdf HTTP/1.1" 200 269585
+INFO 2021-07-30 15:18:39,500 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-30 15:18:44,227 basehttp 157 "GET / HTTP/1.1" 200 37556
+INFO 2021-07-30 15:18:55,340 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734992
+INFO 2021-07-30 15:19:02,075 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 2648366
+INFO 2021-07-30 15:19:51,081 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 6366120
+INFO 2021-07-30 15:21:07,272 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-07-30 15:21:07,296 basehttp 157 "GET /export_pdf HTTP/1.1" 200 287952
+INFO 2021-07-30 15:21:32,686 basehttp 157 "GET /export?format_select=pdf&export_select=export3 HTTP/1.1" 200 20
+INFO 2021-07-30 15:21:32,700 basehttp 157 "GET /export_pdf HTTP/1.1" 200 258944
+INFO 2021-07-30 15:25:19,861 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-07-30 15:25:24,041 basehttp 157 "GET / HTTP/1.1" 200 37556
+INFO 2021-07-30 15:25:43,749 basehttp 157 "POST /upload/ HTTP/1.1" 200 1734992
+INFO 2021-07-30 15:25:53,304 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 6366006
+INFO 2021-07-30 15:26:22,820 basehttp 157 "GET /export?format_select=pdf&export_select=export6 HTTP/1.1" 200 20
+INFO 2021-07-30 15:26:22,839 basehttp 157 "GET /export_pdf HTTP/1.1" 200 266362
+INFO 2021-07-30 15:26:46,822 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 7411668
+INFO 2021-07-30 15:27:21,170 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 7020182
+INFO 2021-07-30 15:28:16,139 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-07-30 15:28:16,164 basehttp 157 "GET /export_pdf HTTP/1.1" 200 283715
+INFO 2021-07-30 15:28:48,252 basehttp 157 "GET / HTTP/1.1" 200 37556
+INFO 2021-07-30 15:29:34,373 basehttp 157 "POST /upload/ HTTP/1.1" 200 21544912
+INFO 2021-07-30 15:30:19,305 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 200 20
+INFO 2021-07-30 15:30:19,325 basehttp 157 "GET /export_pdf HTTP/1.1" 200 527844
+INFO 2021-07-30 15:31:51,554 basehttp 157 "GET /query?ALGO_select=Lstm HTTP/1.1" 200 32715976
+INFO 2021-07-30 15:32:53,940 basehttp 157 "GET /export?format_select=pdf&export_select=export3 HTTP/1.1" 200 20
+INFO 2021-07-30 15:32:53,983 basehttp 157 "GET /export_pdf HTTP/1.1" 200 381621
+INFO 2021-07-30 15:34:32,617 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 50509075
+INFO 2021-07-30 15:36:49,989 basehttp 157 "GET / HTTP/1.1" 200 37556
+INFO 2021-07-30 15:37:23,225 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-30 15:41:21,405 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21549621
+INFO 2021-07-30 15:47:01,473 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-07-30 15:47:01,488 basehttp 157 "GET /export_pdf HTTP/1.1" 200 477651
+INFO 2021-07-30 15:47:13,305 basehttp 157 "GET / HTTP/1.1" 200 37556
+INFO 2021-07-30 15:47:31,713 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402790
+INFO 2021-07-30 15:48:23,835 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21560003

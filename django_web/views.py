@@ -240,6 +240,7 @@ def upload(request):
                     # yaxis_index=1,
                     y_axis=csv[col[1]].tolist(),
                     is_connect_nones=False,
+                    linestyle_opts=opts.LineStyleOpts(type_='dashed'),
                 )
             )
             csv = csv[[sensor, col[1], 'timestamp']]
@@ -433,6 +434,7 @@ def query(request):
                     series_name=col[1],
                     y_axis=pd_data['original' + " " + col[1]].tolist(),
                     is_connect_nones=False,
+                    linestyle_opts=opts.LineStyleOpts(type_='dashed'),
                 )
             )
             line.overlap(line_1)
@@ -458,6 +460,7 @@ def query(request):
                     series_name=col[1],
                     y_axis=pd_data['original' + " " + col[1]].tolist(),
                     is_connect_nones=False,
+                    linestyle_opts=opts.LineStyleOpts(type_='dashed'),
                 )
             )
 
@@ -517,6 +520,7 @@ def query(request):
                     series_name=col[1],
                     y_axis=pd_data[col[1]].tolist(),
                     is_connect_nones=False,
+                    linestyle_opts=opts.LineStyleOpts(type_='dashed'),
                 )
             )
             line2.overlap(line2_1)
@@ -565,6 +569,7 @@ def query(request):
                     series_name=col[1],
                     y_axis=pd_data[col[1]].tolist(),
                     is_connect_nones=False,
+                    linestyle_opts=opts.LineStyleOpts(type_='dashed'),
                 )
             )
             line.overlap(line_1)
@@ -613,6 +618,7 @@ def query(request):
                     series_name=col[1],
                     y_axis=pd_data[col[1]].tolist(),
                     is_connect_nones=False,
+                    linestyle_opts=opts.LineStyleOpts(type_='dashed'),
                 )
             )
             scatter1 = (
@@ -643,7 +649,17 @@ def query(request):
 
         line2 = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
         if len(col) == 2:
-            line2_1 = draw_line(pd_data['timestamp'], pd_data[col[1]], col[1])
+            # line2_1 = draw_line(pd_data['timestamp'], pd_data[col[1]], col[1])
+            line2_1 = (
+                Line()
+                    .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
+                    .add_yaxis(
+                    series_name=col[1],
+                    y_axis=pd_data[col[1]].tolist(),
+                    is_connect_nones=False,
+                    linestyle_opts=opts.LineStyleOpts(type_='dashed'),
+                )
+            )
             line2.overlap(line2_1)
             line2.extend_axis(
                 yaxis=opts.AxisOpts(

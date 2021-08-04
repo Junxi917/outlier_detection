@@ -42,6 +42,7 @@ import datetime
 
 csv = pd.DataFrame()
 pd_data = pd.DataFrame()
+reset = pd.DataFrame()
 
 export = pd.DataFrame()
 export1 = pd.DataFrame()
@@ -51,8 +52,14 @@ export4 = pd.DataFrame()
 export5 = pd.DataFrame()
 export6 = pd.DataFrame()
 
+sensor_input = pd.DataFrame()
+algorithm = pd.DataFrame()
+filling = pd.DataFrame()
+
 
 def home(request):
+    global csv
+    csv = reset.copy()
     return render(request, "display.html")
 
 
@@ -61,7 +68,7 @@ def draw_line(df1, df2, sensor):
         Line(init_opts=opts.InitOpts(animation_opts=opts.AnimationOpts(animation=False)))
             .add_xaxis(xaxis_data=df1.tolist())
             .add_yaxis(
-            series_name=sensor,
+            series_name=sensor if sensor not in sensor_unit else sensor + sensor_unit_type[sensor],
             y_axis=df2.tolist(),
             is_connect_nones=False,
         )
@@ -81,9 +88,12 @@ def draw_line(df1, df2, sensor):
             datazoom_opts=opts.DataZoomOpts(),
             xaxis_opts=opts.AxisOpts(
                 name='Timestamp',
+                name_location='middle',
+                name_gap=25,
+
             ),
             yaxis_opts=opts.AxisOpts(
-                name=sensor,
+                name=sensor if sensor not in sensor_unit else sensor + sensor_unit_type[sensor],
                 splitline_opts=opts.SplitLineOpts(is_show=True),
             )
 
@@ -178,10 +188,75 @@ default_multi = {"KLT11_pumpSpeed_p1 KLT11_pumpSpeed_p2": 'Default(Hbos)',
                  "KLT14_Fan1Speed_HZ KLT14_Fan2Speed_HZ": 'Default(Forest)',
                  }
 
+sensor_unit_type = {"KLT11_flowRate1": '(l/min)',
+                    "KLT12_flowRate1": '(l/min)',
+                    "KLT13_flowRate1": '(l/min)',
+                    "KLT14_flowRate1": '(l/min)',
+                    "KLT11_flowRate2": '(l/min)',
+                    "KLT12_flowRate2": '(l/min)',
+                    "KLT13_flowRate2": '(l/min)',
+                    "KLT14_flowRate2": '(l/min)',
+                    "KLT11_pumpSpeed_p1": '(HZ)',
+                    "KLT12_pumpSpeed_p1": '(HZ)',
+                    "KLT13_pumpSpeed_p1": '(HZ)',
+                    "KLT14_pumpSpeed_p1": '(HZ)',
+                    "KLT11_pumpSpeed_p2": '(HZ)',
+                    "KLT12_pumpSpeed_p2": '(HZ)',
+                    "KLT13_pumpSpeed_p2": '(HZ)',
+                    "KLT14_pumpSpeed_p2": '(HZ)',
+                    "KLT11_Fan1Speed_HZ": '(HZ)',
+                    "KLT12_Fan1Speed_HZ": '(HZ)',
+                    "KLT13_Fan1Speed_HZ": '(HZ)',
+                    "KLT14_Fan1Speed_HZ": '(HZ)',
+                    "KLT11_Fan2Speed_HZ": '(HZ)',
+                    "KLT12_Fan2Speed_HZ": '(HZ)',
+                    "KLT13_Fan2Speed_HZ": '(HZ)',
+                    "KLT14_Fan2Speed_HZ": '(HZ)',
+                    "KLT13_inletTempBeforeHydraulicGate": '(°C)',
+                    "KLT11_inletTempBeforeHydraulicGate": '(°C)',
+                    "KLT12_inletTempBeforeHydraulicGate": '(°C)',
+                    "KLT14_inletTempBeforeHydraulicGate": '(°C)',
+                    "P_WW": '(W)',
+                    }
+
+sensor_unit = ["KLT11_flowRate1",
+               "KLT12_flowRate1",
+               "KLT13_flowRate1",
+               "KLT14_flowRate1",
+               "KLT11_flowRate2",
+               "KLT12_flowRate2",
+               "KLT13_flowRate2",
+               "KLT14_flowRate2",
+               "KLT11_pumpSpeed_p1",
+               "KLT12_pumpSpeed_p1",
+               "KLT13_pumpSpeed_p1",
+               "KLT14_pumpSpeed_p1",
+               "KLT11_pumpSpeed_p2",
+               "KLT12_pumpSpeed_p2",
+               "KLT13_pumpSpeed_p2",
+               "KLT14_pumpSpeed_p2",
+               "KLT11_Fan1Speed_HZ",
+               "KLT12_Fan1Speed_HZ",
+               "KLT13_Fan1Speed_HZ",
+               "KLT14_Fan1Speed_HZ",
+               "KLT11_Fan2Speed_HZ",
+               "KLT12_Fan2Speed_HZ",
+               "KLT13_Fan2Speed_HZ",
+               "KLT14_Fan2Speed_HZ",
+               "KLT13_inletTempBeforeHydraulicGate",
+               "KLT11_inletTempBeforeHydraulicGate",
+               "KLT12_inletTempBeforeHydraulicGate",
+               "KLT14_inletTempBeforeHydraulicGate",
+               "P_WW"
+               ]
+
 
 def upload(request):
     global csv
+    global reset
     global export
+    global sensor_input
+    global filling
     if request.method == "POST":
         print("data upload to backe-end")
 
@@ -193,6 +268,7 @@ def upload(request):
 
         if csv is not None:
             enable = True
+        reset = csv.copy()
 
         col = csv.columns.values.tolist()
         col.remove('timestamp')
@@ -203,19 +279,13 @@ def upload(request):
         print("Data rendering...")
 
         if len(col) == 1:
+            sensor_input = sensor
             if sensor not in default_sensor:
                 default_dict = {'default_algo': "", }
-            # return JsonResponse({"error": "input data type not match! Unitvariate: 'KLT12_flowRate1 (l/min)', "
-            #                               "'IT Power Consumption (W)', 'Outside Temperature (°C)',"
-            #                               "'KLT11_pumpSpeed_p1 (Hz)', 'KLT11_Fan1Speed_HZ (Hz)',"
-            #                               "'KLT13_inletTempBeforeHydraulicGate (°C)', 'KLT14_pumpSpeed_p1', "
-            #                               "'wetBulb', 'KLT14_Fan1Speed_HZ' "
-            #                               "Multivariate:'KLT14_pumpSpeed_p1'+'KLT14_pumpSpeed_p2',"
-            #                               "'KLT14_Fan1Speed_HZ'+'KLT14_Fan2Speed_HZ' "},
-            #                     status=400)
             else:
                 default_dict = {'default_algo': default[sensor], }
         else:
+            sensor_input = sensor + '' + col[1]
             if sensor + " " + col[1] not in default_multi_sensor:
                 default_dict = {'default_algo': "", }
             else:
@@ -236,7 +306,7 @@ def upload(request):
                 Line()
                     .add_xaxis(xaxis_data=csv['timestamp'].tolist())
                     .add_yaxis(
-                    series_name=col[1],
+                    series_name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     # yaxis_index=1,
                     y_axis=csv[col[1]].tolist(),
                     is_connect_nones=False,
@@ -248,7 +318,7 @@ def upload(request):
                 line.overlap(line1)
                 line.extend_axis(
                     yaxis=opts.AxisOpts(
-                        name=col[1],
+                        name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                         splitline_opts=opts.SplitLineOpts(is_show=True),
                     )
                 )
@@ -318,6 +388,9 @@ def query(request):
     global export4
     global export5
     global export6
+
+    global algorithm
+    global filling
     pd_data = csv
 
     table = pd_data.to_html(
@@ -341,6 +414,7 @@ def query(request):
     print("Request arrives at the backend")
 
     if 'ALGO_select' in form_dict:
+        algorithm = form_dict['ALGO_select'][0]
         if len(col) == 1:
             csv = csv[[sensor, 'timestamp']]
             if form_dict['ALGO_select'][0] == 'Lstm':
@@ -431,7 +505,7 @@ def query(request):
                 Line()
                     .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                     .add_yaxis(
-                    series_name=col[1],
+                    series_name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     y_axis=pd_data['original' + " " + col[1]].tolist(),
                     is_connect_nones=False,
                     linestyle_opts=opts.LineStyleOpts(type_='dashed'),
@@ -440,7 +514,7 @@ def query(request):
             line.overlap(line_1)
             line.extend_axis(
                 yaxis=opts.AxisOpts(
-                    name=col[1],
+                    name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -457,7 +531,7 @@ def query(request):
                 Line()
                     .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                     .add_yaxis(
-                    series_name=col[1],
+                    series_name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     y_axis=pd_data['original' + " " + col[1]].tolist(),
                     is_connect_nones=False,
                     linestyle_opts=opts.LineStyleOpts(type_='dashed'),
@@ -507,7 +581,7 @@ def query(request):
             line1.overlap(line1_1)
             line1.extend_axis(
                 yaxis=opts.AxisOpts(
-                    name=col[1],
+                    name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -517,7 +591,7 @@ def query(request):
                 Line()
                     .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                     .add_yaxis(
-                    series_name=col[1],
+                    series_name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     y_axis=pd_data[col[1]].tolist(),
                     is_connect_nones=False,
                     linestyle_opts=opts.LineStyleOpts(type_='dashed'),
@@ -526,7 +600,7 @@ def query(request):
             line2.overlap(line2_1)
             line2.extend_axis(
                 yaxis=opts.AxisOpts(
-                    name=col[1],
+                    name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -559,6 +633,7 @@ def query(request):
 
     if 'Gap_filling' in form_dict:
         print(len(col))
+        filling = form_dict['Gap_filling'][0]
 
         line = draw_line(pd_data['timestamp'], pd_data[sensor], sensor)
         if len(col) == 2:
@@ -566,7 +641,7 @@ def query(request):
                 Line()
                     .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                     .add_yaxis(
-                    series_name=col[1],
+                    series_name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     y_axis=pd_data[col[1]].tolist(),
                     is_connect_nones=False,
                     linestyle_opts=opts.LineStyleOpts(type_='dashed'),
@@ -575,7 +650,7 @@ def query(request):
             line.overlap(line_1)
             line.extend_axis(
                 yaxis=opts.AxisOpts(
-                    name=col[1],
+                    name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -615,7 +690,7 @@ def query(request):
                 Line()
                     .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                     .add_yaxis(
-                    series_name=col[1],
+                    series_name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     y_axis=pd_data[col[1]].tolist(),
                     is_connect_nones=False,
                     linestyle_opts=opts.LineStyleOpts(type_='dashed'),
@@ -642,7 +717,7 @@ def query(request):
             line1.overlap(line1_1)
             line1.extend_axis(
                 yaxis=opts.AxisOpts(
-                    name=col[1],
+                    name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -654,7 +729,7 @@ def query(request):
                 Line()
                     .add_xaxis(xaxis_data=pd_data['timestamp'].tolist())
                     .add_yaxis(
-                    series_name=col[1],
+                    series_name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     y_axis=pd_data[col[1]].tolist(),
                     is_connect_nones=False,
                     linestyle_opts=opts.LineStyleOpts(type_='dashed'),
@@ -663,7 +738,7 @@ def query(request):
             line2.overlap(line2_1)
             line2.extend_axis(
                 yaxis=opts.AxisOpts(
-                    name=col[1],
+                    name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                 )
             )
@@ -717,14 +792,24 @@ def export(request):
         "export6": export6,
     }
 
+    export_name = {
+        "export": 'original'+" "+sensor_input,
+        "export1": 'original'+" "+sensor_input+" "+algorithm,
+        "export2": algorithm+" "+sensor_input+" "+"outlier",
+        "export3": algorithm+" "+sensor_input+" "+"clean",
+        "export4": 'original'+" "+sensor_input+" "+filling,
+        "export5": filling+" "+sensor_input+" "+"filling",
+        "export6": filling+" "+sensor_input+" "+"result",
+    }
+
     export_select = export_collection[form_dict['export_select'][0]]
 
     export_select.set_global_opts(
         tooltip_opts=opts.TooltipOpts(is_show=False),
     )
-    export_select.render("echart.html")
+    export_select.render(export_name[form_dict['export_select'][0]]+".html")
 
-    output_path = "echart" + "." + form_dict['format_select'][0]
+    output_path = export_name[form_dict['export_select'][0]] + "." + form_dict['format_select'][0]
 
     if form_dict['format_select'][0] != "html":
         make_snapshot(snapshot, "echart.html", output_path)
@@ -796,7 +881,6 @@ def export_pdf(request):
     return response
 
     # pdf = pisa.pisaDocument(io.BytesIO(html.encode("ISO-8859-1")), result)
-
 
 # def export1(request):
 #     response = export_pdf(export1)

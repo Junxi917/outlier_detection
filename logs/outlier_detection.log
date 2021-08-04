@@ -3932,3 +3932,92 @@ INFO 2021-08-04 21:36:14,487 basehttp 157 "GET /export_pdf HTTP/1.1" 200 235745
 INFO 2021-08-04 21:37:15,819 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33613723
 INFO 2021-08-04 21:38:12,788 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
 INFO 2021-08-04 21:38:13,004 basehttp 157 "GET /export_pdf HTTP/1.1" 200 265968
+INFO 2021-08-04 21:46:32,037 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 21:46:41,389 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 21:47:07,654 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+INFO 2021-08-04 21:48:13,176 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21827913
+INFO 2021-08-04 21:49:43,402 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33010255
+INFO 2021-08-04 22:28:43,503 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 22:28:49,951 basehttp 157 "GET / HTTP/1.1" 200 38158
+WARNING 2021-08-04 22:28:52,994 log 230 Not Found: /favicon.ico
+WARNING 2021-08-04 22:28:52,995 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-04 22:29:36,004 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+ERROR 2021-08-04 22:29:58,733 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 660, in query
+    pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 81, in gap_filling
+    df_date_new = df_date.reindex(pdates, fill_value=np.nan)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/util/_decorators.py", line 309, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 4032, in reindex
+    return super().reindex(**kwargs)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/generic.py", line 4462, in reindex
+    axes, level, limit, tolerance, method, fill_value, copy
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 3879, in _reindex_axes
+    index, method, copy, level, fill_value, limit, tolerance
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 3901, in _reindex_index
+    allow_dups=False,
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/generic.py", line 4530, in _reindex_with_indexers
+    copy=copy,
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1276, in reindex_indexer
+    self.axes[axis]._can_reindex(indexer)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3289, in _can_reindex
+    raise ValueError("cannot reindex from a duplicate axis")
+ValueError: cannot reindex from a duplicate axis
+ERROR 2021-08-04 22:29:58,740 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 500 146648
+INFO 2021-08-04 22:30:47,247 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-08-04 22:30:48,655 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 22:30:50,245 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 22:30:57,424 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 22:31:01,061 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 22:31:20,277 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-08-04 22:31:22,272 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 22:31:27,060 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 22:32:08,542 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+ERROR 2021-08-04 22:32:27,439 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 660, in query
+    pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 83, in gap_filling
+    df_date_new = df_date.reindex(pdates, fill_value=np.nan)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/util/_decorators.py", line 309, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 4032, in reindex
+    return super().reindex(**kwargs)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/generic.py", line 4462, in reindex
+    axes, level, limit, tolerance, method, fill_value, copy
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 3879, in _reindex_axes
+    index, method, copy, level, fill_value, limit, tolerance
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 3901, in _reindex_index
+    allow_dups=False,
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/generic.py", line 4530, in _reindex_with_indexers
+    copy=copy,
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1276, in reindex_indexer
+    self.axes[axis]._can_reindex(indexer)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3289, in _can_reindex
+    raise ValueError("cannot reindex from a duplicate axis")
+ValueError: cannot reindex from a duplicate axis
+ERROR 2021-08-04 22:32:27,449 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 500 146648
+INFO 2021-08-04 22:34:59,073 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-08-04 22:35:00,583 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 22:35:10,262 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 22:36:10,282 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+INFO 2021-08-04 22:37:30,555 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33000983
+INFO 2021-08-04 22:38:12,890 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 22:39:36,770 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21828033
+INFO 2021-08-04 22:41:33,700 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33009752
+INFO 2021-08-04 22:44:01,094 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 22:44:28,612 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+INFO 2021-08-04 22:45:59,477 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33001015
+INFO 2021-08-04 22:46:56,405 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 22:47:28,441 basehttp 157 "POST /upload/ HTTP/1.1" 200 16477918
+INFO 2021-08-04 22:49:06,193 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33585009

@@ -68,6 +68,7 @@ def gap_filling(df, filling_select):
 
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
     df = df.sort_values('timestamp')
+    df = df.drop_duplicates('timestamp', keep='first').reset_index(drop=True)
 
     start = pd.to_datetime(str(df['timestamp'].min()))
     end = pd.to_datetime(str(df['timestamp'].max()))

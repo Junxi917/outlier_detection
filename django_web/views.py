@@ -812,7 +812,7 @@ def export(request):
     output_path = export_name[form_dict['export_select'][0]] + "." + form_dict['format_select'][0]
 
     if form_dict['format_select'][0] != "html":
-        make_snapshot(snapshot, "echart.html", output_path)
+        make_snapshot(snapshot, export_name[form_dict['export_select'][0]]+".html", output_path)
 
     # form_dict = dict(six.iterlists(request.POST))
     # print(form_dict)

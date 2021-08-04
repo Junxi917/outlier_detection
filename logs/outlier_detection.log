@@ -3902,3 +3902,33 @@ INFO 2021-08-04 21:11:03,366 basehttp 157 "GET /query?ALGO_select=Default HTTP/1
 INFO 2021-08-04 21:11:34,552 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
 INFO 2021-08-04 21:11:34,622 basehttp 157 "GET /export_pdf HTTP/1.1" 200 281339
 INFO 2021-08-04 21:13:09,126 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33613723
+INFO 2021-08-04 21:17:48,158 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 21:18:01,285 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 21:18:32,375 basehttp 157 "POST /upload/ HTTP/1.1" 200 16477918
+INFO 2021-08-04 21:24:16,508 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21668866
+ERROR 2021-08-04 21:24:47,423 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 815, in export
+    make_snapshot(snapshot, "echart.html", output_path)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pyecharts/render/snapshot.py", line 45, in make_snapshot
+    raise OSError(content_array)
+OSError: ["ReferenceError: Can't find variable: echarts\n\n  undefined:1\nnull\n"]
+ERROR 2021-08-04 21:24:47,426 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 500 78400
+INFO 2021-08-04 21:27:10,994 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py changed, reloading.
+INFO 2021-08-04 21:27:12,496 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 21:27:16,102 basehttp 157 "GET / HTTP/1.1" 200 38158
+INFO 2021-08-04 21:27:55,758 basehttp 157 "POST /upload/ HTTP/1.1" 200 16477918
+INFO 2021-08-04 21:28:33,095 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 200 20
+INFO 2021-08-04 21:28:33,110 basehttp 157 "GET /export_pdf HTTP/1.1" 200 235103
+INFO 2021-08-04 21:35:09,918 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21668866
+INFO 2021-08-04 21:35:37,058 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-08-04 21:35:37,083 basehttp 157 "GET /export_pdf HTTP/1.1" 200 240001
+INFO 2021-08-04 21:36:14,468 basehttp 157 "GET /export?format_select=pdf&export_select=export1 HTTP/1.1" 200 20
+INFO 2021-08-04 21:36:14,487 basehttp 157 "GET /export_pdf HTTP/1.1" 200 235745
+INFO 2021-08-04 21:37:15,819 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33613723
+INFO 2021-08-04 21:38:12,788 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-04 21:38:13,004 basehttp 157 "GET /export_pdf HTTP/1.1" 200 265968

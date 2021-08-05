@@ -66,7 +66,7 @@ def gap_filling(df, filling_select):
     col.remove('timestamp')
     sensor = col[0]
 
-    df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('1min')
+    df['timestamp'] = pd.to_datetime(df['timestamp']).dt.round('5min')
     df = df.sort_values('timestamp')
     df = df.drop_duplicates('timestamp', keep='first').reset_index(drop=True)
 

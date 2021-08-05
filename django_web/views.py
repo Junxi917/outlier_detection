@@ -51,6 +51,8 @@ export3 = pd.DataFrame()
 export4 = pd.DataFrame()
 export5 = pd.DataFrame()
 export6 = pd.DataFrame()
+export7 = pd.DataFrame()
+export8 = pd.DataFrame()
 
 sensor_input = pd.DataFrame()
 algorithm = pd.DataFrame()
@@ -389,6 +391,9 @@ def query(request):
     global export5
     global export6
 
+    global export7
+    global export8
+
     global algorithm
     global filling
     pd_data = csv
@@ -461,13 +466,15 @@ def query(request):
 
                 )
                     .set_global_opts(
-
-                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    xaxis_opts=opts.AxisOpts(
+                        name='Timestamp',
+                        name_location='middle',
+                        name_gap=25,
+                    ),
                     yaxis_opts=opts.AxisOpts(
+                        name=sensor if sensor not in sensor_unit else sensor + sensor_unit_type[sensor],
                         splitline_opts=opts.SplitLineOpts(is_show=True),
-
-                    )
-                )
+                    ))
 
             )
             line1.overlap(scatter)
@@ -548,13 +555,15 @@ def query(request):
 
                 )
                     .set_global_opts(
-
-                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    xaxis_opts=opts.AxisOpts(
+                        name='Timestamp',
+                        name_location='middle',
+                        name_gap=25,
+                    ),
                     yaxis_opts=opts.AxisOpts(
+                        name=sensor if sensor not in sensor_unit else sensor + sensor_unit_type[sensor],
                         splitline_opts=opts.SplitLineOpts(is_show=True),
-
-                    )
-                )
+                    ))
 
             )
             scatter_2 = (
@@ -567,13 +576,15 @@ def query(request):
 
                 )
                     .set_global_opts(
-
-                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    xaxis_opts=opts.AxisOpts(
+                        name='Timestamp',
+                        name_location='middle',
+                        name_gap=25,
+                    ),
                     yaxis_opts=opts.AxisOpts(
+                        name=sensor if sensor not in sensor_unit else sensor + sensor_unit_type[sensor],
                         splitline_opts=opts.SplitLineOpts(is_show=True),
-
-                    )
-                )
+                    ))
 
             )
             line1.overlap(scatter_1)
@@ -612,6 +623,12 @@ def query(request):
         export1 = line
         export2 = line1
         export3 = line2
+        export7 = scatter if len(col) == 1 else scatter_1.extend_axis(
+            yaxis=opts.AxisOpts(
+                name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
+                splitline_opts=opts.SplitLineOpts(is_show=True),
+            )
+        ).overlap(scatter_2)
 
         # export = pd_data[['original', 'timestamp']]
         # export1 = pd_data
@@ -677,11 +694,15 @@ def query(request):
 
             )
                 .set_global_opts(
-                tooltip_opts=opts.TooltipOpts(is_show=False),
-                yaxis_opts=opts.AxisOpts(
-                    splitline_opts=opts.SplitLineOpts(is_show=True),
-                )
-            )
+                    xaxis_opts=opts.AxisOpts(
+                        name='Timestamp',
+                        name_location='middle',
+                        name_gap=25,
+                    ),
+                    yaxis_opts=opts.AxisOpts(
+                        name=sensor if sensor not in sensor_unit else sensor + sensor_unit_type[sensor],
+                        splitline_opts=opts.SplitLineOpts(is_show=True),
+                    ))
 
         )
         line1.overlap(scatter)
@@ -706,11 +727,15 @@ def query(request):
 
                 )
                     .set_global_opts(
-                    tooltip_opts=opts.TooltipOpts(is_show=False),
+                    xaxis_opts=opts.AxisOpts(
+                        name='Timestamp',
+                        name_location='middle',
+                        name_gap=25,
+                    ),
                     yaxis_opts=opts.AxisOpts(
+                        name=sensor if sensor not in sensor_unit else sensor + sensor_unit_type[sensor],
                         splitline_opts=opts.SplitLineOpts(is_show=True),
-                    )
-                )
+                    ))
 
             )
             line1_1.overlap(scatter1)
@@ -750,6 +775,12 @@ def query(request):
         export4 = line
         export5 = line1
         export6 = line2
+        export8 = scatter if len(col) == 1 else scatter.extend_axis(
+            yaxis=opts.AxisOpts(
+                name=col[1] if col[1] not in sensor_unit else col[1] + sensor_unit_type[col[1]],
+                splitline_opts=opts.SplitLineOpts(is_show=True),
+            )
+        ).overlap(scatter1)
 
         print("Data rendering finish")
 
@@ -790,16 +821,20 @@ def export(request):
         "export4": export4,
         "export5": export5,
         "export6": export6,
+        "export7": export7,
+        "export8": export8,
     }
 
     export_name = {
-        "export": 'original'+" "+sensor_input,
-        "export1": 'original'+" "+sensor_input+" "+algorithm,
-        "export2": algorithm+" "+sensor_input+" "+"outlier",
-        "export3": algorithm+" "+sensor_input+" "+"clean",
-        "export4": 'original'+" "+sensor_input+" "+filling,
-        "export5": filling+" "+sensor_input+" "+"filling",
-        "export6": filling+" "+sensor_input+" "+"result",
+        "export": 'original' + " " + sensor_input,
+        "export1": 'original' + " " + sensor_input + " " + algorithm,
+        "export2": algorithm + " " + sensor_input,
+        "export3": algorithm + " " + sensor_input + " " + "clean",
+        "export4": 'original' + " " + sensor_input + " " + filling,
+        "export5": filling + " " + sensor_input + " " + "filling",
+        "export6": filling + " " + sensor_input + " " + "result",
+        "export7": algorithm + " " + sensor_input + " " + "outlier",
+        "export8": filling + " " + sensor_input,
     }
 
     export_select = export_collection[form_dict['export_select'][0]]
@@ -807,12 +842,12 @@ def export(request):
     export_select.set_global_opts(
         tooltip_opts=opts.TooltipOpts(is_show=False),
     )
-    export_select.render(export_name[form_dict['export_select'][0]]+".html")
+    export_select.render(export_name[form_dict['export_select'][0]] + ".html")
 
     output_path = export_name[form_dict['export_select'][0]] + "." + form_dict['format_select'][0]
 
     if form_dict['format_select'][0] != "html":
-        make_snapshot(snapshot, export_name[form_dict['export_select'][0]]+".html", output_path)
+        make_snapshot(snapshot, export_name[form_dict['export_select'][0]] + ".html", output_path)
 
     # form_dict = dict(six.iterlists(request.POST))
     # print(form_dict)

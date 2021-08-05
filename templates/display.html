@@ -132,6 +132,13 @@
                         <option value="html">html</option>
                     </select>
                     <button id="export_data2" class="ui blue button">Download</button>
+
+                    <select class="ui dropdown" name="format_select7" id="format_select7">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
+                    <button id="export_data7" class="ui blue button">Outlier</button>
                     <div id="bar_total_trend1" style="width:1000px; height:600px;">
                     </div>
                     <br>
@@ -173,6 +180,13 @@
                         <option value="html">html</option>
                     </select>
                     <button id="export_data5" class="ui blue button">Download</button>
+
+                    <select class="ui dropdown" name="format_select8" id="format_select8">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="png">png</option>
+                        <option value="html">html</option>
+                    </select>
+                    <button id="export_data8" class="ui blue button">Filling Data</button>
                     <div id="gap_filling_bar_total_trend1" style="width:1000px; height:600px;">
                     </div>
                     <br>
@@ -347,6 +361,48 @@
             var form_data = {
                 "format_select": $("#format_select6").val(),
                 "export_select": "export6",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
+    </script>
+
+    <script type="text/javascript">
+        $("#export_data7").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select7").val(),
+                "export_select": "export7",
+            };
+            $.ajax({
+                url: '{% url 'export' %}',
+                type: 'GET',
+                data: form_data,
+                success: function (ret) {
+                    window.location.href = '{% url 'export_pdf'  %}';
+                },
+                error: function (response) {
+                    console.log('fail')
+                }
+            })
+        })
+    </script>
+
+    <script type="text/javascript">
+        $("#export_data8").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+                "format_select": $("#format_select8").val(),
+                "export_select": "export8",
             };
             $.ajax({
                 url: '{% url 'export' %}',

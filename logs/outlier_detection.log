@@ -4021,3 +4021,142 @@ INFO 2021-08-04 22:45:59,477 basehttp 157 "GET /query?Gap_filling=Interpolate HT
 INFO 2021-08-04 22:46:56,405 basehttp 157 "GET / HTTP/1.1" 200 38158
 INFO 2021-08-04 22:47:28,441 basehttp 157 "POST /upload/ HTTP/1.1" 200 16477918
 INFO 2021-08-04 22:49:06,193 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33585009
+INFO 2021-08-04 23:04:08,390 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-04 23:04:17,428 basehttp 157 "GET / HTTP/1.1" 200 38158
+WARNING 2021-08-04 23:04:22,900 log 230 Not Found: /favicon.ico
+WARNING 2021-08-04 23:04:22,901 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-04 23:06:33,257 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305047
+INFO 2021-08-04 23:06:38,736 basehttp 157 "GET /export?format_select=html&export_select=export HTTP/1.1" 200 20
+INFO 2021-08-04 23:06:38,759 basehttp 157 "GET /export_pdf HTTP/1.1" 200 724657
+INFO 2021-08-04 23:06:54,370 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 200 20
+INFO 2021-08-04 23:06:54,387 basehttp 157 "GET /export_pdf HTTP/1.1" 200 180670
+INFO 2021-08-05 16:46:21,835 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-05 16:47:09,508 basehttp 157 "GET / HTTP/1.1" 200 40247
+INFO 2021-08-05 16:47:09,520 basehttp 157 "GET / HTTP/1.1" 200 40247
+WARNING 2021-08-05 16:47:15,926 log 230 Not Found: /favicon.ico
+WARNING 2021-08-05 16:47:15,928 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+WARNING 2021-08-05 16:47:15,938 log 230 Not Found: /favicon.ico
+WARNING 2021-08-05 16:47:15,941 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-05 16:47:42,283 basehttp 157 "POST /upload/ HTTP/1.1" 200 16477918
+INFO 2021-08-05 16:48:06,042 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 200 20
+INFO 2021-08-05 16:48:06,057 basehttp 157 "GET /export_pdf HTTP/1.1" 200 235103
+INFO 2021-08-05 16:52:43,601 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21668866
+INFO 2021-08-05 16:53:18,146 basehttp 157 "GET /export?format_select=pdf&export_select=export7 HTTP/1.1" 200 20
+INFO 2021-08-05 16:53:18,164 basehttp 157 "GET /export_pdf HTTP/1.1" 200 123050
+INFO 2021-08-05 16:53:39,548 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-08-05 16:53:39,561 basehttp 157 "GET /export_pdf HTTP/1.1" 200 239985
+INFO 2021-08-05 16:54:11,324 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33544744
+INFO 2021-08-05 16:56:31,599 basehttp 157 "GET /export?format_select=pdf&export_select=export8 HTTP/1.1" 200 20
+INFO 2021-08-05 16:56:32,391 basehttp 157 "GET /export_pdf HTTP/1.1" 200 188618
+INFO 2021-08-05 16:57:09,076 basehttp 157 "GET / HTTP/1.1" 200 40247
+INFO 2021-08-05 16:58:04,551 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21679522
+INFO 2021-08-05 16:58:46,103 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-08-05 16:58:46,242 basehttp 157 "GET /export_pdf HTTP/1.1" 200 243190
+INFO 2021-08-05 16:59:19,255 basehttp 157 "GET /export?format_select=pdf&export_select=export7 HTTP/1.1" 200 20
+INFO 2021-08-05 16:59:19,273 basehttp 157 "GET /export_pdf HTTP/1.1" 200 111226
+INFO 2021-08-05 17:00:25,877 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33534482
+INFO 2021-08-05 17:01:33,617 basehttp 157 "GET /export?format_select=pdf&export_select=export8 HTTP/1.1" 200 20
+INFO 2021-08-05 17:01:33,735 basehttp 157 "GET /export_pdf HTTP/1.1" 200 182818
+INFO 2021-08-05 17:02:02,455 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-05 17:02:02,520 basehttp 157 "GET /export_pdf HTTP/1.1" 200 274286
+INFO 2021-08-05 21:42:06,140 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-05 21:42:22,369 basehttp 157 "GET / HTTP/1.1" 200 40247
+WARNING 2021-08-05 21:42:26,498 log 230 Not Found: /favicon.ico
+WARNING 2021-08-05 21:42:26,502 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-05 21:43:27,734 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+INFO 2021-08-05 21:44:22,001 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21827913
+ERROR 2021-08-05 21:44:50,248 log 230 Internal Server Error: /query
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 677, in query
+    pd_data = gap_filling(csv, form_dict['Gap_filling'][0])
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py", line 82, in gap_filling
+    df_date_new = df_date.reindex(pdates, fill_value=np.nan)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/util/_decorators.py", line 309, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 4032, in reindex
+    return super().reindex(**kwargs)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/generic.py", line 4462, in reindex
+    axes, level, limit, tolerance, method, fill_value, copy
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 3879, in _reindex_axes
+    index, method, copy, level, fill_value, limit, tolerance
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/frame.py", line 3901, in _reindex_index
+    allow_dups=False,
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/generic.py", line 4530, in _reindex_with_indexers
+    copy=copy,
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1276, in reindex_indexer
+    self.axes[axis]._can_reindex(indexer)
+  File "/home/kejunxi/Downloads/ENTER/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3289, in _can_reindex
+    raise ValueError("cannot reindex from a duplicate axis")
+ValueError: cannot reindex from a duplicate axis
+ERROR 2021-08-05 21:44:50,265 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 500 146648
+INFO 2021-08-05 21:46:13,899 autoreload 240 /home/kejunxi/PycharmProjects/outlier_detection/django_web/detection.py changed, reloading.
+INFO 2021-08-05 21:46:15,330 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-05 21:46:23,850 basehttp 157 "GET / HTTP/1.1" 200 40247
+INFO 2021-08-05 21:46:50,922 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+INFO 2021-08-05 21:47:31,754 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21828121
+INFO 2021-08-05 21:48:19,650 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 32946773
+INFO 2021-08-05 21:49:16,847 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-05 21:49:16,877 basehttp 157 "GET /export_pdf HTTP/1.1" 200 352233
+INFO 2021-08-06 08:39:52,536 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-06 08:40:02,287 basehttp 157 "GET / HTTP/1.1" 200 40247
+WARNING 2021-08-06 08:40:03,985 log 230 Not Found: /favicon.ico
+WARNING 2021-08-06 08:40:03,986 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-09 22:20:57,470 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-09 22:22:25,904 basehttp 157 "GET / HTTP/1.1" 200 40247
+INFO 2021-08-09 22:22:26,047 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.min.css HTTP/1.1" 200 379837
+INFO 2021-08-09 22:22:26,101 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.js HTTP/1.1" 200 526094
+WARNING 2021-08-09 22:22:28,114 log 230 Not Found: /favicon.ico
+WARNING 2021-08-09 22:22:28,117 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-09 22:22:53,229 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+INFO 2021-08-09 22:24:32,878 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21817148
+INFO 2021-08-09 22:25:23,942 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-08-09 22:25:23,958 basehttp 157 "GET /export_pdf HTTP/1.1" 200 325541
+INFO 2021-08-09 22:30:06,897 basehttp 157 "GET / HTTP/1.1" 200 40247
+INFO 2021-08-09 22:31:14,792 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21827897
+INFO 2021-08-09 22:32:16,238 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-08-09 22:32:16,383 basehttp 157 "GET /export_pdf HTTP/1.1" 200 319106
+INFO 2021-08-09 22:32:45,320 basehttp 157 "GET / HTTP/1.1" 200 40247
+INFO 2021-08-09 22:33:12,475 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 21829801
+INFO 2021-08-09 22:35:26,582 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-08-09 22:35:26,602 basehttp 157 "GET /export_pdf HTTP/1.1" 200 319860
+INFO 2021-08-09 22:36:38,973 basehttp 157 "GET / HTTP/1.1" 200 40247
+INFO 2021-08-09 22:37:27,064 basehttp 157 "GET /query?ALGO_select=Cblof HTTP/1.1" 200 21827841
+INFO 2021-08-09 22:39:04,799 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-08-09 22:39:04,869 basehttp 157 "GET /export_pdf HTTP/1.1" 200 318598
+INFO 2021-08-10 07:13:29,928 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-10 07:15:51,813 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-10 07:15:58,895 basehttp 157 "GET / HTTP/1.1" 200 40369
+WARNING 2021-08-10 07:16:02,026 log 230 Not Found: /favicon.ico
+WARNING 2021-08-10 07:16:02,027 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-10 07:16:24,356 basehttp 157 "POST /upload/ HTTP/1.1" 200 1305047
+INFO 2021-08-10 07:16:31,157 basehttp 157 "GET /query?Gap_filling=Max HTTP/1.1" 200 4242230
+INFO 2021-08-10 07:16:54,673 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 07:17:00,924 basehttp 157 "GET /query?Gap_filling=Min HTTP/1.1" 200 3880569
+INFO 2021-08-10 07:17:27,191 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 07:17:35,054 basehttp 157 "GET /query?Gap_filling=Mean HTTP/1.1" 200 4330440
+INFO 2021-08-10 07:17:49,444 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 07:17:55,938 basehttp 157 "GET /query?Gap_filling=Median HTTP/1.1" 200 3880569
+INFO 2021-08-10 07:18:11,517 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 07:18:17,305 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 4012366
+INFO 2021-08-10 07:18:45,692 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 07:19:09,493 basehttp 157 "POST /upload/ HTTP/1.1" 200 16560986
+INFO 2021-08-10 07:20:02,073 basehttp 157 "GET /query?Gap_filling=Max HTTP/1.1" 200 33417432
+INFO 2021-08-10 07:21:58,124 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 07:22:35,557 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 32937517
+INFO 2021-08-10 07:25:01,928 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-10 07:25:01,946 basehttp 157 "GET /export_pdf HTTP/1.1" 200 334129
+INFO 2021-08-10 07:25:16,274 basehttp 157 "GET /export?format_select=pdf&export_select=export8 HTTP/1.1" 200 20
+INFO 2021-08-10 07:25:16,288 basehttp 157 "GET /export_pdf HTTP/1.1" 200 210163
+INFO 2021-08-10 07:26:30,718 basehttp 157 "GET /export?format_select=pdf&export_select=export8 HTTP/1.1" 200 20
+INFO 2021-08-10 07:26:30,731 basehttp 157 "GET /export_pdf HTTP/1.1" 200 210163
+INFO 2021-08-10 07:39:02,134 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 07:43:36,813 basehttp 157 "GET /query?ALGO_select=Default HTTP/1.1" 200 21817148
+INFO 2021-08-10 07:45:17,128 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 32780464
+INFO 2021-08-10 07:46:30,154 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-10 07:46:30,226 basehttp 157 "GET /export_pdf HTTP/1.1" 200 334196
+INFO 2021-08-10 07:47:40,590 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-10 07:47:40,606 basehttp 157 "GET /export_pdf HTTP/1.1" 200 334196

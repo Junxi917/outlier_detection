@@ -103,6 +103,10 @@ def gap_filling(df, filling_select):
         df.fillna(df[sensor].mean(), inplace=True)
     if filling_select == "Median":
         df.fillna(df[sensor].median(), inplace=True)
+    if filling_select == "Max":
+        df.fillna(df[sensor].max(), inplace=True)
+    if filling_select == "Min":
+        df.fillna(df[sensor].min(), inplace=True)
 
     # df = df.interpolate(method='linear', limit_direction='forward')  # make a gap filling with interpolate
     print("gap filling finish")

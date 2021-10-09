@@ -4160,3 +4160,113 @@ INFO 2021-08-10 07:46:30,154 basehttp 157 "GET /export?format_select=pdf&export_
 INFO 2021-08-10 07:46:30,226 basehttp 157 "GET /export_pdf HTTP/1.1" 200 334196
 INFO 2021-08-10 07:47:40,590 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
 INFO 2021-08-10 07:47:40,606 basehttp 157 "GET /export_pdf HTTP/1.1" 200 334196
+INFO 2021-08-10 09:44:49,139 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-10 09:44:56,025 basehttp 157 "GET / HTTP/1.1" 200 40369
+WARNING 2021-08-10 09:44:58,772 log 230 Not Found: /favicon.ico
+WARNING 2021-08-10 09:44:58,778 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-08-10 09:45:03,877 basehttp 157 "POST /upload/ HTTP/1.1" 200 54822
+INFO 2021-08-10 09:45:16,229 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 76920
+INFO 2021-08-10 09:45:29,693 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 09:45:33,324 basehttp 157 "GET /query?Gap_filling=Mean HTTP/1.1" 200 76722
+INFO 2021-08-10 09:45:59,599 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 09:46:02,987 basehttp 157 "GET /query?Gap_filling=Median HTTP/1.1" 200 76644
+INFO 2021-08-10 09:46:18,968 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 09:46:20,309 basehttp 157 "GET /query?Gap_filling=Min HTTP/1.1" 200 76644
+INFO 2021-08-10 09:46:44,525 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-10 09:46:44,541 basehttp 157 "GET /export_pdf HTTP/1.1" 200 212370
+INFO 2021-08-10 09:48:35,118 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 09:48:39,546 basehttp 157 "GET /query?Gap_filling=Max HTTP/1.1" 200 76800
+INFO 2021-08-10 09:48:55,312 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-10 09:48:55,332 basehttp 157 "GET /export_pdf HTTP/1.1" 200 213153
+INFO 2021-08-10 09:50:21,359 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 09:50:27,322 basehttp 157 "GET /query?Gap_filling=Mean HTTP/1.1" 200 76722
+INFO 2021-08-10 09:50:41,010 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-10 09:50:41,056 basehttp 157 "GET /export_pdf HTTP/1.1" 200 210737
+INFO 2021-08-10 09:52:52,306 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-08-10 09:52:56,738 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 76920
+INFO 2021-08-10 09:53:43,150 basehttp 157 "GET /export?format_select=pdf&export_select=export5 HTTP/1.1" 200 20
+INFO 2021-08-10 09:53:43,165 basehttp 157 "GET /export_pdf HTTP/1.1" 200 213503
+INFO 2021-08-10 21:28:09,559 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-08-10 21:28:17,764 basehttp 157 "GET / HTTP/1.1" 200 40369
+WARNING 2021-08-10 21:28:19,575 log 230 Not Found: /favicon.ico
+WARNING 2021-08-10 21:28:19,576 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-09-04 22:39:44,463 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-09-04 22:40:00,649 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-09-04 22:40:00,685 basehttp 157 "GET /static/DataTables-1.10.23/css/dataTables.semanticui.min.css HTTP/1.1" 304 0
+INFO 2021-09-04 22:40:00,696 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.min.css HTTP/1.1" 200 379837
+INFO 2021-09-04 22:40:00,737 basehttp 157 "GET /static/DataTables-1.10.23/js/jquery.dataTables.min.js HTTP/1.1" 200 86533
+INFO 2021-09-04 22:40:00,755 basehttp 157 "GET /static/DataTables-1.10.23/js/dataTables.semanticui.min.js HTTP/1.1" 304 0
+INFO 2021-09-04 22:40:00,766 basehttp 157 "GET /static/DataTables-1.10.23/js/percentageBars.js HTTP/1.1" 304 0
+INFO 2021-09-04 22:40:00,767 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.js HTTP/1.1" 200 526094
+WARNING 2021-09-04 22:40:03,142 log 230 Not Found: /favicon.ico
+WARNING 2021-09-04 22:40:03,142 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-09-04 22:40:49,673 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-09-04 22:41:23,300 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402793
+INFO 2021-09-04 22:42:43,312 basehttp 157 "GET /query?ALGO_select=Forest HTTP/1.1" 200 21559942
+ERROR 2021-09-04 22:43:09,895 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 850, in export
+    make_snapshot(snapshot, export_name[form_dict['export_select'][0]] + ".html", output_path)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pyecharts/render/snapshot.py", line 45, in make_snapshot
+    raise OSError(content_array)
+OSError: ["ReferenceError: Can't find variable: echarts\n\n  undefined:1\nnull\n"]
+ERROR 2021-09-04 22:43:09,896 basehttp 157 "GET /export?format_select=pdf&export_select=export1 HTTP/1.1" 500 76629
+INFO 2021-09-04 22:44:35,440 basehttp 157 "GET /export?format_select=html&export_select=export1 HTTP/1.1" 200 20
+INFO 2021-09-04 22:44:35,566 basehttp 157 "GET /export_pdf HTTP/1.1" 200 9063669
+ERROR 2021-09-04 22:50:45,846 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 850, in export
+    make_snapshot(snapshot, export_name[form_dict['export_select'][0]] + ".html", output_path)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pyecharts/render/snapshot.py", line 45, in make_snapshot
+    raise OSError(content_array)
+OSError: ["ReferenceError: Can't find variable: echarts\n\n  undefined:1\nnull\n"]
+ERROR 2021-09-04 22:50:45,847 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 500 76611
+INFO 2021-09-04 22:51:01,057 basehttp 157 "GET /export?format_select=html&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-09-04 22:51:01,575 basehttp 157 "GET /export_pdf HTTP/1.1" 200 15554285
+INFO 2021-09-04 22:52:18,877 basehttp 157 "GET /export?format_select=html&export_select=export3 HTTP/1.1" 200 20
+INFO 2021-09-04 22:52:19,040 basehttp 157 "GET /export_pdf HTTP/1.1" 200 9061728
+INFO 2021-09-29 20:58:57,740 autoreload 617 Watching for file changes with StatReloader
+INFO 2021-09-29 20:59:15,319 basehttp 157 "GET / HTTP/1.1" 200 40369
+INFO 2021-09-29 20:59:15,398 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.min.css HTTP/1.1" 200 379837
+INFO 2021-09-29 20:59:15,465 basehttp 157 "GET /static/DataTables-1.10.23/js/jquery.dataTables.min.js HTTP/1.1" 200 86533
+INFO 2021-09-29 20:59:15,472 basehttp 157 "GET /static/Semantic-UI-CSS-master/semantic.js HTTP/1.1" 200 526094
+INFO 2021-09-29 20:59:15,528 basehttp 157 "GET /static/DataTables-1.10.23/js/percentageBars.js HTTP/1.1" 304 0
+WARNING 2021-09-29 20:59:18,245 log 230 Not Found: /favicon.ico
+WARNING 2021-09-29 20:59:18,246 basehttp 157 "GET /favicon.ico HTTP/1.1" 404 2714
+INFO 2021-09-29 21:00:10,953 basehttp 157 "POST /upload/ HTTP/1.1" 200 16402793
+ERROR 2021-09-29 21:00:27,992 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 850, in export
+    make_snapshot(snapshot, export_name[form_dict['export_select'][0]] + ".html", output_path)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pyecharts/render/snapshot.py", line 45, in make_snapshot
+    raise OSError(content_array)
+OSError: ["ReferenceError: Can't find variable: echarts\n\n  undefined:1\nnull\n"]
+ERROR 2021-09-29 21:00:27,993 basehttp 157 "GET /export?format_select=pdf&export_select=export HTTP/1.1" 500 76565
+INFO 2021-09-29 21:01:35,541 basehttp 157 "GET /query?ALGO_select=Hbos HTTP/1.1" 200 21560758
+ERROR 2021-09-29 21:02:01,899 log 230 Internal Server Error: /export
+Traceback (most recent call last):
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kejunxi/PycharmProjects/outlier_detection/django_web/views.py", line 850, in export
+    make_snapshot(snapshot, export_name[form_dict['export_select'][0]] + ".html", output_path)
+  File "/home/kejunxi/Downloads/ENTER/envs/django_detection/lib/python3.7/site-packages/pyecharts/render/snapshot.py", line 45, in make_snapshot
+    raise OSError(content_array)
+OSError: ["ReferenceError: Can't find variable: echarts\n\n  undefined:1\nnull\n"]
+ERROR 2021-09-29 21:02:01,900 basehttp 157 "GET /export?format_select=pdf&export_select=export2 HTTP/1.1" 500 76748
+INFO 2021-09-29 21:02:15,988 basehttp 157 "GET /export?format_select=html&export_select=export2 HTTP/1.1" 200 20
+INFO 2021-09-29 21:02:16,184 basehttp 157 "GET /export_pdf HTTP/1.1" 200 15553806
+INFO 2021-09-29 21:03:33,045 basehttp 157 "GET /query?Gap_filling=Interpolate HTTP/1.1" 200 33256303
